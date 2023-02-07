@@ -1,3 +1,7 @@
+@php
+    $segment = request()->segment(1);
+@endphp
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +16,7 @@
 
     {{-- CSS assets/css.blade.php --}}
     @include('assets.css')
-    
+
 </head>
 
 <body>
@@ -22,7 +26,8 @@
                 <div class="sidebar-header position-relative">
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="logo">
-                            {{-- <a href="index.html"><img src="assets/images/logo/logo.svg" alt="Logo" srcset=""></a> --}}
+                            {{-- <a href="index.html"><img src="assets/images/logo/logo.svg" alt="Logo" srcset=""></a>
+                            --}}
                             <a href={{ url("/") }}>LAS</a>
                         </div>
                         <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
@@ -59,15 +64,7 @@
                         </div>
                     </div>
                 </div>
-                {{-- @include('layout.menu') --}}
-                <div class="sidebar-menu">
-                    <ul class="menu">
-                        <li class="sidebar-title">Menu</li>
-                
-                        @yield('sidebar_active')
-                        
-                    </ul>
-                </div>                
+                @include('layout.menu')
             </div>
         </div>
         <div id="main" class='layout-navbar'>

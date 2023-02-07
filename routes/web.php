@@ -19,7 +19,7 @@ use App\Http\Controllers\Background\ApplicationController;
 
 Route::get('/', function () {
     // return view('welcome');
-    return view('layout.dashboard');
+    return view('layout.master');
 });
 
 Route::resources([

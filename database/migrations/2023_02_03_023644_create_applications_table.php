@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('applications', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_costumers');
+            $table->integer('id_costumer');
             $table->bigInteger('plafond');
             $table->string('credit_type');
             $table->string('application_type');
@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('purpose_description');
             $table->string('application_date');
             $table->string('analysis_date');
+            $table->string('status')->default('pending');
             $table->timestamps();
         });
     }

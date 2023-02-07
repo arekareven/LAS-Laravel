@@ -6,16 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LAS</title>
 
-    <link rel="stylesheet" href={{ "assets/css/main/app.css" }}>
+    {{-- image --}}
+    <link rel="shortcut icon" href="{{ asset('assets/images/logo/favicon.svg') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('assets/images/logo/favicon.png') }}" type="image/png">
 
-    <link rel="shortcut icon" href={{ "assets/images/logo/favicon.svg" }} type="image/x-icon">
-    <link rel="shortcut icon" href={{ "assets/images/logo/favicon.png" }} type="image/png">
-
-    {{-- Css datatable --}}
+    {{-- CSS assets/css.blade.php --}}
+    @include('assets.css')
     
-    <link rel="stylesheet" href="assets/css/pages/fontawesome.css">
-    <link rel="stylesheet" href="assets/extensions/datatables.net-bs5/css/dataTables.bootstrap5.min.css">
-    <link rel="stylesheet" href="assets/css/pages/datatables.css">
 </head>
 
 <body>
@@ -62,71 +59,15 @@
                         </div>
                     </div>
                 </div>
+                {{-- @include('layout.menu') --}}
                 <div class="sidebar-menu">
                     <ul class="menu">
                         <li class="sidebar-title">Menu</li>
-
-                        <li class="sidebar-item  ">
-                            <a href={{ url("/") }} class='sidebar-link'>
-                                <i class="bi bi-grid-fill"></i>
-                                <span>Dashboard</span>
-                            </a>
-                        </li>
-
-                        <li class="sidebar-item has-sub">
-                            <a href="#" class='sidebar-link'>
-                                <i class="bi bi-stack"></i>
-                                <span>Nasabah</span>
-                            </a>
-                            <ul class="submenu ">
-                                <li class="submenu-item ">
-                                    <a href={{ url("/data_diri") }}>Data Diri Nasabah</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href={{ url("/suami_istri") }}>Data Suami / Istri</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href={{ url("/kontak_darurat") }}>Data Kontak Darurat</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href="component-badge.html">Data Riwayat Pinjaman</a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="sidebar-item has-sub">
-                            <a href="#" class='sidebar-link'>
-                                <i class="bi bi-collection-fill"></i>
-                                <span>Extra Components</span>
-                            </a>
-                            <ul class="submenu ">
-                                <li class="submenu-item ">
-                                    <a href="extra-component-avatar.html">Avatar</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href="extra-component-sweetalert.html">Sweet Alert</a>
-                                </li>
-                        </li>
+                
+                        @yield('sidebar_active')
+                        
                     </ul>
-                    </li>
-
-                    <li class="sidebar-item has-sub">
-                        <a href="#" class='sidebar-link'>
-                            <i class="bi bi-grid-1x2-fill"></i>
-                            <span>Layouts</span>
-                        </a>
-                        <ul class="submenu">
-                            <li class="submenu-item ">
-                                <a href="layout-default.html">Default Layout</a>
-                            </li>
-                            <li class="submenu-item ">
-                                <a href="layout-vertical-1-column.html">1 Column</a>
-                            </li>
-                    </li>
-                    </ul>
-                    </li>
-                    </ul>
-                </div>
+                </div>                
             </div>
         </div>
         <div id="main" class='layout-navbar'>
@@ -218,13 +159,9 @@
 
         </div>
     </div>
-    <script src={{ "assets/js/bootstrap.js" }}></script>
-    <script src={{ "assets/js/app.js" }}></script>
 
-    {{-- js datatable --}}
-    <script src="assets/extensions/jquery/jquery.min.js"></script>
-    <script src="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.js"></script>
-    <script src="assets/js/pages/datatables.js"></script>
+    {{-- js assets/js.blade.php --}}
+    @include('assets.js')
 
 </body>
 

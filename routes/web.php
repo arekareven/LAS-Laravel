@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Background\CustomerController;
+use App\Http\Controllers\Background\MateController;
+use App\Http\Controllers\Background\RelativesController;
+use App\Http\Controllers\Background\ApplicationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,21 +19,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     // return view('welcome');
-    return view('layout.index');
+    return view('layout.dashboard');
 });
 
-Route::get('/dataDiri', function () {
-    return view('nasabah.data_diri');
-});
+Route::resources([
+    'customer' => CustomerController::class,
+    'mate' => MateController::class,
+    'relatives' => RelativesController::class,
+    'application'=> ApplicationController::class,
+]);
 
-Route::get('/suamiIstri', function () {
-    return view('nasabah.suami_istri');
-});
-
-Route::get('/kontakDarurat', function () {
-    return view('nasabah.kontak_darurat');
-});
-
-// Route::resource('nasabah', UserController::class);
 
 

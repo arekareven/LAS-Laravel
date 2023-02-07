@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Background;
 
 use App\Models\Customer;
 use Illuminate\Http\Request;
@@ -14,7 +14,10 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        //
+        $data = [
+            'data' => Customer::all()
+        ];
+        return view('menu.background.customer.view', $data);
     }
 
     /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Background;
 
 use App\Models\Mate;
 use Illuminate\Http\Request;
@@ -14,7 +14,7 @@ class MateController extends Controller
      */
     public function index()
     {
-        //
+        return view('menu.background.mate.view');
     }
 
     /**

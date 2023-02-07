@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('mates', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_costumers');
+            $table->integer('id_costumer');
             $table->string('name');
             $table->string('place_of_birth');
             $table->string('date_of_birth');

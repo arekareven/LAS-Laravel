@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Background;
 
 use App\Models\Relatives;
 use Illuminate\Http\Request;
@@ -14,7 +14,7 @@ class RelativesController extends Controller
      */
     public function index()
     {
-        //
+        return view('menu.background.relatives.view');
     }
 
     /**

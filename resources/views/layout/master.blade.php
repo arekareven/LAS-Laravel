@@ -156,10 +156,10 @@
 
         </div>
     </div>
+    
+</body>
 
     {{-- js assets/js.blade.php --}}
     @include('assets.js')
-
-</body>
 
 </html>

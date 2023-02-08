@@ -26,10 +26,9 @@
                             </thead>
                             <tbody>
                                 @foreach ($data as $item)
-                                   
                                 <tr>
                                     <td>{{ $item->name }}</td>
-                                    <td>{{ $item->place_of_birth. ' ,' .$item->date_of_birth }}</td>
+                                    <td>{{ $item->place_of_birth. ' , ' .date_format(new Datetime($item->date_of_birth), 'd-m-Y') }}</td>
                                     <td>{{ $item->phone_number }}</td>
                                     <td>
                                         <span class="badge bg-success">Active</span>

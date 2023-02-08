@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
-class CostumerFactory extends Factory
+class CustomerFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -26,8 +26,8 @@ class CostumerFactory extends Factory
             ]),
             "place_of_birth" => $this->faker->city(),
             "date_of_birth" => $this->faker->date(),
-            "id_card_number" => $this->faker->nik(),
-            "phone_number" => $this->faker->phoneNumber(),
+            "id_card_number" => $this->faker->numerify('3521###########'),
+            "phone_number" => $this->faker->numerify('081########'),
             "status_of_residence" => $this->faker->randomElement([
                 "Milik Sendiri",
                 "Milik Keluarga",

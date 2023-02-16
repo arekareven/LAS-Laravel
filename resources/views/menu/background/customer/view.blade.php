@@ -9,7 +9,7 @@
                 <div class="col-12 col-md-6 order-md-1 order-last">
                     <h5>Daftar Nasabah</h5>
                     {{-- <a href="{{ route('customer.create') }}" class="btn btn-primary mb-2 li-modal"><i>+</i> Tambah Data</a> --}}
-                    <a class="btn btn-success mb-2" href="javascript:void(0)" id="createNewCustomer"> Tambah</a>                   
+                    <a class="btn btn-success mb-3" href="javascript:void(0)" id="createNewCustomer"> Tambah</a>
                     {{-- <p class="text-subtitle text-muted">Navbar will appear on the top of the page.</p> --}}
                 </div>
             </div>
@@ -17,31 +17,19 @@
         <section class="section">
             <div class="card">
                 <div class="card-body">
-                        <table class="table table-bordered data-table">
-                            <thead>
-                                <tr>
-                                    <th>No</th>
-                                    <th>Name</th>
-                                    <th>Status</th>
-                                    {{-- <th>Tempat, Tanggal Lahir</th>
-                                    <th>No. Hp</th> --}}
-                                    <th>Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {{-- @foreach ($data as $item)
-                                <tr>
-                                    <td>{{ $item->name }}</td>
-                                    <td>{{ $item->place_of_birth. ' , ' .date_format(new Datetime($item->date_of_birth),
-                                        'd-m-Y') }}</td>
-                                    <td>{{ $item->phone_number }}</td>
-                                    <td>
-                                        <span class="badge bg-success">Active</span>
-                                    </td>
-                                </tr>
-                                @endforeach --}}
-                            </tbody>
-                        </table>
+                    <table class="table table-bordered data-table">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Name</th>
+                                <th>Alamat</th>
+                                <th>No. Hp</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>
@@ -59,19 +47,66 @@
                         <div class="form-group">
                             <label for="name" class="col-sm-2 control-label">Name</label>
                             <div class="col-sm-12">
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name"
-                                    value="" maxlength="50" required="">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name" value="" maxlength="50" required="">
                             </div>
                         </div>
-    
+
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Status</label>
                             <div class="col-sm-12">
-                                <textarea id="marital_status" name="marital_status" required="" placeholder="Enter Details"
-                                    class="form-control"></textarea>
+                                <input id="marital_status" name="marital_status" required="" placeholder="Enter Details" class="form-control">
                             </div>
                         </div>
-    
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Tempat Lahir</label>
+                            <div class="col-sm-12">
+                                <input id="place_of_birth" name="place_of_birth" required="" placeholder="Enter Details" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Tanggal Lahir</label>
+                            <div class="col-sm-12">
+                                <input type="date" id="date_of_birth" name="date_of_birth" required="" placeholder="Enter Details" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">NIK</label>
+                            <div class="col-sm-12">
+                                <input type="number" id="id_card_number" name="id_card_number" required="" placeholder="Enter Details" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">No Tlp</label>
+                            <div class="col-sm-12">
+                                <input type="number" id="phone_number" name="phone_number" required="" placeholder="Enter Details" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Status Tempat Tinggal</label>
+                            <div class="col-sm-12">
+                                <input type="text" id="status_of_residence" name="status_of_residence" required="" placeholder="Enter Details" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Profesi</label>
+                            <div class="col-sm-12">
+                                <input type="text" id="profession" name="profession" required="" placeholder="Enter Details" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Alamat Sesuai KTP</label>
+                            <div class="col-sm-12">
+                                <textarea id="id_card_address" name="id_card_address" required="" placeholder="Enter Details" class="form-control"></textarea>
+                            </div>
+                        </div>
+
                         <div class="col-sm-offset-2 col-sm-10">
                             <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Save changes
                             </button>
@@ -81,13 +116,6 @@
             </div>
         </div>
     </div>
-
-    {{-- <div id="theModal" class="modal fade text-center">
-        <div class="modal-dialog">
-            <div class="modal-content">
-            </div>
-        </div>
-    </div> --}}
 
     <footer>
         <div class="footer clearfix mb-0 text-muted">
@@ -102,3 +130,5 @@
     </footer>
 </div>
 @endsection
+
+@include('assets.js-customer')

@@ -29,5 +29,18 @@ Route::resources([
     'application'=> ApplicationController::class,
 ]);
 
+Route::get('wizard', function () {
+    return view('default');
+});
+
+Route::get('background', function () {
+    return view('background');
+});
+
+Route::get('test', function () {
+    return view('menu.background.customer.master');
+});
+
+
 
 

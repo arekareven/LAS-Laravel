@@ -17,6 +17,9 @@ $segment = request()->segment(1);
     {{-- CSS assets/css.blade.php --}}
     @include('assets.css')
 
+    {{-- livewire --}}
+    @livewireStyles
+
 </head>
 
 <body>
@@ -137,11 +140,12 @@ $segment = request()->segment(1);
                 </nav>
             </header>
 
-            @yield('content')
+            <livewire:test/>
 
         </div>
     </div>
 
+    @livewireScripts
 </body>
 
 {{-- js assets/js.blade.php --}}

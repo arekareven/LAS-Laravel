@@ -8,7 +8,8 @@ use Livewire\Component;
 class Test extends Component
 {
     public $currentStep = 1;
-    public $name, $marital_status, $place_of_birth, $id_card_number, $phone_number;
+    public $name, $place_of_birth, $date_of_birth, $gender, $marital_status, $id_card_number, $id_card_address;
+    public $phone_number, $profession, $status_of_residence,$residence_address, $amenability,$education;
     public $successMessage = '';
 
     public function render()
@@ -18,22 +19,30 @@ class Test extends Component
 
     public function firstStepSubmit()
     {
-        $validatedData = $this->validate([
-            // 'name' => 'required|unique:products',
-            'name' => 'required',
-            'marital_status' => 'required',
-            'place_of_birth' => 'required',
-        ]);
+        // $validatedData = $this->validate([
+        //     // 'name' => 'required|unique:products',
+        //     'name' => 'required',
+        //     'place_of_birth' => 'required',
+        //     'date_of_birth' => 'required',
+        //     'gender' => 'required',
+        //     'marital_status' => 'required',
+        //     'id_card_number' => 'required|numeric',
+        //     'id_card_address' => 'required'
+        // ]);
 
         $this->currentStep = 2;
     }
 
     public function secondStepSubmit()
     {
-        $validatedData = $this->validate([
-            'id_card_number' => 'required|numeric',
-            'phone_number' => 'required|numeric',
-        ]);
+        // $validatedData = $this->validate([
+        //     'phone_number' => 'required|numeric',
+        //     'profession' => 'required',
+        //     'status_of_residence' => 'required',
+        //     'residence_address' => 'required',
+        //     'amenability' => 'required|numeric',
+        //     'education' => 'required',
+        // ]);
 
         $this->currentStep = 3;
     }
@@ -42,13 +51,21 @@ class Test extends Component
     {
         Customer::create([
             'name' => $this->name,
+            'place_of_birth' => $this->place_of_birth,
+            'date_of_birth' => $this->date_of_birth,
+            'gender' => $this->gender,
             'marital_status' => $this->marital_status,
-            'place_of_birth' => $this->place_of_birth,
             'id_card_number' => $this->id_card_number,
-            'place_of_birth' => $this->place_of_birth,
+            'id_card_address' => $this->id_card_address,
+            'phone_number' => $this->phone_number,
+            'profession' => $this->profession,
+            'status_of_residence' => $this->status_of_residence,
+            'residence_address' => $this->residence_address,
+            'amenability' => $this->amenability,
+            'education' => $this->education,
         ]);
 
-        $this->successMessage = 'Product Created Successfully.';
+        $this->successMessage = 'Data Nasabah Berhasil ditambahkan';
 
         $this->clearForm();
 
@@ -63,9 +80,17 @@ class Test extends Component
     public function clearForm()
     {
         $this->name = '';
-        $this->marital_status = '';
         $this->place_of_birth = '';
+        $this->date_of_birth = '';
+        $this->gender = '';
+        $this->marital_status = '';
         $this->id_card_number = '';
-        $this->place_of_birth = 1;
+        $this->id_card_address = '';
+        $this->phone_number = '';
+        $this->profession = '';
+        $this->status_of_residence = '';
+        $this->residence_address = '';
+        $this->amenability = '';
+        $this->education = '';
     }
 }

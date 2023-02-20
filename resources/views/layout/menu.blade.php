@@ -9,14 +9,14 @@
             </a>
         </li>
 
-        <li class="sidebar-item {{ ($segment == ('customer' or 'mate')) ? 'active' : '' }}">
+        {{-- <li class="sidebar-item {{ ($segment == ('customer' or 'mate')) ? 'active' : '' }}">
             <a href={{ route('customer.index') }} class='sidebar-link'>
                 <i class="bi bi-stack"></i>
                 <span>Nasabah</span>
             </a>
-        </li>
+        </li> --}}
 
-        {{-- <li class="sidebar-item has-sub {{ ($segment == ('customer' or 'mate')) ? 'active' : '' }}">
+        <li class="sidebar-item has-sub {{ ($segment == ('customer' or 'mate')) ? 'active' : '' }}">
             <a href="#" class='sidebar-link'>
                 <i class="bi bi-stack"></i>
                 <span>Nasabah</span>
@@ -35,7 +35,7 @@
                     <a href={{ route('application.index') }}>Data Pengajuan</a>
                 </li>
             </ul>
-        </li> 
+        </li>
 
         <li class="sidebar-item has-sub">
             <a href="#" class='sidebar-link'>
@@ -65,7 +65,7 @@
                     <a href="layout-vertical-1-column.html">1 Column</a>
                 </li>
             </ul>
-        </li> --}}
+        </li>
 
     </ul>
 </div>

@@ -1,10 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Background\CustomerController;
-use App\Http\Controllers\Background\MateController;
-use App\Http\Controllers\Background\RelativesController;
-use App\Http\Controllers\Background\ApplicationController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\MateController;
+use App\Http\Controllers\RelativesController;
+use App\Http\Controllers\ApplicationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,17 +29,14 @@ Route::resources([
     'application'=> ApplicationController::class,
 ]);
 
-Route::get('wizard', function () {
-    return view('default');
-});
-
 Route::get('background', function () {
     return view('background');
 });
 
-Route::get('test', function () {
-    return view('menu.background.customer.master');
+Route::get('add_customer', function () {
+    return view('menu.background.customer.add');
 });
+
 
 
 

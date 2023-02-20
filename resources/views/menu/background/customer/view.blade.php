@@ -3,14 +3,20 @@
 {{-- content --}}
 @section('content')
 <div id="main-content">
+    @if (!empty ($successMessage))
+        <div class="alert alert-light-success alert-dismissible color-success"><i
+            class="bi bi-check-circle"></i>{{ $successMessage }}.
+            <button type="button" class="btn-close" data-bs-dismiss="alert"
+        aria-label="Close"></button>
+        </div>
+    @endif
     <div class="page-heading">
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
                     <h5>Daftar Nasabah</h5>
-                    {{-- <a href="{{ route('customer.create') }}" class="btn btn-primary mb-2 li-modal"><i>+</i> Tambah Data</a> --}}
-                    <a class="btn btn-success mb-3" href="javascript:void(0)" id="createNewCustomer"> Tambah</a>
-                    {{-- <p class="text-subtitle text-muted">Navbar will appear on the top of the page.</p> --}}
+                    <a href="{{ url("add_customer") }}" class="btn btn-primary mb-2">Tambah</a>
+                    {{-- <a class="btn btn-success mb-3" href="javascript:void(0)" id="createNewCustomer"> Tambah</a> --}}
                 </div>
             </div>
         </div>

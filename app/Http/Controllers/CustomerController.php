@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Background;
+namespace App\Http\Controllers;
 
 use App\Models\Customer;
 use Illuminate\Http\Request;
@@ -28,7 +28,8 @@ class CustomerController extends Controller
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
 
-                    $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Edit" class="edit btn btn-primary btn-sm editCustomer">Edit</a>';
+                    // $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Edit" class="edit btn btn-primary btn-sm editCustomer">Edit</a>';
+                    $btn = '<a href="'.route('customer.edit', $row->id).'" class="btn btn-warning btn-sm">Edit</a>';
 
                     $btn = $btn . ' <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Delete" class="btn btn-danger btn-sm deleteCustomer">Delete</a>';
 
@@ -103,7 +104,8 @@ class CustomerController extends Controller
     public function edit($id)
     {
         $customer = Customer::find($id);
-        return response()->json($customer);
+        return view('menu.background.customer.edit', compact('customer'));
+        // return response()->json($customer);
     }
 
     /**

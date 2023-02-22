@@ -15,7 +15,8 @@
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
                     <h5>Daftar Nasabah</h5>
-                    <a href="{{ url("add_customer") }}" class="btn btn-primary mb-2">Tambah</a>
+                    <a href="{{ url("add_customer") }}" class="btn btn-primary mb-2">Tambah (Livewire)</a>
+                    <a href="{{ route("customer.create") }}" class="btn btn-primary mb-2">Tambah</a>
                     {{-- <a class="btn btn-success mb-3" href="javascript:void(0)" id="createNewCustomer"> Tambah</a> --}}
                 </div>
             </div>

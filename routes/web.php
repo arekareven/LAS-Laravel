@@ -40,4 +40,3 @@ Route::get('add_customer', function () {
 
 
 
-

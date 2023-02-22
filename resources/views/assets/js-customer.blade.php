@@ -33,12 +33,12 @@
                     name: 'name'
                 },
                 {
-                    data: 'residence_address',
-                    name: 'residence_address'
-                },
-                {
                     data: 'phone_number',
                     name: 'phone_number'
+                },
+                {
+                    data: 'residence_address',
+                    name: 'residence_address'
                 },
                 {
                     data: 'action',
@@ -49,57 +49,11 @@
             ]
         });
 
-        // Click to Button
-        $('#createNewCustomer').click(function() {
-            $('#saveBtn').val("create-product");
-            $('#id').val('');
-            $('#customerForm').trigger("reset");
-            $('#modelHeading').html("Create New Customer");
-            $('#ajaxModel').modal('show');
-        });
-
-        // Click to Edit Button
-        $('body').on('click', '.editCustomer', function() {
-            var id = $(this).data('id');
-            $.get("{{ route('customer.index') }}" + '/' + id + '/edit', function(data) {
-                $('#modelHeading').html("Edit Product");
-                $('#saveBtn').val("edit-user");
-                $('#ajaxModel').modal('show');
-                $('#id').val(data.id);
-                $('#name').val(data.name);
-                $('#marital_status').val(data.marital_status);
-            })
-        });
-
-        // Create Product Code
-        $('#saveBtn').click(function(e) {
-            e.preventDefault();
-            $(this).html('Sending..');
-
-            $.ajax({
-                data: $('#customerForm').serialize(),
-                url: "{{ route('customer.store') }}",
-                type: "POST",
-                dataType: 'json',
-                success: function(data) {
-
-                    $('#customerForm').trigger("reset");
-                    $('#ajaxModel').modal('hide');
-                    table.draw();
-
-                },
-                error: function(data) {
-                    console.log('Error:', data);
-                    $('#saveBtn').html('Save Changes');
-                }
-            });
-        });
-
         // Delete Product Code
         $('body').on('click', '.deleteCustomer', function() {
 
             var id = $(this).data("id");
-            confirm("Are You sure want to delete !");
+            confirm("Apakah anda yakin ingin menghapus data ini ?");
 
             $.ajax({
                 type: "DELETE",

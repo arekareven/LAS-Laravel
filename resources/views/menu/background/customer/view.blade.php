@@ -23,19 +23,21 @@
         <section class="section">
             <div class="card">
                 <div class="card-body">
-                    <table class="table table-bordered data-table">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Name</th>
-                                <th>Alamat</th>
-                                <th>No. Hp</th>
-                                <th>Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
+                    <div class="table-responsive">
+                        <table class="table table-striped data-table" >
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Name</th>
+                                    <th>No Tlp</th>
+                                    <th>Alamat</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </section>

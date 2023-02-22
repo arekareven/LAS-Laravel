@@ -29,9 +29,9 @@ class CustomerController extends Controller
                 ->addColumn('action', function ($row) {
 
                     // $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Edit" class="edit btn btn-primary btn-sm editCustomer">Edit</a>';
-                    $btn = '<a href="'.route('customer.edit', $row->id).'" class="btn btn-warning btn-sm">Edit</a>';
+                    $btn = '<a href="'.route('customer.edit', $row->id).'" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i></a>';
 
-                    $btn = $btn . ' <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Delete" class="btn btn-danger btn-sm deleteCustomer">Delete</a>';
+                    $btn = $btn . ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="' . $row->id . '" data-original-title="Delete" class="btn btn-danger btn-sm deleteCustomer"><i class="bi bi-trash3-fill"></i></a>';
 
                     return $btn;
                 })
@@ -104,7 +104,7 @@ class CustomerController extends Controller
     public function edit($id)
     {
         $customer = Customer::find($id);
-        return view('menu.background.customer.edit', compact('customer'));
+        return view('menu.background.customer.sunting', compact('customer'));
         // return response()->json($customer);
     }
 

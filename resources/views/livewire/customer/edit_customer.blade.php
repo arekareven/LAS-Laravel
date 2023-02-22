@@ -19,19 +19,19 @@
                             <div class="card-body">
                                 <nav class="mb-3">
                                     <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-                                        <a class="nav-link {{ $currentStep != 1 ? '' : 'active' }}" id="step-1">1</a>
-                                        <a class="nav-link {{ $currentStep != 2 ? '' : 'active' }}" id="step-2">2</a>
-                                        <a class="nav-link {{ $currentStep != 3 ? '' : 'active' }}" id="step-3">3</a>
+                                        <a class="nav-link active" id="step-1">1</a>
+                                        {{-- <a class="nav-link {{ $currentStep != 2 ? '' : 'active' }}" id="step-2">2</a>
+                                        <a class="nav-link {{ $currentStep != 3 ? '' : 'active' }}" id="step-3">3</a> --}}
                                     </div>
                                 </nav>
                                 <div class="tab-content" id="nav-tabContent">
-                                    <div class="was-validated tab-pane fade {{ $currentStep == 1 ? 'show active' : '' }}" id="step-1" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+                                    <div class="was-validated tab-pane fade show active" id="step-1" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
                                         <div class="row">
                                             <div class="col-md-6 col-12">
                                                 <div class="form-group">
                                                     <label for="name">Nama</label>
                                                     <input type="text" id="name" class="form-control"
-                                                        placeholder="Nama Nasabah" name="name_column" wire:model="name" required>
+                                                        placeholder="Nama Nasabah" name="name_column" value={{ $customer}} required>
                                                     <div class="invalid-feedback">
                                                         Isian nama tidak boleh kosong
                                                     </div>
@@ -105,7 +105,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="was-validated tab-pane fade {{ $currentStep == 2 ? 'show active' : '' }}" id="step-2" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+                                    {{-- <div class="was-validated tab-pane fade {{ $currentStep == 2 ? 'show active' : '' }}" id="step-2" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
                                         <div class="row">
                                             <div class="col-md-6 col-12">
                                                 <div class="form-group">
@@ -248,7 +248,7 @@
                                             <button type="button"
                                                 class="btn btn-primary me-1 mb-1" wire:click="submitForm" >Submit</button>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>

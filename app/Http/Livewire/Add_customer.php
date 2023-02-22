@@ -17,11 +17,6 @@ class Add_customer extends Component
         return view('livewire.customer.add_customer');
     }
 
-    public function edit()
-    {
-        return view('livewire.customer.edit_customer');
-    }
-
     public function firstStepSubmit()
     {
         $validatedData = $this->validate([

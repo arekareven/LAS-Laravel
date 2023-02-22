@@ -26,8 +26,7 @@ $segment = request()->segment(1);
                 <div class="sidebar-header position-relative">
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="logo">
-                            {{-- <a href="index.html"><img src="assets/images/logo/logo.svg" alt="Logo" srcset=""></a>
-                            --}}
+                            {{-- <a href="index.html"><img src="assets/images/logo/logo.svg" alt="Logo" srcset=""></a> --}}
                             <a href={{ url("/") }}>LAS</a>
                         </div>
                         <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
@@ -60,7 +59,7 @@ $segment = request()->segment(1);
             </div>
         </div>
         <div id="main" class='layout-navbar'>
-            <header class='mb-3'>
+            <header>
                 <nav class="navbar navbar-expand navbar-light navbar-top">
                     <div class="container-fluid">
                         <a href="#" class="burger-btn d-block">

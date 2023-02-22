@@ -140,7 +140,7 @@ $segment = request()->segment(1);
                 </nav>
             </header>
 
-            <livewire:add_customer.edit/>
+            <livewire:edit_customer :data="$customer">
 
         </div>
     </div>

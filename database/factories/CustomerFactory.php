@@ -52,6 +52,25 @@ class CustomerFactory extends Factory
                 "Laki - Laki",
                 "Perempuan"
             ]),
+            "office_number" => $this->faker->numerify('081########'),
+            "mate_name" => $this->faker->name(),
+            "mate_place_of_birth" => $this->faker->city(),
+            "mate_date_of_birth" => $this->faker->date(),
+            "mate_profession" => $this->faker->jobTitle(),
+            "mate_id_card_address" => $this->faker->address(),
+            "mate_residence_address" => $this->faker->address(),
+            "mate_phone_number" => $this->faker->numerify('081########'),
+            "family_name" => $this->faker->name(),
+            "family_residence_address" => $this->faker->address(),
+            "family_phone_number" => $this->faker->numerify('081########'),
+            "family_relationship" => $this->faker->randomElement([
+                "Anak Kandung",
+                "Orang Tua",
+                "Saudara Kandung",
+                "Saudara Tidak Sekandung",
+                "Tetangga",
+                "Rekan Kerja"
+            ]),
         ];
     }
 }

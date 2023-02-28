@@ -37,6 +37,10 @@ Route::get('add_customer', function () {
     return view('menu.background.customer.add');
 });
 
+Route::get('/cek', function () {
+    return response('Hello World', 200);
+});
+
 
 
 

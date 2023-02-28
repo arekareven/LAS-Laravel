@@ -8,9 +8,6 @@ use Yajra\Datatables\Datatables;
 
 class CustomerController extends Controller
 {
-    public $name, $place_of_birth, $date_of_birth, $gender, $marital_status, $id_card_number, $id_card_address;
-    public $phone_number, $profession, $status_of_residence,$residence_address, $amenability,$education;
-    public $successMessage = '';
 
     /**
      * Display a listing of the resource.
@@ -31,9 +28,20 @@ class CustomerController extends Controller
                 ->addColumn('action', function ($row) {
 
                     // $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Edit" class="edit btn btn-primary btn-sm editCustomer">Edit</a>';
-                    $btn = '<a href="' . route('customer.edit', $row->id) . '" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i></a>';
 
-                    $btn = $btn . ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="' . $row->id . '" data-original-title="Delete" class="btn btn-danger btn-sm deleteCustomer"><i class="bi bi-trash3-fill"></i></a>';
+                    //     $btn = $btn . '<form action="'.route('customer.destroy', $row->id).'" method="post">
+                    //     <input type="hidden" name="_token" value="'.csrf_token().'">
+                    //     <input type="hidden" name="_method" value="DELETE">
+
+                    //     <button class="btn btn-danger btn-sm"
+                    //         onclick="return confirm("Apakah Anda Yakin?")"><i class="bi bi-trash3-fill"></i></button>
+                    // </form>';
+
+                    $btn = '<a href="' . route('customer.edit', $row->id) . '" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i></a>';
+                    $btn = $btn . '<a href="javascript:void(0)" data-toggle="tooltip" data-id="' . $row->id .
+                     '" data-original-title="Delete" class="btn btn-danger btn-sm deleteCustomer"><i class="bi bi-trash3-fill"></i></a>';
+                    // $btn = $btn . '<a href="javascript:void(0)" data-toggle="tooltip" data-id="' . $row->id .
+                    //  '" data-original-title="Delete" class="btn btn-danger btn-sm deleteCustomer"><i class="bi bi-trash3-fill"></i></a>';
 
                     return $btn;
                 })
@@ -51,8 +59,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        $step = 1;
-        return view('menu.background.customer.tambah', ['currentStep' => $step]);
+        return view('menu.background.customer.tambah');
     }
 
     /**
@@ -63,28 +70,36 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        Customer::updateOrCreate(
-            [
-                'id' => $request->id
-            ],
-            [
-                'name' => $request->name,
-                'marital_status' => $request->marital_status,
-                // 'place_of_birth' => $request->place_of_birth,
-                // 'date_of_birth' => $request->date_of_birth,
-                // 'id_card_number' => $request->id_card_number,
-                // 'phone_number' => $request->phone_number,
-                // 'status_of_residence' => $request->status_of_residence,
-                // 'profession' => $request->profession,
-                // 'id_card_address' => $request->id_card_address,
-                // 'residence_address' => $request->residence_address,
-                // 'amenability' => $request->amenability,
-                // 'education' => $request->education,
-                // 'gender' => $request->gender,
-            ]
-        );
+        $customer                           = new Customer();
+        $customer->id                       = $request->id;
+        $customer->name                     = $request->name_column; // "name" diambil dari name bukan dari id
+        $customer->marital_status           = $request->marital_status_column;
+        $customer->place_of_birth           = $request->place_of_birth_column;
+        $customer->date_of_birth            = $request->date_of_birth_column;
+        $customer->id_card_number           = $request->id_card_number_column;
+        $customer->phone_number             = $request->phone_number_column;
+        $customer->status_of_residence      = $request->status_of_residence_column;
+        $customer->profession               = $request->profession_column;
+        $customer->id_card_address          = $request->id_card_address_column;
+        $customer->residence_address        = $request->residence_address_column;
+        $customer->amenability              = $request->amenability_column;
+        $customer->education                = $request->education_column;
+        $customer->gender                   = $request->gender_column;
+        $customer->office_number            = $request->office_number_column;
+        $customer->mate_name                = $request->mate_name_column;
+        $customer->mate_place_of_birth      = $request->mate_place_of_birth_column;
+        $customer->mate_date_of_birth       = $request->mate_date_of_birth_column;
+        $customer->mate_id_card_address     = $request->mate_id_card_address_column;
+        $customer->mate_residence_address   = $request->mate_residence_address;
+        $customer->mate_profession          = $request->mate_profession_column;
+        $customer->mate_phone_number        = $request->mate_phone_number_column;
+        $customer->family_name              = $request->family_name_column;
+        $customer->family_relationship      = $request->family_relationship_column;
+        $customer->family_residence_address = $request->family_residence_address_column;
+        $customer->family_phone_number      = $request->family_phone_number_column;
+        $customer->save();
 
-        return response()->json(['success' => 'Customer saved successfully.']);
+        return redirect()->route('customer.index')->with('success', 'Data '.$request->name_column.' berhasil ditambahkan !');
     }
 
     /**
@@ -121,6 +136,34 @@ class CustomerController extends Controller
     public function update(Request $request, Customer $customer)
     {
         //
+        $customer->name                     = $request->name_column; // "name" diambil dari name bukan dari id
+        $customer->marital_status           = $request->marital_status_column;
+        $customer->place_of_birth           = $request->place_of_birth_column;
+        $customer->date_of_birth            = $request->date_of_birth_column;
+        $customer->id_card_number           = $request->id_card_number_column;
+        $customer->phone_number             = $request->phone_number_column;
+        $customer->status_of_residence      = $request->status_of_residence_column;
+        $customer->profession               = $request->profession_column;
+        $customer->id_card_address          = $request->id_card_address_column;
+        $customer->residence_address        = $request->residence_address_column;
+        $customer->amenability              = $request->amenability_column;
+        $customer->education                = $request->education_column;
+        $customer->gender                   = $request->gender_column;
+        $customer->office_number            = $request->office_number_column;
+        $customer->mate_name                = $request->mate_name_column;
+        $customer->mate_place_of_birth      = $request->mate_place_of_birth_column;
+        $customer->mate_date_of_birth       = $request->mate_date_of_birth_column;
+        $customer->mate_id_card_address     = $request->mate_id_card_address_column;
+        $customer->mate_residence_address   = $request->gender_column;
+        $customer->mate_profession          = $request->mate_profession_column;
+        $customer->mate_phone_number        = $request->mate_phone_number_column;
+        $customer->family_name              = $request->family_name_column;
+        $customer->family_relationship      = $request->family_relationship_column;
+        $customer->family_residence_address = $request->family_residence_address_column;
+        $customer->family_phone_number      = $request->family_phone_number_column;
+        $customer->save();
+
+        return redirect()->route('customer.index')->with('edit', 'Data '.$customer->name_column.' berhasil dirubah !');
     }
 
     /**
@@ -133,49 +176,8 @@ class CustomerController extends Controller
     {
         Customer::find($id)->delete();
 
+        // return redirect()->route('customer.index')->with('delete', 'Data '.$id.' berhasil dihapus !');
         return response()->json(['success' => 'Customer deleted successfully.']);
     }
 
-
-    public function firstStepSubmit()
-    {
-
-        $this->currentStep = 2;
-    }
-
-    public function secondStepSubmit()
-    {
-
-        $this->currentStep = 3;
-    }
-
-    public function submitForm()
-    {
-        Customer::create([
-            'name' => $this->name,
-            'place_of_birth' => $this->place_of_birth,
-            'date_of_birth' => $this->date_of_birth,
-            'gender' => $this->gender,
-            'marital_status' => $this->marital_status,
-            'id_card_number' => $this->id_card_number,
-            'id_card_address' => $this->id_card_address,
-            'phone_number' => $this->phone_number,
-            'profession' => $this->profession,
-            'status_of_residence' => $this->status_of_residence,
-            'residence_address' => $this->residence_address,
-            'amenability' => $this->amenability,
-            'education' => $this->education,
-        ]);
-
-        $this->successMessage = 'Data Nasabah Berhasil ditambahkan';
-
-        return view('menu.background.customer.view');
-        // $this->clearForm();
-        // $this->currentStep = 1;
-    }
-
-    public function back($step)
-    {
-        $this->currentStep = $step;
-    }
 }

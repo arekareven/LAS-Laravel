@@ -3,11 +3,19 @@
 {{-- content --}}
 @section('content')
 <div id="main-content">
-    @if (!empty ($successMessage))
-        <div class="alert alert-light-success alert-dismissible color-success"><i
-            class="bi bi-check-circle"></i>{{ $successMessage }}.
-            <button type="button" class="btn-close" data-bs-dismiss="alert"
-        aria-label="Close"></button>
+    @if ($message = Session::get('success'))
+        <div class="col-12 col-md-6">
+            <div class="alert alert-light-success color-success alert-dismissible fade show">
+                <i class="bi bi-check-circle"></i> {{ $message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    @elseif ($message = Session::get('edit'))
+        <div class="col-12 col-md-6">
+            <div class="alert alert-light-warning color-warning alert-dismissible fade show">
+                <i class="bi bi-check-circle"></i> {{ $message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
         </div>
     @endif
     <div class="page-heading">
@@ -15,8 +23,8 @@
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
                     <h5>Daftar Nasabah</h5>
-                    <a href="{{ url("add_customer") }}" class="btn btn-primary mb-2">Tambah (Livewire)</a>
-                    <a href="{{ route("customer.create") }}" class="btn btn-primary mb-2">Tambah</a>
+                    <a href="{{ url("add_customer") }}" class="btn btn-primary mb-3">Tambah (Livewire)</a>
+                    <a href="{{ route("customer.create") }}" class="btn btn-primary mb-3">Tambah</a>
                     {{-- <a class="btn btn-success mb-3" href="javascript:void(0)" id="createNewCustomer"> Tambah</a> --}}
                 </div>
             </div>

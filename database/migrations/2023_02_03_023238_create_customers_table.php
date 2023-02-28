@@ -28,6 +28,18 @@ return new class extends Migration
             $table->string('amenability');
             $table->string('education');
             $table->string('gender');
+            $table->string('office_number');
+            $table->string('mate_name');
+            $table->string('mate_place_of_birth');
+            $table->string('mate_date_of_birth');
+            $table->string('mate_id_card_address');
+            $table->string('mate_residence_address');
+            $table->string('mate_profession');
+            $table->string('mate_phone_number');
+            $table->string('family_name');
+            $table->string('family_relationship');
+            $table->string('family_residence_address');
+            $table->string('family_phone_number');
             $table->timestamps();
         });
     }

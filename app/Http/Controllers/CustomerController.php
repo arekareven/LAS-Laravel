@@ -27,21 +27,9 @@ class CustomerController extends Controller
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
 
-                    // $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Edit" class="edit btn btn-primary btn-sm editCustomer">Edit</a>';
-
-                    //     $btn = $btn . '<form action="'.route('customer.destroy', $row->id).'" method="post">
-                    //     <input type="hidden" name="_token" value="'.csrf_token().'">
-                    //     <input type="hidden" name="_method" value="DELETE">
-
-                    //     <button class="btn btn-danger btn-sm"
-                    //         onclick="return confirm("Apakah Anda Yakin?")"><i class="bi bi-trash3-fill"></i></button>
-                    // </form>';
-
                     $btn = '<a href="' . route('customer.edit', $row->id) . '" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i></a>';
-                    $btn = $btn . '<a href="javascript:void(0)" data-toggle="tooltip" data-id="' . $row->id .
-                     '" data-original-title="Delete" class="btn btn-danger btn-sm deleteCustomer"><i class="bi bi-trash3-fill"></i></a>';
-                    // $btn = $btn . '<a href="javascript:void(0)" data-toggle="tooltip" data-id="' . $row->id .
-                    //  '" data-original-title="Delete" class="btn btn-danger btn-sm deleteCustomer"><i class="bi bi-trash3-fill"></i></a>';
+                    $btn = $btn . '<a href="javascript:void(0)" data-id="' . $row->id . '" class="btn btn-danger btn-sm deleteCustomer"><i class="bi bi-trash3-fill"></i></a>';
+                    $btn = $btn . '<a href="javascript:void(0)" data-id="' . $row->id . '" class="btn btn-success btn-sm"><i class="bi bi-check-lg"></i></a>';
 
                     return $btn;
                 })
@@ -119,10 +107,10 @@ class CustomerController extends Controller
      * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function edit($id_customer)
+    public function edit(Customer $customer)
     {
-        $get_customer = Customer::find($id_customer);
-        return view('menu.background.customer.sunting', compact('get_customer'));
+        // $get_customer = Customer::find($id_customer);
+        return view('menu.background.customer.sunting', compact('customer'));
         // return response()->json($customer);
     }
 
@@ -135,6 +123,8 @@ class CustomerController extends Controller
      */
     public function update(Request $request, Customer $customer)
     {
+
+        // $customer->update($request->all());
         //
         $customer->name                     = $request->name_column; // "name" diambil dari name bukan dari id
         $customer->marital_status           = $request->marital_status_column;
@@ -163,7 +153,7 @@ class CustomerController extends Controller
         $customer->family_phone_number      = $request->family_phone_number_column;
         $customer->save();
 
-        return redirect()->route('customer.index')->with('edit', 'Data '.$customer->name_column.' berhasil dirubah !');
+        return redirect()->route('customer.index')->with('edit', 'Data '.$customer->name.' berhasil dirubah !');
     }
 
     /**

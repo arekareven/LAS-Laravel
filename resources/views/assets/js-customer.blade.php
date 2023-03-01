@@ -53,19 +53,24 @@
         $('body').on('click', '.deleteCustomer', function() {
 
             var id = $(this).data("id");
-            confirm("Apakah anda yakin ingin menghapus data ini ?");
+            let text = "Apakah anda yakin ingin menghapus data ini ?";
+            if(confirm(text) == true){
+                $.ajax({
+                    type: "DELETE",
+                    url: "{{ route('customer.store') }}" + '/' + id,
+                    success: function(data) {
+                        table.draw();
+                        document.getElementById("delete").innerHTML =
+                        "<div class='col-12 col-md-6'><div class='alert alert-light-danger alert-dismissible color-danger'><i class='bi bi-exclamation-circle'></i> Data berhasil dihapus ! <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div></div>";
+                    },
+                    error: function(data) {
+                        console.log('Error:', data);
+                    }
+                });
+            }
 
-            $.ajax({
-                type: "DELETE",
-                url: "{{ route('customer.store') }}" + '/' + id,
-                success: function(data) {
-                    table.draw();
-                },
-                error: function(data) {
-                    console.log('Error:', data);
-                }
-            });
         });
 
     });
 </script>
+

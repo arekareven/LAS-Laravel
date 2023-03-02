@@ -137,13 +137,16 @@ $segment = request()->segment(1);
             </header>
 
             @yield('content')
+            
+            {{-- script tambahan --}}
+            @yield('script')
 
         </div>
     </div>
 
-</body>
+    {{-- js assets/js.blade.php --}}
+    @include('assets.js')
 
-{{-- js assets/js.blade.php --}}
-@include('assets.js')
+</body>
 
 </html>

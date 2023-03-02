@@ -28,8 +28,8 @@ class CustomerController extends Controller
                 ->addColumn('action', function ($row) {
 
                     $btn = '<a href="' . route('customer.edit', $row->id) . '" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i></a>';
-                    $btn = $btn . '<a href="javascript:void(0)" data-id="' . $row->id . '" class="btn btn-danger btn-sm deleteCustomer"><i class="bi bi-trash3-fill"></i></a>';
-                    $btn = $btn . '<a href="javascript:void(0)" data-id="' . $row->id . '" class="btn btn-success btn-sm"><i class="bi bi-check-lg"></i></a>';
+                    $btn .= '<a href="javascript:void(0)" data-id="' . $row->id . '" class="btn btn-sm btn-danger deleteCustomer"><i class="bi bi-trash3-fill"></i></a>';
+                    // $btn .= '<a href="javascript:void(0)" data-id="' . $row->id . '" class="btn btn-sm btn-success"><i class="bi bi-check-lg"></i></a>';
 
                     return $btn;
                 })

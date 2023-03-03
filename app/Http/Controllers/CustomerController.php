@@ -16,15 +16,16 @@ class CustomerController extends Controller
      */
     public function index(Request $request)
     {
-        // $data = [
-        //     'data' => Customer::all()
-        // ];
-        // return view('menu.background.customer.view', $data);
-
         if ($request->ajax()) {
             $data = Customer::latest()->get();
             return Datatables::of($data)
                 ->addIndexColumn()
+                ->addColumn('name', function ($row) {
+
+                    $nama = '<a href="' . route('customer.edit', $row->id) . '" >'.$row->name.'</a>';
+
+                    return $nama;
+                })
                 ->addColumn('action', function ($row) {
 
                     $btn = '<a href="' . route('customer.edit', $row->id) . '" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i></a>';
@@ -33,11 +34,11 @@ class CustomerController extends Controller
 
                     return $btn;
                 })
-                ->rawColumns(['action'])
+                ->rawColumns(['name','action'])
                 ->make(true);
         }
 
-        return view('menu.background.customer.view');
+        return view('menu.background.application.view');
     }
 
     /**
@@ -47,7 +48,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        return view('menu.background.customer.tambah');
+        return view('menu.background.customer.add');
     }
 
     /**
@@ -110,7 +111,7 @@ class CustomerController extends Controller
     public function edit(Customer $customer)
     {
         // $get_customer = Customer::find($id_customer);
-        return view('menu.background.customer.sunting', compact('customer'));
+        return view('menu.background.customer.edit', compact('customer'));
         // return response()->json($customer);
     }
 

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('application_type');
             $table->string('purpose');
             $table->string('purpose_description');
+            $table->string('time_period');
             $table->string('application_date');
             $table->string('analysis_date');
             $table->string('status')->default('pending');

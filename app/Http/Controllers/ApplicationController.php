@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Background;
+namespace App\Http\Controllers;
 
 use App\Models\Application;
 use Illuminate\Http\Request;
+use Yajra\Datatables\Datatables;
 
 class ApplicationController extends Controller
 {
@@ -12,9 +13,31 @@ class ApplicationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        // return view('')
+        if ($request->ajax()) {
+            $data = Application::latest()->get();
+            return Datatables::of($data)
+                ->addIndexColumn()
+                ->addColumn('name', function ($row) {
+
+                    $nama = '<a href="' . route('customer.edit', $row->id) . '" >'.$row->name.'</a>';
+
+                    return $nama;
+                })
+                ->addColumn('action', function ($row) {
+
+                    $btn = '<a href="' . route('customer.edit', $row->id) . '" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i></a>';
+                    $btn .= '<a href="javascript:void(0)" data-id="' . $row->id . '" class="btn btn-sm btn-danger deleteCustomer"><i class="bi bi-trash3-fill"></i></a>';
+                    // $btn .= '<a href="javascript:void(0)" data-id="' . $row->id . '" class="btn btn-sm btn-success"><i class="bi bi-check-lg"></i></a>';
+
+                    return $btn;
+                })
+                ->rawColumns(['name','action'])
+                ->make(true);
+        }
+
+        return view('menu.background.application.view');
     }
 
     /**
@@ -24,7 +47,7 @@ class ApplicationController extends Controller
      */
     public function create()
     {
-        //
+        return view('menu.background.application.add');
     }
 
     /**

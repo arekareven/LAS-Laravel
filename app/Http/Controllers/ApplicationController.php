@@ -16,24 +16,25 @@ class ApplicationController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
+            // $data = Application::latest()->get();
             $data = Application::latest()->get();
             return Datatables::of($data)
                 ->addIndexColumn()
-                ->addColumn('name', function ($row) {
+                ->addColumn('plafond', function ($row) {
 
-                    $nama = '<a href="' . route('customer.edit', $row->id) . '" >'.$row->name.'</a>';
+                    $plafond = '<a href="' . route('application.edit', $row->id) . '" >'.'Rp. '.number_format($row->plafond).'</a>';
 
-                    return $nama;
+                    return $plafond;
                 })
                 ->addColumn('action', function ($row) {
 
-                    $btn = '<a href="' . route('customer.edit', $row->id) . '" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i></a>';
-                    $btn .= '<a href="javascript:void(0)" data-id="' . $row->id . '" class="btn btn-sm btn-danger deleteCustomer"><i class="bi bi-trash3-fill"></i></a>';
+                    $btn = '<a href="' . route('application.edit', $row->id) . '" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i></a>';
+                    $btn .= '<a href="javascript:void(0)" data-id="' . $row->id . '" class="btn btn-sm btn-danger deleteApplication"><i class="bi bi-trash3-fill"></i></a>';
                     // $btn .= '<a href="javascript:void(0)" data-id="' . $row->id . '" class="btn btn-sm btn-success"><i class="bi bi-check-lg"></i></a>';
 
                     return $btn;
                 })
-                ->rawColumns(['name','action'])
+                ->rawColumns(['plafond','action'])
                 ->make(true);
         }
 

@@ -25,8 +25,8 @@
                 <div class="row">
                     <div class="col-12 col-md-6 order-md-1 order-last">
                         <h5>Daftar Nasabah</h5>
-                        {{-- <a href="{{ url("add_customer") }}" class="btn btn-primary mb-3">Tambah (Livewire)</a> --}}
-                        <a href="{{ route("customer.create") }}" class="btn btn-primary mb-3">Tambah</a>
+                        {{-- <a href="{{ url("add_application") }}" class="btn btn-primary mb-3">Tambah (Livewire)</a> --}}
+                        <a href="{{ route("application.create") }}" class="btn btn-primary mb-3">Tambah</a>
                     </div>
                 </div>
             </div>
@@ -38,9 +38,9 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">No</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">No Tlp</th>
-                                        <th scope="col">Alamat</th>
+                                        <th scope="col">Plafond</th>
+                                        <th scope="col">Jangka Waktu</th>
+                                        <th scope="col">Tanggal Pengajuan</th>
                                         <th scope="col">Aksi</th>
                                     </tr>
                                 </thead>
@@ -66,7 +66,7 @@
         </footer>
     </div>
 @endsection
-{{-- @include('assets.js-customer') --}}
+{{-- @include('assets.js-application') --}}
 
 @section('script')
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -89,18 +89,18 @@
             var table = $('.data-table').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('customer.index') }}",
+                ajax: "{{ route('application.index') }}",
                 columns: [{
                         data: 'DT_RowIndex'
                     },
                     {
-                        data: 'name'
+                        data: 'plafond'
                     },
                     {
-                        data: 'phone_number'
+                        data: 'time_period'
                     },
                     {
-                        data: 'residence_address'
+                        data: 'application_date'
                     },
                     {
                         data: 'action',
@@ -111,14 +111,14 @@
             });
 
             // Delete Product Code
-            $('body').on('click', '.deleteCustomer', function() {
+            $('body').on('click', '.deleteApplication', function() {
 
                 var id = $(this).data("id");
                 let text = "Apakah anda yakin ingin menghapus data ini ?";
                 if(confirm(text) == true){
                     $.ajax({
                         type: "DELETE",
-                        url: "{{ route('customer.store') }}" + '/' + id,
+                        url: "{{ route('application.store') }}" + '/' + id,
                         success: function(data) {
                             table.draw();
                             document.getElementById("delete").innerHTML =

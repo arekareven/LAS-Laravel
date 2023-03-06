@@ -22,7 +22,7 @@ class CustomerController extends Controller
                 ->addIndexColumn()
                 ->addColumn('name', function ($row) {
 
-                    $nama = '<a href="' . route('customer.edit', $row->id) . '" >'.$row->name.'</a>';
+                    $nama = '<a href="' . route('application.index', $row->id) . '" >'.$row->name.'</a>';
 
                     return $nama;
                 })
@@ -38,7 +38,7 @@ class CustomerController extends Controller
                 ->make(true);
         }
 
-        return view('menu.background.application.view');
+        return view('menu.background.customer.view');
     }
 
     /**

@@ -17,7 +17,7 @@ class ApplicationFactory extends Factory
     public function definition()
     {
         return [
-            "id_customer" => $this->randomDigit->name(),
+            "id_customer" => $this->faker->randomDigit(),
             "plafond" => $this->faker->numberBetween(75000000,150000000),
             "credit_type" => $this->faker->randomElement([
                 "Pokok Bunga Tiap Bulan",
@@ -45,6 +45,7 @@ class ApplicationFactory extends Factory
             "purpose_description" => $this->faker->sentence(),
             "application_date" => $this->faker->date(),
             "analysis_date" => $this->faker->date(),
+            "time_period" => $this->faker->randomDigit(2),
         ];
     }
 }

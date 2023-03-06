@@ -5,6 +5,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\MateController;
 use App\Http\Controllers\RelativesController;
 use App\Http\Controllers\ApplicationController;
+use App\Models\Application;
 
 /*
 |--------------------------------------------------------------------------

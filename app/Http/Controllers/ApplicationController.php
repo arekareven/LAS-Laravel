@@ -15,30 +15,7 @@ class ApplicationController extends Controller
      */
     public function index(Request $request)
     {
-        if ($request->ajax()) {
-            // $data = Application::latest()->get();
-            $data = Application::latest()->get();
-            return Datatables::of($data)
-                ->addIndexColumn()
-                ->addColumn('plafond', function ($row) {
-
-                    $plafond = '<a href="' . route('application.edit', $row->id) . '" >'.'Rp. '.number_format($row->plafond).'</a>';
-
-                    return $plafond;
-                })
-                ->addColumn('action', function ($row) {
-
-                    $btn = '<a href="' . route('application.edit', $row->id) . '" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i></a>';
-                    $btn .= '<a href="javascript:void(0)" data-id="' . $row->id . '" class="btn btn-sm btn-danger deleteApplication"><i class="bi bi-trash3-fill"></i></a>';
-                    // $btn .= '<a href="javascript:void(0)" data-id="' . $row->id . '" class="btn btn-sm btn-success"><i class="bi bi-check-lg"></i></a>';
-
-                    return $btn;
-                })
-                ->rawColumns(['plafond','action'])
-                ->make(true);
-        }
-
-        return view('menu.background.application.view');
+        //
     }
 
     /**
@@ -105,5 +82,34 @@ class ApplicationController extends Controller
     public function destroy(Application $application)
     {
         //
+    }
+
+    public function applicationList(Request $request,Application $application)
+    {
+        if ($request->ajax()) {
+            // $data = Application::latest()->get();
+            $data = Application::latest()
+                                    ->where('id_customer',$application)
+                                    ->get();
+            return Datatables::of($data)
+                ->addIndexColumn()
+                ->addColumn('plafond', function ($row) {
+
+                    $plafond = '<a href="' . route('application.edit', $row->id) . '" >'.'Rp. '.number_format($row->plafond).'</a>';
+
+                    return $plafond;
+                })
+                ->addColumn('action', function ($row) {
+
+                    $btn = '<a href="' . route('application.edit', $row->id) . '" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i></a>';
+                    $btn .= '<a href="javascript:void(0)" data-id="' . $row->id . '" class="btn btn-sm btn-danger deleteApplication"><i class="bi bi-trash3-fill"></i></a>';
+
+                    return $btn;
+                })
+                ->rawColumns(['plafond','action'])
+                ->make(true);
+        }
+
+        return view('menu.background.application.view');
     }
 }

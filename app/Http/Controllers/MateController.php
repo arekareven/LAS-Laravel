@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Background;
+namespace App\Http\Controllers;
 
 use App\Models\Mate;
 use Illuminate\Http\Request;

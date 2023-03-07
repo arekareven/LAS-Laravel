@@ -22,7 +22,8 @@ class CustomerController extends Controller
                 ->addIndexColumn()
                 ->addColumn('name', function ($row) {
 
-                    $nama = '<a href="' . route('application.index', $row->id) . '" >'.$row->name.'</a>';
+                    // $nama = '<a href="' . route('application.list', $row->id) . '" >'.$row->name.'</a>';
+                    $nama = '<a href="' . route('application.list', $row->id) . '" >'.$row->name.'</a>';
 
                     return $nama;
                 })

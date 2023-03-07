@@ -5,7 +5,6 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\MateController;
 use App\Http\Controllers\RelativesController;
 use App\Http\Controllers\ApplicationController;
-use App\Models\Application;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,17 +29,11 @@ Route::resources([
     'application'=> ApplicationController::class,
 ]);
 
-Route::get('background', function () {
-    return view('background');
-});
+Route::get('/applicationlist/{id?}', [ApplicationController::class, 'applicationList'])->name('application.list');
 
-Route::get('add_customer', function () {
-    return view('menu.background.customer.add');
-});
-
-Route::get('/cek', function () {
-    return response('Hello World', 200);
-});
+Route::get('cekid/{id}', function ($id) {
+    return "Hello, ini adalah id anda ".$id;
+    })->name('cek.id');
 
 
 

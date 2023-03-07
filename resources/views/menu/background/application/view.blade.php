@@ -24,8 +24,7 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-12 col-md-6 order-md-1 order-last">
-                        <h5>Daftar Nasabah</h5>
-                        {{-- <a href="{{ url("add_application") }}" class="btn btn-primary mb-3">Tambah (Livewire)</a> --}}
+                        <h5>Daftar Pengajuan</h5>
                         <a href="{{ route("application.create") }}" class="btn btn-primary mb-3">Tambah</a>
                     </div>
                 </div>
@@ -89,7 +88,7 @@
             var table = $('.data-table').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('application.index') }}",
+                ajax: "{{ route('application.list') }}",
                 columns: [{
                         data: 'DT_RowIndex'
                     },

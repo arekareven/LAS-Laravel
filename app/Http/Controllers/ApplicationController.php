@@ -84,12 +84,14 @@ class ApplicationController extends Controller
         //
     }
 
-    public function applicationList(Request $request,Application $application)
+    public function applicationList(Request $request)
     {
+        $id_customer = $request->route()->parameter('id');
+        // dd($id_customer );
+
         if ($request->ajax()) {
-            // $data = Application::latest()->get();
             $data = Application::latest()
-                                    ->where('id_customer',$application)
+                                    ->where('id',$id_customer)
                                     ->get();
             return Datatables::of($data)
                 ->addIndexColumn()

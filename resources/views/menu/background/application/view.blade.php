@@ -33,7 +33,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-striped data-table" style="width:100%">
+                            <table class="table table-striped data-table-application" style="width:100%">
                                 <thead>
                                     <tr>
                                         <th scope="col">No</th>
@@ -52,20 +52,8 @@
             </section>
         </div>
 
-        <footer>
-            <div class="footer clearfix mb-0 text-muted">
-                <div class="float-start">
-                    <p>2021 &copy; Mazer</p>
-                </div>
-                <div class="float-end">
-                    <p>Crafted with <span class="text-danger"><i class="bi bi-heart-fill icon-mid"></i></span>
-                        by <a href="https://ahmadsaugi.com">Saugi</a></p>
-                </div>
-            </div>
-        </footer>
     </div>
 @endsection
-{{-- @include('assets.js-application') --}}
 
 @section('script')
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -85,24 +73,29 @@
             });
 
             // Render DataTable
-            var table = $('.data-table').DataTable({
+            var table = $('.data-table-application').DataTable({
                 processing: true,
                 serverSide: true,
                 ajax: "{{ route('application.list') }}",
                 columns: [{
-                        data: 'DT_RowIndex'
+                        data: 'DT_RowIndex',
+                        name: 'DT_RowIndex'
                     },
                     {
-                        data: 'plafond'
+                        data: 'plafond',
+                        name: 'plafond'
                     },
                     {
-                        data: 'time_period'
+                        data: 'time_period',
+                        name: 'time_period'
                     },
                     {
-                        data: 'application_date'
+                        data: 'application_date',
+                        name: 'application_date'
                     },
                     {
                         data: 'action',
+                        name: 'action',
                         orderable: false,
                         searchable: false
                     },

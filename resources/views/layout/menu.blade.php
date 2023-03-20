@@ -25,14 +25,14 @@
                 <li class="submenu-item {{ $segment == 'customer' ? 'active' : ''  }}">
                     <a href={{ route('customer.index') }}>Data Diri Nasabah</a>
                 </li>
-                <li class="submenu-item {{ $segment == 'mate' ? 'active' : ''  }}">
+                {{-- <li class="submenu-item {{ $segment == 'mate' ? 'active' : ''  }}">
                     <a href={{ route('mate.index') }}>Data Suami / Istri</a>
                 </li>
                 <li class="submenu-item {{ $segment == 'relatives' ? 'active' : ''  }}">
                     <a href={{ route('relatives.index') }}>Data Kontak Darurat</a>
-                </li>
-                <li class="submenu-item ">
-                    <a href={{ route('application.index') }}>Data Pengajuan</a>
+                </li> --}}
+                <li class="submenu-item  {{ $segment == 'applicationlist' ? 'active' : ''  }}">
+                    <a href={{ route('application.list') }}>Data Pengajuan</a>
                 </li>
             </ul>
         </li>

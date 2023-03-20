@@ -5,6 +5,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\MateController;
 use App\Http\Controllers\RelativesController;
 use App\Http\Controllers\ApplicationController;
+use App\Http\Controllers\TestingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +30,9 @@ Route::resources([
     'application'=> ApplicationController::class,
 ]);
 
-Route::get('/applicationlist/{id?}', [ApplicationController::class, 'applicationList'])->name('application.list');
+Route::get('applicationcreate/{id}', [ApplicationController::class, 'create2']);
+Route::get('applicationlist/', [ApplicationController::class, 'applicationList'])->name('application.list');
+// Route::get('applicationlist/{id}', [ApplicationController::class, 'applicationList'])->name('application.list');
 
 Route::get('cekid/{id}', function ($id) {
     return "Hello, ini adalah id anda ".$id;

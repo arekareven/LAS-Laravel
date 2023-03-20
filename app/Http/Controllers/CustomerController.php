@@ -23,7 +23,7 @@ class CustomerController extends Controller
                 ->addColumn('name', function ($row) {
 
                     // $nama = '<a href="' . route('application.list', $row->id) . '" >'.$row->name.'</a>';
-                    $nama = '<a href="' . route('application.list', $row->id) . '" >'.$row->name.'</a>';
+                    $nama = '<a href="' . url('applicationcreate/'.$row->id) . '" >'.$row->name.'</a>';
 
                     return $nama;
                 })
@@ -39,6 +39,7 @@ class CustomerController extends Controller
                 ->make(true);
         }
 
+        // return ('apa ini');
         return view('menu.background.customer.view');
     }
 

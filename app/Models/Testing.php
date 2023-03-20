@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Customer extends Model
+class Testing extends Model
 {
     use HasFactory;
 
@@ -17,8 +17,4 @@ class Customer extends Model
         'mate_residence_address', 'mate_profession', 'mate_phone_number', 'family_name',
         'family_relationship', 'family_residence_address', 'family_phone_number'
     ];
-
-    public function application(){
-        return $this->hasOne(Application::class, 'customer_id', 'id')->withDefault();
-    }
 }

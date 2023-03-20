@@ -14,4 +14,8 @@ class Application extends Model
         'purpose_description', 'time_period', 'application_date', 'analysis_date',
         'status'
     ];
+
+    public function suamiIstri(){
+        return $this->hasOne(Suami_istri::class, 'nasabah_id', 'id')->withDefault();
+    }
 }

@@ -1,43 +1,27 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CustomerController;
-use App\Http\Controllers\MateController;
-use App\Http\Controllers\RelativesController;
 use App\Http\Controllers\ApplicationController;
-use App\Http\Controllers\TestingController;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    // return view('welcome');
-    return view('layout.master');
+    return redirect()->route('login');
 });
 
-Route::resources([
-    'customer' => CustomerController::class,
-    'mate' => MateController::class,
-    'relatives' => RelativesController::class,
-    'application'=> ApplicationController::class,
-]);
+Route::get('/dashboard', function () {
+    return view('layout.dashboard');
+    // return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('applicationcreate/{id}', [ApplicationController::class, 'create2']);
-Route::get('applicationlist/', [ApplicationController::class, 'applicationList'])->name('application.list');
-// Route::get('applicationlist/{id}', [ApplicationController::class, 'applicationList'])->name('application.list');
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-Route::get('cekid/{id}', function ($id) {
-    return "Hello, ini adalah id anda ".$id;
-    })->name('cek.id');
+    Route::resource('customer', CustomerController::class);
+    Route::resource('application', ApplicationController::class);
+    Route::get('applicationlist/{id}', [ApplicationController::class, 'show']);
+});
 
-
-
-
+require __DIR__.'/auth.php';

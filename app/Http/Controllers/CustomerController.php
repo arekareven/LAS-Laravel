@@ -8,12 +8,6 @@ use Yajra\Datatables\Datatables;
 
 class CustomerController extends Controller
 {
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index(Request $request)
     {
         if ($request->ajax()) {
@@ -23,7 +17,7 @@ class CustomerController extends Controller
                 ->addColumn('name', function ($row) {
 
                     // $nama = '<a href="' . route('application.list', $row->id) . '" >'.$row->name.'</a>';
-                    $nama = '<a href="' . url('applicationcreate/'.$row->id) . '" >'.$row->name.'</a>';
+                    $nama = '<a href="' . url('applicationlist/'.$row->id) . '" >'.$row->name.'</a>';
 
                     return $nama;
                 })
@@ -99,9 +93,9 @@ class CustomerController extends Controller
      * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function show(Customer $customer)
+    public function show(Customer $customer,$id)
     {
-        //
+        dd($id);
     }
 
     /**

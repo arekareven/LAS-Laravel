@@ -76,7 +76,7 @@
             var table = $('.data-table-application').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('application.list') }}",
+                ajax: "{{ url('applicationlist') }}" + '/' +{{ $id }},
                 columns: [{
                         data: 'DT_RowIndex',
                         name: 'DT_RowIndex'

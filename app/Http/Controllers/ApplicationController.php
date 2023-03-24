@@ -59,31 +59,30 @@ class ApplicationController extends Controller
      * @param  \App\Models\Application  $application
      * @return \Illuminate\Http\Response
      */
-    public function show(Application $application,Request $request)
+    public function show($id,Request $request)
     {
-        return "Hello, ini adalah id anda ".$application;
         // $id_customer = $request->route()->parameter('id');
-        // if ($request->ajax()) {
-        //     $detail = Application::latest()->where('id',$application->id)->get();
-        //     return Datatables::of($detail)
-        //         ->addIndexColumn()
-        //         ->addColumn('plafond', function ($row) {
+        if ($request->ajax()) {
+            $detail = Application::latest()->where('id',$id)->get();
+            return Datatables::of($detail)
+                ->addIndexColumn()
+                ->addColumn('plafond', function ($row) {
 
-        //             $plafond = '<a href="' . route('application.edit', $row->id) . '" >'.'Rp. '.number_format($row->plafond).'</a>';
+                    $plafond = '<a href="' . route('application.edit', $row->id) . '" >'.'Rp. '.number_format($row->plafond).'</a>';
 
-        //             return $plafond;
-        //         })
-        //         ->addColumn('action', function ($row) {
+                    return $plafond;
+                })
+                ->addColumn('action', function ($row) {
 
-        //             $btn = '<a href="' . route('application.edit', $row->id) . '" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i></a>';
-        //             $btn .= '<a href="javascript:void(0)" data-id="' . $row->id . '" class="btn btn-sm btn-danger deleteApplication"><i class="bi bi-trash3-fill"></i></a>';
+                    $btn = '<a href="' . route('application.edit', $row->id) . '" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i></a>';
+                    $btn .= '<a href="javascript:void(0)" data-id="' . $row->id . '" class="btn btn-sm btn-danger deleteApplication"><i class="bi bi-trash3-fill"></i></a>';
 
-        //             return $btn;
-        //         })
-        //         ->rawColumns(['plafond','action'])
-        //         ->make(true);
-        // }
-        // return view('menu.background.application.view');
+                    return $btn;
+                })
+                ->rawColumns(['plafond','action'])
+                ->make(true);
+        }
+        return view('menu.background.application.view',compact('id'));
     }
 
     /**

@@ -2,26 +2,19 @@
     <ul class="menu">
         <li class="sidebar-title">Menu {{ $segment }}</li>
 
-        <li class="sidebar-item {{ $segment == '' ? 'active' : ''  }}">
+        <li class="sidebar-item {{ $segment == 'dashboard' ? 'active' : ''  }}">
             <a href={{ url("/") }} class='sidebar-link'>
                 <i class="bi bi-grid-fill"></i>
                 <span>Dashboard</span>
             </a>
         </li>
 
-        {{-- <li class="sidebar-item {{ ($segment == ('customer' or 'mate')) ? 'active' : '' }}">
-            <a href={{ route('customer.index') }} class='sidebar-link'>
-                <i class="bi bi-stack"></i>
-                <span>Nasabah</span>
-            </a>
-        </li> --}}
-
-        <li class="sidebar-item has-sub {{ ($segment == ('customer' or 'mate')) ? 'active' : '' }}">
+        <li class="sidebar-item has-sub {{ ($segment == 'customer') ? 'active' : '' }}">
             <a href="#" class='sidebar-link'>
                 <i class="bi bi-stack"></i>
                 <span>Nasabah</span>
             </a>
-            <ul class="submenu {{ ($segment == ('customer' or 'mate')) ? 'active' : '' }}">
+            <ul class="submenu {{ ($segment == 'customer') ? 'active' : '' }}">
                 <li class="submenu-item {{ $segment == 'customer' ? 'active' : ''  }}">
                     <a href={{ route('customer.index') }}>Data Diri Nasabah</a>
                 </li>
@@ -31,9 +24,9 @@
                 <li class="submenu-item {{ $segment == 'relatives' ? 'active' : ''  }}">
                     <a href={{ route('relatives.index') }}>Data Kontak Darurat</a>
                 </li> --}}
-                <li class="submenu-item  {{ $segment == 'applicationlist' ? 'active' : ''  }}">
+                {{-- <li class="submenu-item  {{ $segment == 'applicationlist' ? 'active' : ''  }}">
                     <a href={{ route('application.list') }}>Data Pengajuan</a>
-                </li>
+                </li> --}}
             </ul>
         </li>
 

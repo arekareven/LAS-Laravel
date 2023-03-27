@@ -13,14 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('relatives', function (Blueprint $table) {
-            $table->id();                       
-            $table->integer('id_costumer'); 
-            $table->string('name');
-            $table->string('kinship');
-            $table->string('residence_address');
-            $table->string('phone_number');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('jabatan');
         });
     }
 
@@ -31,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('relatives');
+        Schema::table('users', function (Blueprint $table) {
+            //
+        });
     }
 };

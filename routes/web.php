@@ -21,7 +21,9 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('customer', CustomerController::class);
     Route::resource('application', ApplicationController::class);
+    Route::get('applicationcreate/{id}', [ApplicationController::class, 'create']);
     Route::get('applicationlist/{id}', [ApplicationController::class, 'show']);
+
 });
 
 require __DIR__.'/auth.php';

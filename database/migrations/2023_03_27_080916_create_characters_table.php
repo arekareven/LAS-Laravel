@@ -13,16 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('mates', function (Blueprint $table) {
+        Schema::create('characters', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_costumer');
-            $table->string('name');
-            $table->string('place_of_birth');
-            $table->string('date_of_birth');
-            $table->string('id_card_address');
-            $table->string('residence_address');
-            $table->string('profession');
-            $table->string('phone_number');
             $table->timestamps();
         });
     }
@@ -34,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mates');
+        Schema::dropIfExists('characters');
     }
 };

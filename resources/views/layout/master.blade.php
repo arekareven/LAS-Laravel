@@ -63,9 +63,8 @@ $segment = request()->segment(1);
                 <nav class="navbar navbar-expand navbar-light navbar-top">
                     <div class="container-fluid">
                         <a href="#" class="burger-btn d-block">
-                            <i class="bi bi-    ustify fs-3"></i>
+                            <i class="bi bi-justify fs-3"></i>
                         </a>
-
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
@@ -143,7 +142,7 @@ $segment = request()->segment(1);
 
             @yield('content')
 
-            <footer>
+            {{-- <footer>
                 <div class="footer clearfix mb-0 text-muted">
                     <div class="float-start">
                         <p>2021 &copy; Mazer</p>
@@ -155,11 +154,22 @@ $segment = request()->segment(1);
                 </div>
             </footer>
 
+            <div id="main-content">
+                <div class="footer clearfix mb-0 text-muted">
+                    <div class="float-start">
+                        <p>2021 &copy; Mazer</p>
+                    </div>
+                    <div class="float-end">
+                        <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
+                                href="http://ahmadsaugi.com">A. Saugi</a></p>
+                    </div>
+                </div>
+            </div> --}}
+
             {{-- script tambahan --}}
             @yield('script')
 
         </div>
-
     </div>
 
     {{-- js assets/js.blade.php --}}

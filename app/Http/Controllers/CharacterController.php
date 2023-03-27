@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Mate;
+use App\Models\character;
 use Illuminate\Http\Request;
 
-class MateController extends Controller
+class CharacterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class MateController extends Controller
      */
     public function index()
     {
-        return view('menu.background.mate.view');
+        //
     }
 
     /**
@@ -41,10 +41,10 @@ class MateController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Mate  $mate
+     * @param  \App\Models\character  $character
      * @return \Illuminate\Http\Response
      */
-    public function show(Mate $mate)
+    public function show(character $character)
     {
         //
     }
@@ -52,10 +52,10 @@ class MateController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Mate  $mate
+     * @param  \App\Models\character  $character
      * @return \Illuminate\Http\Response
      */
-    public function edit(Mate $mate)
+    public function edit(character $character)
     {
         //
     }
@@ -64,10 +64,10 @@ class MateController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Mate  $mate
+     * @param  \App\Models\character  $character
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Mate $mate)
+    public function update(Request $request, character $character)
     {
         //
     }
@@ -75,10 +75,10 @@ class MateController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Mate  $mate
+     * @param  \App\Models\character  $character
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Mate $mate)
+    public function destroy(character $character)
     {
         //
     }

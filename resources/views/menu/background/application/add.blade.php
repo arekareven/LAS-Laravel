@@ -8,7 +8,7 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h5>INPUT DATA PENGAJUAN</h5>
+                    <h5>INPUT DATA PENGAJUAN</h5>{{ $id }}
                 </div>
             </div>
         </div>
@@ -17,17 +17,8 @@
             <div class="row match-height">
                 <div class="col-12">
                     <div class="card">
-                        {{-- <div class="card-header">
-                            <h4 class="card-title">Input Data Nasabah</h4>
-                        </div> --}}
                         <div class="card-content">
                             <div class="card-body">
-                                {{-- <nav class="mb-3">
-                                    <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-                                        <a class="nav-link {{ $currentStep != 1 ? '' : 'active' }}" id="step-1">1</a>
-                                        <a class="nav-link {{ $currentStep != 2 ? '' : 'active' }}" id="step-2">2</a>
-                                    </div>
-                                </nav> --}}
                                 <ul class="nav nav-tabs nav-fill mb-3" id="myTab" role="tablist">
                                     <li class="nav-item" role="presentation">
                                         <a class="nav-link active" id="data_diri-tab" data-bs-toggle="tab" href="#data_diri"
@@ -146,4 +137,3 @@
 
 @endsection
 
-@include('assets.js-customer')

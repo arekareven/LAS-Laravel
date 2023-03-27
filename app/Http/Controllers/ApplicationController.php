@@ -23,9 +23,9 @@ class ApplicationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        return view('menu.background.application.add');
+        return view('menu.background.application.add',compact('id'));
     }
 
     /**
@@ -50,7 +50,7 @@ class ApplicationController extends Controller
         $application->status               = "pending";
         $application->save();
 
-        return redirect()->route('applicationlist',$application->id_customer)->with('success', 'Data berhasil ditambahkan !');
+        return redirect()->route('application.show',$application->id_customer)->with('success', 'Data berhasil ditambahkan !');
     }
 
     /**
@@ -63,7 +63,7 @@ class ApplicationController extends Controller
     {
         // $id_customer = $request->route()->parameter('id');
         if ($request->ajax()) {
-            $detail = Application::latest()->where('id',$id)->get();
+            $detail = Application::latest()->where('id_customer',$id)->get();
             return Datatables::of($detail)
                 ->addIndexColumn()
                 ->addColumn('plafond', function ($row) {
@@ -93,7 +93,7 @@ class ApplicationController extends Controller
      */
     public function edit(Application $application)
     {
-        //
+        return view('menu.background.application.edit', compact('application'));
     }
 
     /**
@@ -105,7 +105,17 @@ class ApplicationController extends Controller
      */
     public function update(Request $request, Application $application)
     {
-        //
+        $application->application_date     = $request->application_date_column; // "name" diambil dari name bukan dari id
+        $application->analysis_date        = $request->analysis_date_column;
+        $application->plafond              = $request->plafond_column;
+        $application->time_period          = $request->time_period_column;
+        $application->credit_type          = $request->credit_type_column;
+        $application->application_type     = $request->application_type_column;
+        $application->purpose              = $request->purpose_column;
+        $application->purpose_description  = $request->purpose_description_column;
+        $application->save();
+
+        return redirect()->route('application.show',$application->id_customer)->with('edit', 'Data berhasil diedit !');
     }
 
     /**

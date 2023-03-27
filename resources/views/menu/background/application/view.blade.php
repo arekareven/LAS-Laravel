@@ -25,7 +25,7 @@
                 <div class="row">
                     <div class="col-12 col-md-6 order-md-1 order-last">
                         <h5>Daftar Pengajuan</h5>
-                        <a href="{{ route("application.create") }}" class="btn btn-primary mb-3">Tambah</a>
+                        <a href="{{ url("applicationcreate",$id) }}" class="btn btn-primary mb-3">Tambah</a>
                     </div>
                 </div>
             </div>
@@ -51,7 +51,6 @@
                 </div>
             </section>
         </div>
-
     </div>
 @endsection
 

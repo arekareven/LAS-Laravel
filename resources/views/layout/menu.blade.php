@@ -30,6 +30,21 @@
             </ul>
         </li>
 
+        <li class="sidebar-item has-sub {{ ($segment == 'customer') ? 'active' : '' }}">
+            <a href="#" class='sidebar-link'>
+                <i class="bi bi-stack"></i>
+                <span>Admin</span>
+            </a>
+            <ul class="submenu {{ ($segment == 'customer') ? 'active' : '' }}">
+                <li class="submenu-item {{ $segment == 'customer' ? 'active' : ''  }}">
+                    <a href={{ route('users.index') }}>Management User</a>
+                </li>
+                <li class="submenu-item {{ $segment == 'mate' ? 'active' : ''  }}">
+                    <a href={{ route('roles.index') }}>Management Role</a>
+                </li>
+            </ul>
+        </li>
+
         <li class="sidebar-item has-sub">
             <a href="#" class='sidebar-link'>
                 <i class="bi bi-collection-fill"></i>

@@ -8,6 +8,14 @@ use Yajra\Datatables\Datatables;
 
 class CustomerController extends Controller
 {
+    function __construct()
+    {
+         $this->middleware('permission:customer-list|customer-create|customer-edit|customer-delete', ['only' => ['index','show']]);
+         $this->middleware('permission:customer-create', ['only' => ['create','store']]);
+         $this->middleware('permission:customer-edit', ['only' => ['edit','update']]);
+         $this->middleware('permission:customer-delete', ['only' => ['destroy']]);
+    }
+
     public function index(Request $request)
     {
         if ($request->ajax()) {
@@ -37,22 +45,11 @@ class CustomerController extends Controller
         return view('menu.background.customer.view');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('menu.background.customer.add');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $customer                           = new Customer();
@@ -87,23 +84,11 @@ class CustomerController extends Controller
         return redirect()->route('customer.index')->with('success', 'Data '.$request->name_column.' berhasil ditambahkan !');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Customer  $customer
-     * @return \Illuminate\Http\Response
-     */
     public function show(Customer $customer,$id)
     {
         dd($id);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Customer  $customer
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Customer $customer)
     {
         // $get_customer = Customer::find($id_customer);
@@ -111,13 +96,6 @@ class CustomerController extends Controller
         // return response()->json($customer);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Customer  $customer
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Customer $customer)
     {
 
@@ -153,16 +131,9 @@ class CustomerController extends Controller
         return redirect()->route('customer.index')->with('edit', 'Data '.$customer->name.' berhasil dirubah !');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Customer  $customer
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         Customer::find($id)->delete();
-
         // return redirect()->route('customer.index')->with('delete', 'Data '.$id.' berhasil dihapus !');
         return response()->json(['success' => 'Customer deleted successfully.']);
     }

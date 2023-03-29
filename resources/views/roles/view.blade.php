@@ -18,14 +18,14 @@
                 </div>
             </div>
         @endif
-        <div id="delete">
-        </div>
+        {{-- <div id="delete">
+        </div> --}}
         <div class="page-heading">
             <div class="page-title">
                 <div class="row">
                     <div class="col-12 col-md-6 order-md-1 order-last">
-                        <h5>Users Management</h5>
-                        <a href="{{ route('users.create') }}" class="btn btn-primary mb-3">Tambah</a>
+                        <h5>Roles Management</h5>
+                        <a href="{{ route('roles.create') }}" class="btn btn-primary mb-3">Tambah</a>
                     </div>
                 </div>
             </div>
@@ -33,36 +33,30 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-striped data-table-user" style="width:100%">
+                            <table class="table table-striped data-table-role" style="width:100%">
                                 <thead>
                                     <tr>
                                         <th scope="col">No</th>
                                         <th scope="col">Nama</th>
-                                        <th scope="col">Email</th>
-                                        <th scope="col">Role</th>
                                         <th scope="col">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($data as $key => $user)
-                                        <tr>
-                                            <td>{{ ++$i }}</td>
-                                            <td>{{ $user->name }}</td>
-                                            <td>{{ $user->email }}</td>
-                                            <td>
-                                                @if(!empty($user->getRoleNames()))
-                                                    @foreach($user->getRoleNames() as $v)
-                                                        <label class="badge bg-success">{{ $v }}</label>
-                                                    @endforeach
-                                                @endif
-                                            </td>
-                                            <td>
-                                                <a class="btn btn-warning btn-sm" href="{{ route('users.edit',$user->id) }}"><i class="bi bi-pencil-square"></i></a>
-                                                    {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
-                                                        {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
-                                                    {!! Form::close() !!}
-                                            </td>
-                                        </tr>
+                                    @foreach ($roles as $key => $role)
+                                    <tr>
+                                        <td>{{ ++$i }}</td>
+                                        <td>{{ $role->name }}</td>
+                                        <td>
+                                            @can('role-edit')
+                                                <a class="btn btn-warning btn-sm" href="{{ route('roles.edit',$role->id) }}"><i class="bi bi-pencil-square"></i></a>
+                                            @endcan
+                                            @can('role-delete')
+                                                {!! Form::open(['method' => 'DELETE','route' => ['roles.destroy', $role->id],'style'=>'display:inline']) !!}
+                                                    {!! Form::submit('Delete', ['class' => 'btn btn-sm btn-danger']) !!}
+                                                {!! Form::close() !!}
+                                            @endcan
+                                        </td>
+                                    </tr>
                                     @endforeach
                                 </tbody>
                             </table>
@@ -92,10 +86,10 @@
             });
 
             // Render DataTable
-            var table = $('.data-table-user').DataTable({
+            var table = $('.data-table-role').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('users.index') }}",
+                ajax: "{{ route('roles.index') }}",
                 columns: [{
                         data: 'DT_RowIndex',
                         name: 'DT_RowIndex'
@@ -103,14 +97,6 @@
                     {
                         data: 'name',
                         name: 'name'
-                    },
-                    {
-                        data: 'email',
-                        name: 'email'
-                    },
-                    {
-                        data: 'jabatan',
-                        name: 'jabatan'
                     },
                     {
                         data: 'action',
@@ -129,7 +115,7 @@
                 if(confirm(text) == true){
                     $.ajax({
                         type: "DELETE",
-                        url: "{{ route('application.store') }}" + '/' + id,
+                        url: "{{ route('roles.destroy') }}" + '/' + id,
                         success: function(data) {
                             table.draw();
                             document.getElementById("delete").innerHTML =

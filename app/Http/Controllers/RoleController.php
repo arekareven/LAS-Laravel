@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use Yajra\DataTables\DataTables;
 
 class RoleController extends Controller
 {
@@ -20,14 +21,32 @@ class RoleController extends Controller
     public function index(Request $request)
     {
         $roles = Role::orderBy('id','DESC')->paginate(5);
-        return view('roles.index',compact('roles'))
+        return view('roles.view',compact('roles'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
+
+        // if ($request->ajax()) {
+        //     $data = Role::latest()->get();
+        //     return DataTables::of($data)
+        //         ->addIndexColumn()
+        //         ->addColumn('action', function ($row) {
+
+        //             $btn = '<a href="' . route('roles.edit', $row->id) . '" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i></a>';
+        //             $btn .= ' ';
+        //             $btn .= '<a href="javascript:void(0)" data-id="' . $row->id . '" class="btn btn-sm btn-danger deleteCustomer"><i class="bi bi-trash3-fill"></i></a>';
+
+        //             return $btn;
+        //         })
+        //         ->rawColumns(['action'])
+        //         ->make(true);
+        // }
+
+        // return view('roles.view');
     }
 
     public function create()
     {
         $permission = Permission::get();
-        return view('roles.create',compact('permission'));
+        return view('roles.add',compact('permission'));
     }
 
     public function store(Request $request)

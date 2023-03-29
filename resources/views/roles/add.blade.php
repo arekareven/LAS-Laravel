@@ -8,7 +8,7 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h5>EDIT DATA ROLE</h5>
+                    <h5>INPUT DATA NEW ROLE</h5>
                     <a class="btn btn-primary mb-3" href="{{ route('roles.index') }}"> Kembali</a>
                 </div>
             </div>
@@ -26,7 +26,7 @@
                                             role="tab" aria-controls="data_diri" aria-selected="true"><h6>Role</h6></a>
                                     </li>
                                 </ul>
-                                {!! Form::model($role, ['method' => 'PATCH','route' => ['roles.update', $role->id]]) !!}
+                                {!! Form::open(array('route' => 'roles.store','method'=>'POST')) !!}
                                     <div class="tab-content" id="nav-tabContent">
                                         <div class="tab-pane fade show active" id="data_diri" role="tabpanel">
                                             <div class="row">
@@ -41,7 +41,7 @@
                                                         <label for="time_period">Permission</label>
                                                         <br/>
                                                         @foreach($permission as $value)
-                                                            <label>{{ Form::checkbox('permission[]', $value->id, in_array($value->id, $rolePermissions) ? true : false, array('class' => 'form-check-input form-check-success form-check-glow')) }}
+                                                            <label>{{ Form::checkbox('permission[]', $value->id, false, array('class' => 'form-check-input form-check-success form-check-glow')) }}
                                                             {{ $value->name }}</label>
                                                         <br/>
                                                         @endforeach
@@ -53,7 +53,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                {!! Form::close() !!}
+                                    {!! Form::close() !!}
                             </div>
                         </div>
                     </div>

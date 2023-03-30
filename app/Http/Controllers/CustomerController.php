@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Customer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Yajra\Datatables\Datatables;
 
 class CustomerController extends Controller
@@ -19,7 +20,7 @@ class CustomerController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Customer::latest()->get();
+            $data = Customer::latest()->where('user',Auth::user()->email)->get();
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('name', function ($row) {
@@ -32,6 +33,7 @@ class CustomerController extends Controller
                 ->addColumn('action', function ($row) {
 
                     $btn = '<a href="' . route('customer.edit', $row->id) . '" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i></a>';
+                    $btn .= ' ';
                     $btn .= '<a href="javascript:void(0)" data-id="' . $row->id . '" class="btn btn-sm btn-danger deleteCustomer"><i class="bi bi-trash3-fill"></i></a>';
                     // $btn .= '<a href="javascript:void(0)" data-id="' . $row->id . '" class="btn btn-sm btn-success"><i class="bi bi-check-lg"></i></a>';
 
@@ -41,7 +43,6 @@ class CustomerController extends Controller
                 ->make(true);
         }
 
-        // return ('apa ini');
         return view('menu.background.customer.view');
     }
 

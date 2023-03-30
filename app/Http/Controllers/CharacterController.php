@@ -12,9 +12,9 @@ class CharacterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+        return view('menu.character.view',compact('id'));
     }
 
     /**

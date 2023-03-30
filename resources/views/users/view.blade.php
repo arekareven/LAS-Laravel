@@ -109,8 +109,8 @@
                         name: 'email'
                     },
                     {
-                        data: 'jabatan',
-                        name: 'jabatan'
+                        data: 'area_kerja',
+                        name: 'area_kerja'
                     },
                     {
                         data: 'action',

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ApplicationController;
+use App\Http\Controllers\CharacterController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
@@ -25,9 +26,11 @@ Route::middleware('auth')->group(function () {
     Route::resource('users', UserController::class);
     Route::resource('customer', CustomerController::class);
     Route::resource('application', ApplicationController::class);
+    Route::resource('character', CharacterController::class);
 
     Route::get('applicationcreate/{id}', [ApplicationController::class, 'create']);
     Route::get('applicationlist/{id}', [ApplicationController::class, 'show']);
+    Route::get('characterlist/{id}', [CharacterController::class, 'index']);
 
 });
 

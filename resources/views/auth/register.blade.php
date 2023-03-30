@@ -9,11 +9,11 @@
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
-        <!-- Jabatan -->
+        <!-- Area_kerja -->
         <div class="mt-4">
-            <x-input-label for="jabatan" :value="__('Jabatan')" />
-            <x-text-input id="jabatan" class="block mt-1 w-full" type="text" name="jabatan" :value="old('jabatan')" required autofocus autocomplete="jabatan" />
-            <x-input-error :messages="$errors->get('jabatan')" class="mt-2" />
+            <x-input-label for="area_kerja" :value="__('Area_kerja')" />
+            <x-text-input id="area_kerja" class="block mt-1 w-full" type="text" name="area_kerja" :value="old('area_kerja')" required autofocus autocomplete="area_kerja" />
+            <x-input-error :messages="$errors->get('area_kerja')" class="mt-2" />
         </div>
 
         <!-- Email Address -->

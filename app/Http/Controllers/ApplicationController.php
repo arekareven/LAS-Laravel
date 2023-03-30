@@ -68,13 +68,14 @@ class ApplicationController extends Controller
                 ->addIndexColumn()
                 ->addColumn('plafond', function ($row) {
 
-                    $plafond = '<a href="' . route('application.edit', $row->id) . '" >'.'Rp. '.number_format($row->plafond).'</a>';
+                    $plafond = '<a href="' . url('characterlist', $row->id) . '" >'.'Rp. '.number_format($row->plafond).'</a>';
 
                     return $plafond;
                 })
                 ->addColumn('action', function ($row) {
 
                     $btn = '<a href="' . route('application.edit', $row->id) . '" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i></a>';
+                    $btn .= ' ';
                     $btn .= '<a href="javascript:void(0)" data-id="' . $row->id . '" class="btn btn-sm btn-danger deleteApplication"><i class="bi bi-trash3-fill"></i></a>';
 
                     return $btn;

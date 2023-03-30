@@ -44,8 +44,17 @@
                                                 </div>
                                                 <div class="col-md-6 col-12">
                                                     <div class="form-group col-md-10">
-                                                        <label for="jabatan">Jabatan</label>
-                                                        {!! Form::select('jabatan[]', $roles,[], array('class' => 'form-select')) !!}
+                                                        <label for="area_kerja">Area Kerja</label>
+                                                        <select class="form-select" aria-label="Default select example" id="area_kerja" name="area_kerja">
+                                                            <option value=""></option>
+                                                            <option value="KCU">KCU</option>
+                                                            <option value="KCMDN">KCMDN</option>
+                                                            <option value="KCPNG">KCPNG</option>
+                                                            <option value="KCNGJ">KCNGJ</option>
+                                                            <option value="KCNGW">KCNGW</option>
+                                                            <option value="KCTRG">KCTRG</option>
+                                                        </select>
+                                                        {{-- {!! Form::select('jabatan[]', $roles,[], array('class' => 'form-select')) !!} --}}
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-12">
@@ -63,7 +72,7 @@
 
                                                 <div class="col-md-6 col-12">
                                                     <div class="form-group col-md-10">
-                                                        <label for="jabatan">Roles</label>
+                                                        <label for="roles">Roles</label>
                                                         {!! Form::select('roles[]', $roles,[], array('class' => 'form-select')) !!}
                                                     </div>
                                                 </div>

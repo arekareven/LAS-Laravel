@@ -2,12 +2,6 @@
 
 @section('content')
     <div id="main-content">
-        <header class="mb-3">
-            <a href="#" class="burger-btn d-block d-xl-none">
-                <i class="bi bi-justify fs-3"></i>
-            </a>
-        </header>
-
         <div class="page-heading">
             <h3>Statistics</h3>
         </div>
@@ -54,7 +48,7 @@
                                 <div class="card-body px-3 py-4-5">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <div class="stats-icon green">
+                                            <div class="stats-icon red">
                                                 <i class="fas fa-exclamation-triangle"></i>
                                             </div>
                                         </div>
@@ -71,7 +65,7 @@
                                 <div class="card-body px-3 py-4-5">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <div class="stats-icon red">
+                                            <div class="stats-icon green">
                                                 <i class="fas fa-user-check"></i>
                                             </div>
                                         </div>
@@ -85,13 +79,13 @@
                         </div>
                     </div>
                     {{-- <div class="row">
-                        <div class="col-12">
+                        <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4>Profile Visit</h4>
+                                    <h4>Line Area Chart</h4>
                                 </div>
                                 <div class="card-body">
-                                    <div id="chart-profile-visit"></div>
+                                    <div id="area"></div>
                                 </div>
                             </div>
                         </div>

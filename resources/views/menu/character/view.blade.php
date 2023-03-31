@@ -2,203 +2,278 @@
 
 {{-- content --}}
 @section('content')
-
 <div id="main-content">
+    <header class="mb-3">
+        <a href="#" class="burger-btn d-block d-xl-none">
+            <i class="bi bi-justify fs-3"></i>
+        </a>
+    </header>
+
     <div class="page-heading">
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h5>INPUT DATA 5C</h5>
+                    <h3>5 C</h3>
                 </div>
             </div>
         </div>
-        <section id="multiple-column-form">
-            <div class="row match-height">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="card-body">
-                                <ul class="nav nav-tabs nav-fill mb-3" id="myTab" role="tablist">
-                                    <li class="nav-item" role="presentation">
-                                        <a class="nav-link active" id="character-tab" data-bs-toggle="tab" href="#character"
-                                            role="tab" aria-controls="character" aria-selected="true"><h6>Character</h6></a>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <a class="nav-link" id="capacity-tab" data-bs-toggle="tab" href="#capacity"
-                                            role="tab" aria-controls="capacity" aria-selected="false"><h6>Capacity</h6></a>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <a class="nav-link" id="capital-tab" data-bs-toggle="tab" href="#capital"
-                                            role="tab" aria-controls="capital" aria-selected="false"><h6>Capital</h6></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+        <section class="section">
+            <div class="row">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Input Data 5C</h4>
                     </div>
-
-                    <form action="{{ route('customer.store') }}" method="post">
-                        @csrf
-                        <div class="was-validated tab-content" id="nav-tabContent">
-                            <div class="tab-pane fade show active" id="character" role="tabpanel">
-                                <div class="row">
-                                    <div class="col-md-6 col-12">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <div class="form-group">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-2">
+                                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
+                                    aria-orientation="vertical">
+                                    <a class="nav-link active" id="v-pills-riwayat-pinjaman-tab" data-bs-toggle="pill"
+                                        href="#v-pills-riwayat-pinjaman" role="tab" aria-controls="v-pills-riwayat-pinjaman"
+                                        aria-selected="true">Riwayat Pinjaman</a>
+                                    <a class="nav-link" id="v-pills-character-tab" data-bs-toggle="pill"
+                                        href="#v-pills-character" role="tab" aria-controls="v-pills-character"
+                                        aria-selected="true">Character</a>
+                                    <a class="nav-link" id="v-pills-capacity-tab" data-bs-toggle="pill"
+                                        href="#v-pills-capacity" role="tab" aria-controls="v-pills-capacity"
+                                        aria-selected="false">Capacity</a>
+                                    <a class="nav-link" id="v-pills-capital-tab" data-bs-toggle="pill"
+                                        href="#v-pills-capital" role="tab" aria-controls="v-pills-capital"
+                                        aria-selected="false">Capital</a>
+                                    <a class="nav-link" id="v-pills-cashflow-tab" data-bs-toggle="pill"
+                                        href="#v-pills-cashflow" role="tab" aria-controls="v-pills-cashflow"
+                                        aria-selected="false">Cashflow</a>
+                                    <a class="nav-link" id="v-pills-collateral-tab" data-bs-toggle="pill"
+                                        href="#v-pills-collateral" role="tab" aria-controls="v-pills-collateral"
+                                        aria-selected="false">Collateral</a>
+                                    <a class="nav-link" id="v-pills-usulan-tab" data-bs-toggle="pill"
+                                        href="#v-pills-usulan" role="tab" aria-controls="v-pills-usulan"
+                                        aria-selected="false">Usulan</a>
+                                    <a class="nav-link" id="v-pills-upload-tab" data-bs-toggle="pill"
+                                        href="#v-pills-upload" role="tab" aria-controls="v-pills-upload"
+                                        aria-selected="false">Upload Berkas</a>
+                                    <a class="nav-link" id="v-pills-cetak-tab" data-bs-toggle="pill"
+                                        href="#v-pills-cetak" role="tab" aria-controls="v-pills-cetak"
+                                        aria-selected="false">Cetak</a>
+                                </div>
+                            </div>
+                            <div class="col-10">
+                                <div class="tab-content" id="v-pills-tabContent">
+                                    {{-- riwayat-pinjaman --}}
+                                    <div class="tab-pane fade show active" id="v-pills-riwayat-pinjaman" role="tabpanel"
+                                        aria-labelledby="v-pills-riwayat-pinjaman-tab">
+                                        <div class="row">
+                                            {{-- form --}}
+                                            <div class="col-md-6 col-12">
+                                                {{-- nama --}}
+                                                <div class="form-group col-md-10">
                                                     <label for="name">Nama</label>
+                                                    <input type="hidden" id="user" class="form-control" name="user_column" value="{{ Auth::user()->email }}" required>
                                                     <input type="text" id="name" class="form-control"
                                                         placeholder="Nama Nasabah" name="name_column" required>
                                                     <div class="invalid-feedback">
                                                         Isian nama tidak boleh kosong
                                                     </div>
                                                 </div>
-                                                <div class="form-group">
+                                                {{-- tempat lahir --}}
+                                                <div class="form-group col-md-10">
                                                     <label for="place_of_birth">Tempat Lahir</label>
                                                     <input type="text" id="place_of_birth" class="form-control"
                                                         placeholder="Kota" name="place_of_birth_column" required>
-                                                    <div class="invalid-feedback">Isian tempat lahir tidak boleh kosong</div></div>
+                                                    <div class="invalid-feedback">Isian tempat lahir tidak boleh kosong</div>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label for="place_of_birth">Tempat Lahir</label>
-                                                    <input type="text" id="place_of_birth" class="form-control"
-                                                        placeholder="Kota" name="place_of_birth_column" required>
-                                                    <div class="invalid-feedback">Isian tempat lahir tidak boleh kosong</div></div>
+                                                {{-- tanggal lahir --}}
+                                                <div class="form-group col-md-10">
+                                                    <label for="date_of_birth">Tanggal Lahir</label>
+                                                    <input type="date" id="date_of_birth" class="form-control"
+                                                        placeholder="City" name="date_of_birth_column" required>
+                                                    <div class="invalid-feedback">Isian tanggal lahir tidak boleh kosong</div>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label for="place_of_birth">Tempat Lahir</label>
-                                                    <input type="text" id="place_of_birth" class="form-control"
-                                                        placeholder="Kota" name="place_of_birth_column" required>
-                                                    <div class="invalid-feedback">Isian tempat lahir tidak boleh kosong</div></div>
+                                                {{-- status --}}
+                                                <div class="form-group col-md-10">
+                                                    <label for="marital_status">Status</label>
+                                                    <select class="form-select" aria-label="Default select example" id="marital_status" name="marital_status_column" required>
+                                                        <option value=""></option>
+                                                        <option value="Menikah">Menikah</option>
+                                                        <option value="Duda">Duda</option>
+                                                        <option value="Janda">Janda</option>
+                                                        <option value="Lajang">Lajang</option>
+                                                    </select>
+                                                    <div class="invalid-feedback">Isian status tidak boleh kosong</div>
+                                                </div>
+                                                {{-- no ktp --}}
+                                                <div class="form-group col-md-10">
+                                                    <label for="id_card_number">No KTP / NIK</label>
+                                                    <input type="number" id="id_card_number" class="form-control"
+                                                        name="id_card_number_column" placeholder="NIK" required>
+                                                    <div class="invalid-feedback">Isian NIK tidak boleh kosong</div>
+                                                </div>
+                                                {{-- no tlp --}}
+                                                <div class="form-group col-md-10">
+                                                    <label for="phone_number">No Tlp</label>
+                                                    <input type="number" id="phone_number" class="form-control"
+                                                        placeholder="Nomor HP" name="phone_number_column" required>
+                                                    <div class="invalid-feedback">
+                                                        Isian no tlp tidak boleh kosong
+                                                    </div>
+                                                </div>
+                                                {{-- profesi --}}
+                                                <div class="form-group col-md-10">
+                                                    <label for="profession">Profesi</label>
+                                                    <input type="text" id="profession" class="form-control"
+                                                        placeholder="Profesi" name="profession_column" required>
+                                                    <div class="invalid-feedback">Isian Profession tidak boleh kosong</div>
+                                                </div>
+                                                {{-- status residence --}}
+                                                <div class="form-group col-md-10">
+                                                    <label for="status_of_residence">Status Tempat Tinggal</label>
+                                                    <select class="form-select" aria-label="Default select example" id="status_of_residence" name="status_of_residence_column" required>
+                                                        <option value=""></option>
+                                                        <option value="Milik Sendiri">Milik Sendiri</option>
+                                                        <option value="Milik Keluarga">Milik Keluarga</option>
+                                                        <option value="Instansi">Instansi</option>
+                                                        <option value="Kontrak">Kontrak</option>
+                                                        <option value="Kredit">Kredit</option>
+                                                    </select>
+                                                    <div class="invalid-feedback">Isian status tidak boleh kosong</div>
+                                                </div>
+                                            </div>
+                                            {{-- table --}}
+                                            <div class="col-md-6 col-12">
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped data-table" style="width:100%">
+                                                        <thead>
+                                                            <tr>
+                                                                <th scope="col">Plafond</th>
+                                                                <th scope="col">Status</th>
+                                                                <th scope="col">Saldo</th>
+                                                                <th scope="col">Aksi</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    <a href="#">{{ number_format(100000000) }}</a>
+                                                                </td>
+                                                                <td>Lunas</td>
+                                                                <td>{{ number_format(0) }}</td>
+                                                                <td>
+                                                                    <button type="button" class="btn btn-danger btn-sm">
+                                                                        <i class="fas fa-trash"></i>
+                                                                    </button>
+                                                                </td>
+                                                              </tr>
+                                                              <tr>
+                                                                <td>
+                                                                    <a href="#">{{ number_format(200000000) }}</a>
+                                                                </td>
+                                                                <td>Belum Lunas</td>
+                                                                <td>{{ number_format(0) }}</td>
+                                                                <td>
+                                                                    <button type="button" class="btn btn-danger btn-sm">
+                                                                        <i class="fas fa-trash"></i>
+                                                                    </button>
+                                                                </td>
+                                                              </tr>
+                                                              <tr>
+                                                                <td>
+                                                                    <a href="#">{{ number_format(75000000) }}</a>
+                                                                </td>
+                                                                <td>Lunas</td>
+                                                                <td>{{ number_format(10000000) }}</td>
+                                                                <td>
+                                                                    <button type="button" class="btn btn-danger btn-sm">
+                                                                        <i class="fas fa-trash"></i>
+                                                                    </button>
+                                                                </td>
+                                                              </tr>
+                                                        </tbody>
+                                                    </table>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <table>
-
-                                                </table>
-                                            </div>
-                                        </div>
-                                </div>
-                            <div class="tab-pane fade" id="capacity" role="tabpanel">
-                                <div class="row">
-                                    <div class="col-md-6 col-12">
-                                        <div class="form-group col-md-10">
-                                            <label for="mate_name">Nama</label>
-                                            <input type="text" id="mate_name" class="form-control"
-                                                placeholder="Nama Nasabah" name="mate_name_column" required>
-                                            <div class="invalid-feedback">
-                                                Isian nama tidak boleh kosong
-                                            </div>
-                                        </div>
                                     </div>
-                                    <div class="col-md-6 col-12">
-                                        <div class="form-group col-md-10">
-                                            <label for="mate_place_of_birth">Tempat Lahir</label>
-                                            <input type="text" id="mate_place_of_birth" class="form-control"
-                                                placeholder="Kota" name="mate_place_of_birth_column" required>
-                                            <div class="invalid-feedback">Isian tempat lahir tidak boleh kosong</div></div>
+                                    {{-- character --}}
+                                    <div class="tab-pane fade" id="v-pills-character" role="tabpanel"
+                                        aria-labelledby="v-pills-character-tab">
+                                        Integer interdum diam eleifend metus lacinia, quis gravida eros
+                                        mollis. Fusce
+                                        non sapien sit amet magna dapibus
+                                        ultrices. Morbi tincidunt magna ex, eget faucibus sapien bibendum
+                                        non. Duis a
+                                        mauris ex. Ut finibus risus sed massa
+                                        mattis porta. Aliquam sagittis massa et purus efficitur ultricies.
                                     </div>
-                                    <div class="col-md-6 col-12">
-                                        <div class="form-group col-md-10">
-                                            <label for="mate_date_of_birth">Tanggal Lahir</label>
-                                            <input type="date" id="mate_date_of_birth" class="form-control"
-                                                placeholder="City" name="mate_date_of_birth_column" required>
-                                            <div class="invalid-feedback">Isian tanggal lahir tidak boleh kosong</div>
-                                        </div>
+                                    {{-- capacity --}}
+                                    <div class="tab-pane fade" id="v-pills-capacity" role="tabpanel"
+                                        aria-labelledby="v-pills-capacity-tab">
+                                        Integer interdum diam eleifend metus lacinia, quis gravida eros
+                                        mollis. Fusce
+                                        non sapien sit amet magna dapibus
+                                        ultrices. Morbi tincidunt magna ex, eget faucibus sapien bibendum
+                                        non. Duis a
+                                        mauris ex. Ut finibus risus sed massa
+                                        mattis porta. Aliquam sagittis massa et purus efficitur ultricies.
                                     </div>
-                                    <div class="col-md-6 col-12">
-                                        <div class="form-group col-md-10">
-                                            <label for="mate_phone_number">No Tlp</label>
-                                            <input type="number" id="mate_phone_number" class="form-control"
-                                                placeholder="Nomor HP" name="mate_phone_number_column" required>
-                                            <div class="invalid-feedback">
-                                                Isian no tlp tidak boleh kosong
-                                            </div>
-                                        </div>
+                                    {{-- capital --}}
+                                    <div class="tab-pane fade" id="v-pills-capital" role="tabpanel"
+                                        aria-labelledby="v-pills-capital-tab">
+                                        Integer pretium dolor at sapien laoreet ultricies. Fusce congue et
+                                        lorem id
+                                        convallis. Nulla volutpat tellus nec
+                                        molestie finibus. In nec odio tincidunt eros finibus ullamcorper. Ut
+                                        sodales,
+                                        dui nec posuere finibus, nisl sem aliquam
+                                        metus, eu accumsan lacus felis at odio.
                                     </div>
-                                    <div class="col-md-6 col-12">
-                                        <div class="form-group col-md-10">
-                                            <label for="mate_profession">Profesi</label>
-                                            <input type="text" id="mate_profession" class="form-control"
-                                                placeholder="Profesi" name="mate_profession_column" required>
-                                            <div class="invalid-feedback">Isian Profession tidak boleh kosong</div></div>
+                                    {{-- cashflow --}}
+                                    <div class="tab-pane fade" id="v-pills-cashflow" role="tabpanel"
+                                        aria-labelledby="v-pills-cashflow-tab">
+                                        Sed lacus quam, convallis quis condimentum ut, accumsan congue
+                                        massa.
+                                        Pellentesque et quam vel massa pretium ullamcorper
+                                        vitae eu tortor.
                                     </div>
-                                    <div class="form-group col-12">
-                                        <div class="form-group">
-                                            <label for="mate_residence_address">Alamat Domisili</label>
-                                            <textarea id="mate_residence_address" class="form-control"
-                                                name="mate_residence_address_column" placeholder="Alamat Domisili" required></textarea>
-                                            <div class="invalid-feedback">Isian alamat tidak boleh kosong</div>
-                                        </div>
+                                    {{-- collateral --}}
+                                    <div class="tab-pane fade" id="v-pills-collateral" role="tabpanel"
+                                        aria-labelledby="v-pills-collateral-tab">
+                                        Sed lacus quam, convallis quis condimentum ut, accumsan congue
+                                        massa.
+                                        Pellentesque et quam vel massa pretium ullamcorper
+                                        vitae eu tortor.
                                     </div>
-                                    <div class="form-group col-12">
-                                        <div class="form-group">
-                                            <label for="mate_id_card_address">Alamat Sesuai KTP</label>
-                                            <textarea id="mate_id_card_address" class="form-control"
-                                                name="mate_id_card_address_column" placeholder="Alamat sesuai KTP" required></textarea>
-                                            <div class="invalid-feedback">Isian alamat tidak boleh kosong</div>
-                                        </div>
+                                    {{-- usulan --}}
+                                    <div class="tab-pane fade" id="v-pills-usulan" role="tabpanel"
+                                        aria-labelledby="v-pills-usulan-tab">
+                                        Sed lacus quam, convallis quis condimentum ut, accumsan congue
+                                        massa.
+                                        Pellentesque et quam vel massa pretium ullamcorper
+                                        vitae eu tortor.
                                     </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="capital" role="tabpanel">
-                                <div class="row">
-                                    <div class="col-md-6 col-12">
-                                        <div class="form-group col-md-10">
-                                            <label for="family_name">Nama</label>
-                                            <input type="text" id="family_name" class="form-control"
-                                                placeholder="Nama Nasabah" name="family_name_column" required>
-                                            <div class="invalid-feedback">
-                                                Isian nama tidak boleh kosong
-                                            </div>
-                                        </div>
+                                    {{-- upload --}}
+                                    <div class="tab-pane fade" id="v-pills-upload" role="tabpanel"
+                                        aria-labelledby="v-pills-upload-tab">
+                                        Sed lacus quam, convallis quis condimentum ut, accumsan congue
+                                        massa.
+                                        Pellentesque et quam vel massa pretium ullamcorper
+                                        vitae eu tortor.
                                     </div>
-                                    <div class="col-md-6 col-12">
-                                        <div class="form-group">
-                                            <label for="family_phone_number">No Tlp</label>
-                                            <input type="number" id="family_phone_number" class="form-control"
-                                                placeholder="Nomor HP" name="family_phone_number_column" required>
-                                            <div class="invalid-feedback">
-                                                Isian no tlp tidak boleh kosong
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-12">
-                                        <div class="form-group col-md-10">
-                                            <label for="family_relationship">Hubungan Keluarga</label>
-                                            <select class="form-select" aria-label="Default select example" id="family_relationship" name="family_relationship_column" required>
-                                                <option value=""></option>
-                                                <option value="Anak Kandung">Anak Kandung</option>
-                                                <option value="Orang Tua">Orang Tua</option>
-                                                <option value="Saudara Kandung">Saudara Kandung</option>
-                                                <option value="Saudara Tidak Sekandung">Saudara Tidak Sekandung</option>
-                                                <option value="Tetangga">Tetangga</option>
-                                                <option value="Rekan Kerja">Rekan Kerja</option>
-                                            </select>
-                                            <div class="invalid-feedback">Isian Hubungan Keluarga tidak boleh kosong</div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-12">
-                                        <div class="form-group">
-                                            <label for="family_residence_address">Alamat Domisili</label>
-                                            <textarea id="family_residence_address" class="form-control"
-                                                name="family_residence_address_column" placeholder="Alamat Domisili" required></textarea>
-                                            <div class="invalid-feedback">Isian alamat tidak boleh kosong</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 d-flex justify-content-end">
-                                        <button type="submit" class="btn btn-primary me-1 mb-1">Simpan</button>
+                                    {{-- cetak --}}
+                                    <div class="tab-pane fade" id="v-pills-cetak" role="tabpanel"
+                                        aria-labelledby="v-pills-cetak-tab">
+                                        Sed lacus quam, convallis quis condimentum ut, accumsan congue
+                                        massa.
+                                        Pellentesque et quam vel massa pretium ullamcorper
+                                        vitae eu tortor.
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </section>
     </div>
-
 </div>
 
 @endsection

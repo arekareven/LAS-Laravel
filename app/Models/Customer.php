@@ -18,7 +18,9 @@ class Customer extends Model
         'family_relationship', 'family_residence_address', 'family_phone_number'
     ];
 
-    public function application(){
-        return $this->hasOne(Application::class, 'customer_id', 'id')->withDefault();
+
+    public function pengajuan()
+    {
+        return $this->hasMany(Application::class, 'id_customer', 'id');
     }
 }

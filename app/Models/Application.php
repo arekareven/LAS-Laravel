@@ -15,7 +15,4 @@ class Application extends Model
         'status'
     ];
 
-    public function suamiIstri(){
-        return $this->hasOne(Suami_istri::class, 'nasabah_id', 'id')->withDefault();
-    }
 }

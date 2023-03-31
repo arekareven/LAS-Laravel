@@ -80,6 +80,7 @@ class CustomerController extends Controller
         $customer->family_relationship      = $request->family_relationship_column;
         $customer->family_residence_address = $request->family_residence_address_column;
         $customer->family_phone_number      = $request->family_phone_number_column;
+        $customer->user                     = $request->user_column;
         $customer->save();
 
         return redirect()->route('customer.index')->with('success', 'Data '.$request->name_column.' berhasil ditambahkan !');

@@ -12,7 +12,6 @@
                 </div>
             </div>
         </div>
-        <!-- // Basic multiple Column Form section start -->
         <section id="multiple-column-form">
             <div class="row match-height">
                 <div class="col-12">
@@ -50,6 +49,7 @@
                                                 <div class="col-md-6 col-12">
                                                     <div class="form-group col-md-10">
                                                         <label for="name">Nama</label>
+                                                        <input type="hidden" id="user" class="form-control" name="user_column" value="{{ Auth::user()->email }}" required>
                                                         <input type="text" id="name" class="form-control"
                                                             placeholder="Nama Nasabah" name="name_column" required>
                                                         <div class="invalid-feedback">
@@ -108,7 +108,8 @@
                                                         <label for="profession">Profesi</label>
                                                         <input type="text" id="profession" class="form-control"
                                                             placeholder="Profesi" name="profession_column" required>
-                                                        <div class="invalid-feedback">Isian Profession tidak boleh kosong</div></div>
+                                                        <div class="invalid-feedback">Isian Profession tidak boleh kosong</div>
+                                                    </div>
                                                 </div>
                                                 <div class="col-md-6 col-12">
                                                     <div class="form-group col-md-10">

@@ -64,7 +64,7 @@
                                         aria-labelledby="v-pills-riwayat-pinjaman-tab">
                                         <div class="row">
                                             {{-- form --}}
-                                            <div class="col-md-6 col-12">
+                                            <div class="col-md-12 col-12">
                                                 {{-- nama --}}
                                                 <div class="form-group col-md-10">
                                                     <label for="name">Nama</label>
@@ -137,72 +137,79 @@
                                                     </select>
                                                     <div class="invalid-feedback">Isian status tidak boleh kosong</div>
                                                 </div>
-                                            </div>
-                                            {{-- table --}}
-                                            <div class="col-md-6 col-12">
-                                                <div class="table-responsive">
-                                                    <table class="table table-striped data-table" style="width:100%">
-                                                        <thead>
-                                                            <tr>
-                                                                <th scope="col">Plafond</th>
-                                                                <th scope="col">Status</th>
-                                                                <th scope="col">Saldo</th>
-                                                                <th scope="col">Aksi</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>
-                                                                    <a href="#">{{ number_format(100000000) }}</a>
-                                                                </td>
-                                                                <td>Lunas</td>
-                                                                <td>{{ number_format(0) }}</td>
-                                                                <td>
-                                                                    <button type="button" class="btn btn-danger btn-sm">
-                                                                        <i class="fas fa-trash"></i>
-                                                                    </button>
-                                                                </td>
-                                                              </tr>
-                                                              <tr>
-                                                                <td>
-                                                                    <a href="#">{{ number_format(200000000) }}</a>
-                                                                </td>
-                                                                <td>Belum Lunas</td>
-                                                                <td>{{ number_format(0) }}</td>
-                                                                <td>
-                                                                    <button type="button" class="btn btn-danger btn-sm">
-                                                                        <i class="fas fa-trash"></i>
-                                                                    </button>
-                                                                </td>
-                                                              </tr>
-                                                              <tr>
-                                                                <td>
-                                                                    <a href="#">{{ number_format(75000000) }}</a>
-                                                                </td>
-                                                                <td>Lunas</td>
-                                                                <td>{{ number_format(10000000) }}</td>
-                                                                <td>
-                                                                    <button type="button" class="btn btn-danger btn-sm">
-                                                                        <i class="fas fa-trash"></i>
-                                                                    </button>
-                                                                </td>
-                                                              </tr>
-                                                        </tbody>
-                                                    </table>
+
+                                                {{-- table --}}
+                                                <div class="col-md-6 col-12">
+                                                    <div class="table-responsive">
+                                                        <table class="table table-striped data-table" style="width:100%">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col">Plafond</th>
+                                                                    <th scope="col">Status</th>
+                                                                    <th scope="col">Saldo</th>
+                                                                    <th scope="col">Aksi</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        <a href="#">{{ number_format(100000000) }}</a>
+                                                                    </td>
+                                                                    <td>Lunas</td>
+                                                                    <td>{{ number_format(0) }}</td>
+                                                                    <td>
+                                                                        <button type="button" class="btn btn-danger btn-sm">
+                                                                            <i class="fas fa-trash"></i>
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <a href="#">{{ number_format(200000000) }}</a>
+                                                                    </td>
+                                                                    <td>Belum Lunas</td>
+                                                                    <td>{{ number_format(0) }}</td>
+                                                                    <td>
+                                                                        <button type="button" class="btn btn-danger btn-sm">
+                                                                            <i class="fas fa-trash"></i>
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <a href="#">{{ number_format(75000000) }}</a>
+                                                                    </td>
+                                                                    <td>Lunas</td>
+                                                                    <td>{{ number_format(10000000) }}</td>
+                                                                    <td>
+                                                                        <button type="button" class="btn btn-danger btn-sm">
+                                                                            <i class="fas fa-trash"></i>
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                                </div>
                                         </div>
                                     </div>
                                     {{-- character --}}
                                     <div class="tab-pane fade" id="v-pills-character" role="tabpanel"
                                         aria-labelledby="v-pills-character-tab">
-                                        Integer interdum diam eleifend metus lacinia, quis gravida eros
-                                        mollis. Fusce
-                                        non sapien sit amet magna dapibus
-                                        ultrices. Morbi tincidunt magna ex, eget faucibus sapien bibendum
-                                        non. Duis a
-                                        mauris ex. Ut finibus risus sed massa
-                                        mattis porta. Aliquam sagittis massa et purus efficitur ultricies.
+                                        <table class="table table-bordered" id="dynamicAddRemove">
+                                            <tr>
+                                                <th>Plafond</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="text" name="addMoreInputFields[0][subject]" class="form-control"/></td>
+                                                <td><input type="text" name="addMoreInputFields2[0][subject]" class="form-control"/></td>
+                                                <td><button type="button" name="add" id="dynamic-ar" class="btn btn-primary">Add</button></td>
+                                            </tr>
+                                        </table>
+                                        <button type="submit" class="btn btn-success btn-block">Save</button>
                                     </div>
                                     {{-- capacity --}}
                                     <div class="tab-pane fade" id="v-pills-capacity" role="tabpanel"
@@ -276,5 +283,21 @@
     </div>
 </div>
 
+@endsection
+
+@section('script')
+<!-- JavaScript -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+{{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script> --}}
+<script type="text/javascript">
+    var i = 0;
+    $("#dynamic-ar").click(function () {
+        ++i;
+        $("#dynamicAddRemove").append('<tr><td><input type="text" name="addMoreInputFields[' + i + '][subject]" class="form-control" /></td><td><input type="text" name="addMoreInputFields2[' + i + '][subject]" class="form-control" /></td><td><button type="button" class="btn btn-danger remove-input-field">Delete</button></td></tr>');
+    });
+    $(document).on('click', '.remove-input-field', function () {
+        $(this).parents('tr').remove();
+    });
+</script>
 @endsection
 

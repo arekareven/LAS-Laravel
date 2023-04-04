@@ -38,6 +38,7 @@ class ApplicationController extends Controller
     {
         $application                       = new Application();
         $application->id                   = $request->id;
+        $application->id_user              = $request->id_user;
         $application->id_customer          = $request->id_customer;
         $application->application_date     = $request->application_date_column; // "name" diambil dari name bukan dari id
         $application->analysis_date        = $request->analysis_date_column;
@@ -68,7 +69,7 @@ class ApplicationController extends Controller
                 ->addIndexColumn()
                 ->addColumn('plafond', function ($row) {
 
-                    $plafond = '<a href="' . url('characterlist', $row->id) . '" >'.'Rp. '.number_format($row->plafond).'</a>';
+                    $plafond = '<a href="' . url('enamc', $row->id) . '" >'.'Rp. '.number_format($row->plafond).'</a>';
 
                     return $plafond;
                 })

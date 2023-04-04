@@ -4,6 +4,7 @@ use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\CharacterController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EnamC;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
@@ -35,6 +36,7 @@ Route::middleware('auth')->group(function () {
     Route::get('applicationcreate/{id}', [ApplicationController::class, 'create']);
     Route::get('applicationlist/{id}', [ApplicationController::class, 'show']);
     Route::get('characterlist/{id}', [CharacterController::class, 'index']);
+    Route::get('enamc/{id}', [EnamC::class, 'index']);
 
 });
 

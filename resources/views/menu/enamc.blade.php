@@ -13,7 +13,7 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>5 C</h3>
+                    <h3>6C</h3>
                 </div>
             </div>
         </div>
@@ -21,7 +21,7 @@
             <div class="row">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Input Data 5C</h4>
+                        <h4 class="card-title">Input Data 6C</h4>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -58,115 +58,121 @@
                                 </div>
                             </div>
                             <div class="col-10">
-                                <div class="tab-content" id="v-pills-tabContent">
+                                <div class="was-validated tab-content" id="v-pills-tabContent">
                                     {{-- riwayat-pinjaman --}}
                                     <div class="tab-pane fade show active" id="v-pills-riwayat-pinjaman" role="tabpanel"
                                         aria-labelledby="v-pills-riwayat-pinjaman-tab">
+                                        {{-- form --}}
                                         <div class="row">
-                                            {{-- form --}}
+                                            {{-- plafond --}}
+                                            <div class="form-group col-md-3">
+                                                <label for="plafond">Plafond</label>
+                                                <input type="hidden" id="id_application" class="form-control" name="id_application_column" value="{{ $id }}" required>
+                                                <input type="number" id="plafond" class="form-control"
+                                                    placeholder="Plafond Nasabah" name="plafond_column" required>
+                                                <div class="invalid-feedback">Isian plafond tidak boleh kosong</div>
+                                            </div>
+                                            {{-- status --}}
+                                            <div class="form-group col-md-2">
+                                                <label for="status">Status</label>
+                                                <select class="form-select" aria-label="Default select example" id="status" name="status_column" required>
+                                                    <option value=""></option>
+                                                    <option value="Lunas">Lunas</option>
+                                                    <option value="Belum Lunas">Belum Lunas</option>
+                                                </select>
+                                                <div class="invalid-feedback">Isian status tidak boleh kosong</div>
+                                            </div>
+                                            {{-- saldo --}}
+                                            <div class="form-group col-md-3">
+                                                <label for="saldo">Saldo</label>
+                                                <input type="number" id="balance" class="form-control"
+                                                    name="balance_column" placeholder="Saldo" required>
+                                                <div class="invalid-feedback">Isian ini tidak boleh kosong</div>
+                                            </div>
+                                            {{-- sejarah --}}
+                                            <div class="form-group col-md-2">
+                                                <label for="history">Sejarah</label>
+                                                <select class="form-select" aria-label="Default select example" id="history" name="history_column" required>
+                                                    <option value=""></option>
+                                                    <option value="Baik">Baik</option>
+                                                    <option value="Tidak Baik">Tidak Baik</option>
+                                                </select>
+                                                <div class="invalid-feedback">Isian ini tidak boleh kosong</div>
+                                            </div>
+                                            {{-- data --}}
+                                            <div class="form-group col-md-2">
+                                                <label for="document">Data</label>
+                                                <select class="form-select" aria-label="Default select example" id="document" name="document_column" required>
+                                                    <option value=""></option>
+                                                    <option value="Terlampir">Terlampir</option>
+                                                    <option value="Tidak Terlampir">Tidak Terlampir</option>
+                                                </select>
+                                                <div class="invalid-feedback">Isian ini tidak boleh kosong</div>
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <button type="button" class="btn btn-success me-md-2">
+                                                    Simpan
+                                                </button>
+                                            </div>
+                                            <hr>
+                                            <br><br><br>
+                                            <h6>Data yang telah di input</h6>
+                                            <hr>
+                                            {{-- table --}}
                                             <div class="col-md-12 col-12">
-                                                {{-- nama --}}
-                                                <div class="form-group col-md-10">
-                                                    <label for="name">Nama</label>
-                                                    <input type="hidden" id="id_cus" class="form-control" name="id_cus_column" value="{{ $id }}" required>
-                                                    <input type="text" id="name" class="form-control"
-                                                        placeholder="Nama Nasabah" name="name_column" required>
-                                                    <div class="invalid-feedback">
-                                                        Isian nama tidak boleh kosong
-                                                    </div>
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped data-table" style="width:100%">
+                                                        <thead>
+                                                            <tr>
+                                                                <th scope="col">Plafond</th>
+                                                                <th scope="col">Status</th>
+                                                                <th scope="col">Saldo</th>
+                                                                <th scope="col">Aksi</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    <a href="#">{{ number_format(100000000) }}</a>
+                                                                </td>
+                                                                <td>Lunas</td>
+                                                                <td>{{ number_format(0) }}</td>
+                                                                <td>
+                                                                    <button type="button" class="btn btn-danger btn-sm">
+                                                                        <i class="fas fa-trash"></i>
+                                                                    </button>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <a href="#">{{ number_format(200000000) }}</a>
+                                                                </td>
+                                                                <td>Belum Lunas</td>
+                                                                <td>{{ number_format(0) }}</td>
+                                                                <td>
+                                                                    <button type="button" class="btn btn-danger btn-sm">
+                                                                        <i class="fas fa-trash"></i>
+                                                                    </button>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <a href="#">{{ number_format(75000000) }}</a>
+                                                                </td>
+                                                                <td>Lunas</td>
+                                                                <td>{{ number_format(10000000) }}</td>
+                                                                <td>
+                                                                    <button type="button" class="btn btn-danger btn-sm">
+                                                                        <i class="fas fa-trash"></i>
+                                                                    </button>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
                                                 </div>
-                                                {{-- status --}}
-                                                <div class="form-group col-md-10">
-                                                    <label for="marital_status">Status</label>
-                                                    <select class="form-select" aria-label="Default select example" id="marital_status" name="marital_status_column" required>
-                                                        <option value=""></option>
-                                                        <option value="Menikah">Menikah</option>
-                                                        <option value="Duda">Duda</option>
-                                                        <option value="Janda">Janda</option>
-                                                        <option value="Lajang">Lajang</option>
-                                                    </select>
-                                                    <div class="invalid-feedback">Isian status tidak boleh kosong</div>
-                                                </div>
-                                                {{-- no ktp --}}
-                                                <div class="form-group col-md-10">
-                                                    <label for="id_card_number">No KTP / NIK</label>
-                                                    <input type="number" id="id_card_number" class="form-control"
-                                                        name="id_card_number_column" placeholder="NIK" required>
-                                                    <div class="invalid-feedback">Isian NIK tidak boleh kosong</div>
-                                                </div>
-                                                {{-- status residence --}}
-                                                <div class="form-group col-md-10">
-                                                    <label for="status_of_residence">Status Tempat Tinggal</label>
-                                                    <select class="form-select" aria-label="Default select example" id="status_of_residence" name="status_of_residence_column" required>
-                                                        <option value=""></option>
-                                                        <option value="Milik Sendiri">Milik Sendiri</option>
-                                                        <option value="Milik Keluarga">Milik Keluarga</option>
-                                                        <option value="Instansi">Instansi</option>
-                                                        <option value="Kontrak">Kontrak</option>
-                                                        <option value="Kredit">Kredit</option>
-                                                    </select>
-                                                    <div class="invalid-feedback">Isian status tidak boleh kosong</div>
-                                                </div>
-                                                <br><br><br>
-                                                {{-- table --}}
-                                                <div class="col-md-12 col-12">
-                                                    <div class="table-responsive">
-                                                        <table class="table table-striped data-table" style="width:100%">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th scope="col">Plafond</th>
-                                                                    <th scope="col">Status</th>
-                                                                    <th scope="col">Saldo</th>
-                                                                    <th scope="col">Aksi</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td>
-                                                                        <a href="#">{{ number_format(100000000) }}</a>
-                                                                    </td>
-                                                                    <td>Lunas</td>
-                                                                    <td>{{ number_format(0) }}</td>
-                                                                    <td>
-                                                                        <button type="button" class="btn btn-danger btn-sm">
-                                                                            <i class="fas fa-trash"></i>
-                                                                        </button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>
-                                                                        <a href="#">{{ number_format(200000000) }}</a>
-                                                                    </td>
-                                                                    <td>Belum Lunas</td>
-                                                                    <td>{{ number_format(0) }}</td>
-                                                                    <td>
-                                                                        <button type="button" class="btn btn-danger btn-sm">
-                                                                            <i class="fas fa-trash"></i>
-                                                                        </button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>
-                                                                        <a href="#">{{ number_format(75000000) }}</a>
-                                                                    </td>
-                                                                    <td>Lunas</td>
-                                                                    <td>{{ number_format(10000000) }}</td>
-                                                                    <td>
-                                                                        <button type="button" class="btn btn-danger btn-sm">
-                                                                            <i class="fas fa-trash"></i>
-                                                                        </button>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    {{-- character --}}
-                                    <div class="tab-pane fade" id="v-pills-character" role="tabpanel"
-                                        aria-labelledby="v-pills-character-tab">
+                                        <br><br><br><br><br>
                                         <table class="table table-bordered" id="dynamicAddRemove">
                                             <tr>
                                                 <th>Plafond</th>
@@ -180,6 +186,24 @@
                                             </tr>
                                         </table>
                                         <button type="submit" class="btn btn-success btn-block">Save</button>
+                                    </div>
+                                    {{-- character --}}
+                                    <div class="tab-pane fade" id="v-pills-character" role="tabpanel"
+                                        aria-labelledby="v-pills-character-tab">
+                                        <div class="form-group with-title mb-3">
+                                            <textarea class="form-control" id="exampleFormControlTextarea1"
+                                                rows="3" name="_column" required></textarea>
+                                            <label>Informasi Pribadi</label>
+                                        </div>
+                                        <div class="form-group with-title mb-3">
+                                            <textarea class="form-control" id="exampleFormControlTextarea1"
+                                                rows="3" required></textarea>
+                                            <label>Informasi Perilaku</label>
+                                        <div class="form-group with-title mb-3">
+                                            <textarea class="form-control" id="exampleFormControlTextarea1"
+                                                rows="3" required></textarea>
+                                            <label>Informasi Keluarga</label>
+                                        </div>
                                     </div>
                                     {{-- capacity --}}
                                     <div class="tab-pane fade" id="v-pills-capacity" role="tabpanel"

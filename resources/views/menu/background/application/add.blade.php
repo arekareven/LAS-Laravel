@@ -28,6 +28,7 @@
                                 <form action="{{ route('application.store') }}" method="post">
                                     @csrf
                                     <input type="hidden" value="{{ $id }}" name="id_customer">
+                                    <input type="hidden" value="{{ Auth::user()->id }}" name="id_user">
                                     <div class="was-validated tab-content" id="nav-tabContent">
                                         <div class="tab-pane fade show active" id="data_diri" role="tabpanel">
                                             <div class="row">

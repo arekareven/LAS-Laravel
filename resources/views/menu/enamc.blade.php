@@ -68,9 +68,8 @@
                                             <div class="form-group col-md-3">
                                                 <label for="plafond">Plafond</label>
                                                 <input type="hidden" id="id_application" class="form-control" name="id_application_column" value="{{ $id }}" required>
-                                                <input type="number" id="plafond" class="form-control"
-                                                    placeholder="Plafond Nasabah" name="plafond_column" required>
-                                                <div class="invalid-feedback">Isian plafond tidak boleh kosong</div>
+                                                <input type="number" id="plafond" class="form-control" name="plafond_column" required>
+                                                {{-- <div class="invalid-feedback">Isian plafond tidak boleh kosong</div> --}}
                                             </div>
                                             {{-- status --}}
                                             <div class="form-group col-md-2">
@@ -80,14 +79,12 @@
                                                     <option value="Lunas">Lunas</option>
                                                     <option value="Belum Lunas">Belum Lunas</option>
                                                 </select>
-                                                <div class="invalid-feedback">Isian status tidak boleh kosong</div>
                                             </div>
                                             {{-- saldo --}}
                                             <div class="form-group col-md-3">
                                                 <label for="saldo">Saldo</label>
                                                 <input type="number" id="balance" class="form-control"
-                                                    name="balance_column" placeholder="Saldo" required>
-                                                <div class="invalid-feedback">Isian ini tidak boleh kosong</div>
+                                                    name="balance_column" required>
                                             </div>
                                             {{-- sejarah --}}
                                             <div class="form-group col-md-2">
@@ -97,7 +94,6 @@
                                                     <option value="Baik">Baik</option>
                                                     <option value="Tidak Baik">Tidak Baik</option>
                                                 </select>
-                                                <div class="invalid-feedback">Isian ini tidak boleh kosong</div>
                                             </div>
                                             {{-- data --}}
                                             <div class="form-group col-md-2">
@@ -107,7 +103,6 @@
                                                     <option value="Terlampir">Terlampir</option>
                                                     <option value="Tidak Terlampir">Tidak Terlampir</option>
                                                 </select>
-                                                <div class="invalid-feedback">Isian ini tidak boleh kosong</div>
                                             </div>
                                             <div class="form-group col-md-12">
                                                 <button type="button" class="btn btn-success me-md-2">
@@ -199,22 +194,252 @@
                                             <textarea class="form-control" id="exampleFormControlTextarea1"
                                                 rows="3" required></textarea>
                                             <label>Informasi Perilaku</label>
+                                        </div>
                                         <div class="form-group with-title mb-3">
                                             <textarea class="form-control" id="exampleFormControlTextarea1"
                                                 rows="3" required></textarea>
                                             <label>Informasi Keluarga</label>
                                         </div>
+                                        <div class="row">
+                                            {{-- saldo --}}
+                                            <div class="form-group col-md-4">
+                                                <label for="saldo">Saldo</label>
+                                                <input type="number" id="balance" class="form-control"
+                                                    name="balance_column" placeholder="Saldo" required>
+                                            </div>
+                                            {{-- saldo --}}
+                                            <div class="form-group col-md-4">
+                                                <label for="saldo">Saldo</label>
+                                                <input type="number" id="balance" class="form-control"
+                                                    name="balance_column" placeholder="Saldo" required>
+                                            </div>
+                                            {{-- saldo --}}
+                                            <div class="form-group col-md-4">
+                                                <label for="saldo">Saldo</label>
+                                                <input type="number" id="balance" class="form-control"
+                                                    name="balance_column" placeholder="Saldo" required>
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <button type="button" class="btn btn-success me-md-2">
+                                                    Simpan
+                                                </button>
+                                            </div>
+                                            <hr>
+                                            <br><br><br>
+                                            <h6>Data yang telah di input</h6>
+                                            <hr>
+                                            {{-- table --}}
+                                            <div class="col-md-12 col-12">
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped data-table" style="width:100%">
+                                                        <thead>
+                                                            <tr>
+                                                                <th scope="col">Plafond</th>
+                                                                <th scope="col">Status</th>
+                                                                <th scope="col">Saldo</th>
+                                                                <th scope="col">Aksi</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    <a href="#">{{ number_format(100000000) }}</a>
+                                                                </td>
+                                                                <td>Lunas</td>
+                                                                <td>{{ number_format(0) }}</td>
+                                                                <td>
+                                                                    <button type="button" class="btn btn-danger btn-sm">
+                                                                        <i class="fas fa-trash"></i>
+                                                                    </button>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <a href="#">{{ number_format(200000000) }}</a>
+                                                                </td>
+                                                                <td>Belum Lunas</td>
+                                                                <td>{{ number_format(0) }}</td>
+                                                                <td>
+                                                                    <button type="button" class="btn btn-danger btn-sm">
+                                                                        <i class="fas fa-trash"></i>
+                                                                    </button>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <a href="#">{{ number_format(75000000) }}</a>
+                                                                </td>
+                                                                <td>Lunas</td>
+                                                                <td>{{ number_format(10000000) }}</td>
+                                                                <td>
+                                                                    <button type="button" class="btn btn-danger btn-sm">
+                                                                        <i class="fas fa-trash"></i>
+                                                                    </button>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     {{-- capacity --}}
                                     <div class="tab-pane fade" id="v-pills-capacity" role="tabpanel"
                                         aria-labelledby="v-pills-capacity-tab">
-                                        Integer interdum diam eleifend metus lacinia, quis gravida eros
-                                        mollis. Fusce
-                                        non sapien sit amet magna dapibus
-                                        ultrices. Morbi tincidunt magna ex, eget faucibus sapien bibendum
-                                        non. Duis a
-                                        mauris ex. Ut finibus risus sed massa
-                                        mattis porta. Aliquam sagittis massa et purus efficitur ultricies.
+                                        <div class="row">
+                                            {{-- business_name --}}
+                                            <div class="form-group col-md-4">
+                                                <label for="business_name">Nama Usaha</label>
+                                                <input type="text" id="business_name" class="form-control"
+                                                    name="business_name_column" required>
+                                            </div>
+                                            {{-- business_sector --}}
+                                            <div class="form-group col-md-4">
+                                                <label for="business_sector">Sektor Usaha</label>
+                                                <select class="form-select" aria-label="Default select example" id="business_sector" name="business_sector_column" required>
+                                                    <option value=""></option>
+                                                    <option value="Industri">Industri</option>
+                                                    <option value="Jasa">Jasa</option>
+                                                    <option value="Kontraktor">Kontraktor</option>
+                                                    <option value="Pegawai">Pegawai</option>
+                                                    <option value="Perdagangan">Perdagangan</option>
+                                                    <option value="Pertanian">Pertanian</option>
+                                                    <option value="Konsumtif">Konsumtif</option>
+                                                </select>
+                                            </div>
+                                            {{-- business_status --}}
+                                            <div class="form-group col-md-4">
+                                                <label for="business_status">Status Tempat Usaha</label>
+                                                <select class="form-select" aria-label="Default select example" id="business_status" name="business_status_column" required>
+                                                    <option value=""></option>
+                                                    <option value="Milik Sendiri">Milik Sendiri</option>
+                                                    <option value="Milik Keluarga">Milik Keluarga</option>
+                                                    <option value="Instansi">Instansi</option>
+                                                    <option value="Kontrak">Kontrak</option>
+                                                    <option value="Kredit">Kredit</option>
+                                                </select>
+                                            </div>
+                                            {{-- phone_number --}}
+                                            <div class="form-group col-md-4">
+                                                <label for="phone_number">No Tlp</label>
+                                                <input type="number" id="phone_number" class="form-control"
+                                                    name="phone_number_column" required>
+                                            </div>
+                                            {{-- business_start --}}
+                                            <div class="form-group col-md-4">
+                                                <label for="business_start">Mulai Usaha</label>
+                                                <input type="date" id="business_start" class="form-control"
+                                                    name="business_start_column" required>
+                                            </div>
+                                            {{-- customer_start --}}
+                                            <div class="form-group col-md-4">
+                                                <label for="customer_start">Jadi Nasabah Sejak</label>
+                                                <input type="date" id="customer_start" class="form-control"
+                                                    name="customer_start_column" required>
+                                            </div>
+                                            {{-- deed_number --}}
+                                            <div class="form-group col-md-4">
+                                                <label for="deed_number">No Akta</label>
+                                                <input type="text" id="deed_number" class="form-control"
+                                                    name="deed_number_column" required>
+                                            </div>
+                                            {{-- deed_date --}}
+                                            <div class="form-group col-md-4">
+                                                <label for="deed_date">Tanggal Akta</label>
+                                                <input type="date" id="deed_date" class="form-control"
+                                                    name="deed_date_column" required>
+                                            </div>
+                                            {{-- npwp --}}
+                                            <div class="form-group col-md-4">
+                                                <label for="npwp">NPWP</label>
+                                                <input type="number" id="npwp" class="form-control"
+                                                    name="npwp_column" required>
+                                            </div>
+                                            {{-- npwp_date --}}
+                                            <div class="form-group col-md-4">
+                                                <label for="npwp_date">Tanggal NPWP</label>
+                                                <input type="number" id="npwp_date" class="form-control"
+                                                    name="npwp_date_column" required>
+                                            </div>
+                                            {{-- alamat --}}
+                                            <div class="form-group mb-2">
+                                                <label>Alamat Usaha</label>
+                                                <textarea class="form-control" id="business_address"
+                                                    rows="2" name="business_address_column" required></textarea>
+                                            </div>
+                                            {{-- usaha saat ini --}}
+                                            <div class="form-group mb-3">
+                                                <label>Rincian Usaha</label>
+                                                <textarea name="current_business" id="summernote" cols="30" rows="10"></textarea>
+                                            </div>
+                                            {{-- usaha setelah realisasi --}}
+                                            {{-- <div class="form-group mb-3">
+                                                <label>Usaha Setelah Realisasi</label>
+                                                <textarea name="business_start" id="default" cols="30" rows="10"></textarea>
+                                            </div> --}}
+                                            <div class="form-group col-md-12">
+                                                <button type="button" class="btn btn-success me-md-2">
+                                                    Simpan
+                                                </button>
+                                            </div>
+                                            <hr>
+                                            <br><br><br>
+                                            <h6>Data yang telah di input</h6>
+                                            <hr>
+                                            {{-- table --}}
+                                            <div class="col-md-12 col-12">
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped data-table" style="width:100%">
+                                                        <thead>
+                                                            <tr>
+                                                                <th scope="col">Plafond</th>
+                                                                <th scope="col">Status</th>
+                                                                <th scope="col">Saldo</th>
+                                                                <th scope="col">Aksi</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    <a href="#">{{ number_format(100000000) }}</a>
+                                                                </td>
+                                                                <td>Lunas</td>
+                                                                <td>{{ number_format(0) }}</td>
+                                                                <td>
+                                                                    <button type="button" class="btn btn-danger btn-sm">
+                                                                        <i class="fas fa-trash"></i>
+                                                                    </button>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <a href="#">{{ number_format(200000000) }}</a>
+                                                                </td>
+                                                                <td>Belum Lunas</td>
+                                                                <td>{{ number_format(0) }}</td>
+                                                                <td>
+                                                                    <button type="button" class="btn btn-danger btn-sm">
+                                                                        <i class="fas fa-trash"></i>
+                                                                    </button>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <a href="#">{{ number_format(75000000) }}</a>
+                                                                </td>
+                                                                <td>Lunas</td>
+                                                                <td>{{ number_format(10000000) }}</td>
+                                                                <td>
+                                                                    <button type="button" class="btn btn-danger btn-sm">
+                                                                        <i class="fas fa-trash"></i>
+                                                                    </button>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     {{-- capital --}}
                                     <div class="tab-pane fade" id="v-pills-capital" role="tabpanel"

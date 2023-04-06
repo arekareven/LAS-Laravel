@@ -6,5 +6,7 @@
 <link rel="stylesheet" href="{{ asset('assets/extensions/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/css/pages/datatables.css') }}">
 
-{{-- summernote --}}
-<link rel="stylesheet" href="{{ asset('assets/assets/vendors/summernote/summernote-lite.min.css') }}">
+{{-- quill --}}
+<link rel="stylesheet" href="{{ asset('assets/assets/vendors/quill/quill.snow.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/assets/vendors/quill/quill.bubble.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/assets/vendors/quill/quill.core.css') }}">

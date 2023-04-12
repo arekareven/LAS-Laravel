@@ -46,6 +46,12 @@
                                     <a class="nav-link" id="v-pills-cashflow-after-tab" data-bs-toggle="pill"
                                         href="#v-pills-cashflow-after" role="tab" aria-controls="v-pills-cashflow-after"
                                         aria-selected="false">Cashflow Setelah</a>
+                                    <a class="nav-link" id="v-pills-other-income-tab" data-bs-toggle="pill"
+                                        href="#v-pills-other-income" role="tab" aria-controls="v-pills-other-income"
+                                        aria-selected="false">Pendapatan Lain</a>
+                                    <a class="nav-link" id="v-pills-debt-here-tab" data-bs-toggle="pill"
+                                        href="#v-pills-debt-here" role="tab" aria-controls="v-pills-debt-here"
+                                        aria-selected="false">Hutang</a>
                                     <a class="nav-link" id="v-pills-collateral-tab" data-bs-toggle="pill"
                                         href="#v-pills-collateral" role="tab" aria-controls="v-pills-collateral"
                                         aria-selected="false">Collateral</a>
@@ -61,7 +67,7 @@
                                 </div>
                             </div>
                             <div class="col-10">
-                                <div class="was-validated tab-content" id="v-pills-tabContent">
+                                <div class="tab-content" id="v-pills-tabContent">
                                     {{-- riwayat-pinjaman --}}
                                     <div class="tab-pane fade show active" id="v-pills-riwayat-pinjaman" role="tabpanel"
                                         aria-labelledby="v-pills-riwayat-pinjaman-tab">
@@ -112,61 +118,64 @@
                                                     Simpan
                                                 </button>
                                             </div>
-                                            <hr>
-                                            <br><br><br>
-                                            <h6>Data yang telah di input</h6>
-                                            <hr>
                                             {{-- table --}}
-                                            <div class="col-md-12 col-12">
-                                                <div class="table-responsive">
-                                                    <table class="table table-striped data-table" style="width:100%">
-                                                        <thead>
-                                                            <tr>
-                                                                <th scope="col">Plafond</th>
-                                                                <th scope="col">Status</th>
-                                                                <th scope="col">Saldo</th>
-                                                                <th scope="col">Aksi</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>
-                                                                    <a href="#">{{ number_format(100000000) }}</a>
-                                                                </td>
-                                                                <td>Lunas</td>
-                                                                <td>{{ number_format(0) }}</td>
-                                                                <td>
-                                                                    <button type="button" class="btn btn-danger btn-sm">
-                                                                        <i class="fas fa-trash"></i>
-                                                                    </button>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <a href="#">{{ number_format(200000000) }}</a>
-                                                                </td>
-                                                                <td>Belum Lunas</td>
-                                                                <td>{{ number_format(0) }}</td>
-                                                                <td>
-                                                                    <button type="button" class="btn btn-danger btn-sm">
-                                                                        <i class="fas fa-trash"></i>
-                                                                    </button>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <a href="#">{{ number_format(75000000) }}</a>
-                                                                </td>
-                                                                <td>Lunas</td>
-                                                                <td>{{ number_format(10000000) }}</td>
-                                                                <td>
-                                                                    <button type="button" class="btn btn-danger btn-sm">
-                                                                        <i class="fas fa-trash"></i>
-                                                                    </button>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
+                                            <p>
+                                                <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                                    Data yang telah di input
+                                                </a>
+                                            </p>
+                                            <div class="collapse" id="collapseExample">
+                                                <div class="col-md-12 col-12">
+                                                    <div class="table-responsive">
+                                                        <table class="table table-striped data-table" style="width:100%">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col">Plafond</th>
+                                                                    <th scope="col">Status</th>
+                                                                    <th scope="col">Saldo</th>
+                                                                    <th scope="col">Aksi</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        <a href="#">{{ number_format(100000000) }}</a>
+                                                                    </td>
+                                                                    <td>Lunas</td>
+                                                                    <td>{{ number_format(0) }}</td>
+                                                                    <td>
+                                                                        <button type="button" class="btn btn-danger btn-sm">
+                                                                            <i class="fas fa-trash"></i>
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <a href="#">{{ number_format(200000000) }}</a>
+                                                                    </td>
+                                                                    <td>Belum Lunas</td>
+                                                                    <td>{{ number_format(0) }}</td>
+                                                                    <td>
+                                                                        <button type="button" class="btn btn-danger btn-sm">
+                                                                            <i class="fas fa-trash"></i>
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <a href="#">{{ number_format(75000000) }}</a>
+                                                                    </td>
+                                                                    <td>Lunas</td>
+                                                                    <td>{{ number_format(10000000) }}</td>
+                                                                    <td>
+                                                                        <button type="button" class="btn btn-danger btn-sm">
+                                                                            <i class="fas fa-trash"></i>
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -175,15 +184,21 @@
                                             <tr>
                                                 <th>Plafond</th>
                                                 <th>Status</th>
+                                                <th>Saldo</th>
+                                                <th>Sejarah</th>
+                                                <th>Data</th>
                                                 <th>Action</th>
                                             </tr>
                                             <tr>
-                                                <td><input type="text" name="addMoreInputFields[0][subject]" class="form-control"/></td>
-                                                <td><input type="text" name="addMoreInputFields2[0][subject]" class="form-control"/></td>
-                                                <td><button type="button" name="add" id="dynamic-ar" class="btn btn-primary">Add</button></td>
+                                                <td><input type="text" name="plafond[0][subject]" class="form-control"/></td>
+                                                <td><input type="text" name="status[0][subject]" class="form-control"/></td>
+                                                <td><input type="text" name="saldo[0][subject]" class="form-control"/></td>
+                                                <td><input type="text" name="sejarah[0][subject]" class="form-control"/></td>
+                                                <td><input type="text" name="data[0][subject]" class="form-control"/></td>
+                                                <td><button type="button" name="add" id="dynamic-ar" class="btn btn-primary"><i class="fas fa-plus"></i></button></td>
                                             </tr>
                                         </table>
-                                        <button type="submit" class="btn btn-success btn-block">Save</button>
+                                        <button type="submit" class="btn btn-success btn-block"><i class="far fa-save"></i></button>
                                     </div>
                                     {{-- character --}}
                                     <div class="tab-pane fade" id="v-pills-character" role="tabpanel"
@@ -204,21 +219,21 @@
                                             <label>Informasi Keluarga</label>
                                         </div>
                                         <div class="row">
-                                            {{-- saldo --}}
-                                            <div class="form-group col-md-4">
-                                                <label for="saldo">Saldo</label>
-                                                <input type="number" id="balance" class="form-control"
-                                                    name="balance_column" placeholder="Saldo" required>
+                                            {{-- character_name1 --}}
+                                            <div class="form-group col-md-6">
+                                                <label for="character_name1">Nama</label>
+                                                <input type="text" id="character_name1" class="form-control"
+                                                    name="character_name1_column" placeholder="Nama" required>
+                                            </div>
+                                            {{-- character_number1 --}}
+                                            <div class="form-group col-md-6">
+                                                <label for="character_number1">Nomor HP</label>
+                                                <input type="number" id="character_number1" class="form-control"
+                                                    name="character_number1_column" placeholder="Nomor HP" required>
                                             </div>
                                             {{-- saldo --}}
-                                            <div class="form-group col-md-4">
-                                                <label for="saldo">Saldo</label>
-                                                <input type="number" id="balance" class="form-control"
-                                                    name="balance_column" placeholder="Saldo" required>
-                                            </div>
-                                            {{-- saldo --}}
-                                            <div class="form-group col-md-4">
-                                                <label for="saldo">Saldo</label>
+                                            <div class="form-group col-md-12">
+                                                <label for="saldo">Alamat</label>
                                                 <input type="number" id="balance" class="form-control"
                                                     name="balance_column" placeholder="Saldo" required>
                                             </div>
@@ -1013,10 +1028,540 @@
                                     {{-- cashflow after --}}
                                     <div class="tab-pane fade" id="v-pills-cashflow-after" role="tabpanel"
                                         aria-labelledby="v-pills-cashflow-after-tab">
-                                        Sed lacus quam, convallis quis condimentum ut, accumsan congue
-                                        massa.
-                                        Pellentesque et quam vel massa pretium ullamcorper
-                                        vitae eu tortor.
+                                        <ul class="nav nav-tabs nav-fill mb-3" id="myTab" role="tablist">
+                                            <li class="nav-item" role="presentation">
+                                                <a class="nav-link active" id="income-after-tab" data-bs-toggle="tab" href="#income-after"
+                                                    role="tab" aria-controls="income-after" aria-selected="true"><h6>Pendapatan</h6></a>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <a class="nav-link" id="expenditure-after-tab" data-bs-toggle="tab" href="#expenditure-after"
+                                                    role="tab" aria-controls="expenditure-after" aria-selected="false"><h6>Pengeluaran</h6></a>
+                                            </li>
+                                        </ul>
+                                        <div class="was-validated tab-content" id="nav-tabContent">
+                                            <div class="tab-pane fade show active" id="income-after" role="tabpanel">
+                                                <div class="row">
+                                                    {{-- from_income_after --}}
+                                                    <div class="form-group col-md-6">
+                                                        <label for="from_income_after">Pendapatan Dari</label>
+                                                        <select class="form-select" aria-label="Default select example" id="from_income_after" name="from_income_after_column" required>
+                                                            <option value=""></option>@foreach ($approximation as $data)
+                                                            @if (Str::contains($data->code_approximation, '4.1.'))
+                                                                <option value="{{ $data->code_approximation }}">{{ $data->name_approximation }}</option>
+                                                            @endif
+                                                        @endforeach
+                                                        </select>
+                                                    </div>
+                                                    {{-- to_income_after --}}
+                                                    <div class="form-group col-md-6">
+                                                        <label for="to_income_after">Digunakan Untuk</label>
+                                                        <select class="form-select" aria-label="Default select example" id="to_income_after" name="to_after_column" required>
+                                                            <option value=""></option>@foreach ($approximation as $data)
+                                                            @if (Str::contains($data->code_approximation, '1.1.'))
+                                                                <option value="{{ $data->code_approximation }}">{{ $data->name_approximation }}</option>
+                                                            @endif
+                                                        @endforeach
+                                                        </select>
+                                                    </div>
+                                                    {{-- explanation_income_after --}}
+                                                    <div class="form-group col-md-6">
+                                                        <label for="explanation_income_after">Keterangan</label>
+                                                        <input type="text" id="explanation_income_after" class="form-control"
+                                                            name="explanation_income_after_column" required>
+                                                    </div>
+                                                    {{-- amount_income_after --}}
+                                                    <div class="form-group col-md-6">
+                                                        <label for="amount_income_after">Sebesar</label>
+                                                        <input type="number" id="amount_income_after" class="form-control"
+                                                            name="amount_income_after_column" required>
+                                                    </div>
+                                                    <div class="form-group col-md-12">
+                                                        <button type="button" class="btn btn-success me-md-2">
+                                                            Simpan
+                                                        </button>
+                                                    </div>
+                                                    <hr>
+                                                    <br><br><br>
+                                                    <h6>Data yang telah di input</h6>
+                                                    <hr>
+                                                    {{-- table --}}
+                                                    <div class="col-md-12 col-12">
+                                                        <div class="table-responsive">
+                                                            <table class="table table-striped data-table" style="width:100%">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th scope="col">Plafond</th>
+                                                                        <th scope="col">Status</th>
+                                                                        <th scope="col">Saldo</th>
+                                                                        <th scope="col">Aksi</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <a href="#">{{ number_format(100000000) }}</a>
+                                                                        </td>
+                                                                        <td>Lunas</td>
+                                                                        <td>{{ number_format(0) }}</td>
+                                                                        <td>
+                                                                            <button type="button" class="btn btn-danger btn-sm">
+                                                                                <i class="fas fa-trash"></i>
+                                                                            </button>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <a href="#">{{ number_format(200000000) }}</a>
+                                                                        </td>
+                                                                        <td>Belum Lunas</td>
+                                                                        <td>{{ number_format(0) }}</td>
+                                                                        <td>
+                                                                            <button type="button" class="btn btn-danger btn-sm">
+                                                                                <i class="fas fa-trash"></i>
+                                                                            </button>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <a href="#">{{ number_format(75000000) }}</a>
+                                                                        </td>
+                                                                        <td>Lunas</td>
+                                                                        <td>{{ number_format(10000000) }}</td>
+                                                                        <td>
+                                                                            <button type="button" class="btn btn-danger btn-sm">
+                                                                                <i class="fas fa-trash"></i>
+                                                                            </button>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="expenditure-after" role="tabpanel">
+                                                <div class="row">
+                                                    {{-- from_expenditure_after --}}
+                                                    <div class="form-group col-md-6">
+                                                        <label for="from_expenditure_after">Pendapatan Dari</label>
+                                                        <select class="form-select" aria-label="Default select example" id="from_expenditure_after" name="from_expenditure_after_column" required>
+                                                            <option value=""></option>@foreach ($approximation as $data)
+                                                            @if (Str::contains($data->code_approximation, '1.1.'))
+                                                                <option value="{{ $data->code_approximation }}">{{ $data->name_approximation }}</option>
+                                                            @endif
+                                                        @endforeach
+                                                        </select>
+                                                    </div>
+                                                    {{-- to_expenditure_after --}}
+                                                    <div class="form-group col-md-6">
+                                                        <label for="to_expenditure_after">Digunakan Untuk</label>
+                                                        <select class="form-select" aria-label="Default select example" id="to_expenditure_after" name="to_expenditure_after_column" required>
+                                                            <option value=""></option>
+                                                            @foreach ($approximation as $data)
+                                                                @if (Str::contains($data->code_approximation, '5.'))
+                                                                    <option value="{{ $data->code_approximation }}">{{ $data->name_approximation }}</option>
+                                                                @endif
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                    {{-- explanation_expenditure_after --}}
+                                                    <div class="form-group col-md-6">
+                                                        <label for="explanation_expenditure_after">Keterangan</label>
+                                                        <input type="text" id="explanation_expenditure_after" class="form-control"
+                                                            name="explanation_expenditure_after_column" required>
+                                                    </div>
+                                                    {{-- amount_expenditure_after --}}
+                                                    <div class="form-group col-md-6">
+                                                        <label for="amount_expenditure_after">Sebesar</label>
+                                                        <input type="number" id="amount_expenditure_after" class="form-control"
+                                                            name="amount_expenditure_after_column" required>
+                                                    </div>
+                                                    <div class="form-group col-md-12">
+                                                        <button type="button" class="btn btn-success me-md-2">
+                                                            Simpan
+                                                        </button>
+                                                    </div>
+                                                    <hr>
+                                                    <br><br><br>
+                                                    <h6>Data yang telah di input</h6>
+                                                    <hr>
+                                                    {{-- table --}}
+                                                    <div class="col-md-12 col-12">
+                                                        <div class="table-responsive">
+                                                            <table class="table table-striped data-table" style="width:100%">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th scope="col">Plafond</th>
+                                                                        <th scope="col">Status</th>
+                                                                        <th scope="col">Saldo</th>
+                                                                        <th scope="col">Aksi</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <a href="#">{{ number_format(100000000) }}</a>
+                                                                        </td>
+                                                                        <td>Lunas</td>
+                                                                        <td>{{ number_format(0) }}</td>
+                                                                        <td>
+                                                                            <button type="button" class="btn btn-danger btn-sm">
+                                                                                <i class="fas fa-trash"></i>
+                                                                            </button>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <a href="#">{{ number_format(200000000) }}</a>
+                                                                        </td>
+                                                                        <td>Belum Lunas</td>
+                                                                        <td>{{ number_format(0) }}</td>
+                                                                        <td>
+                                                                            <button type="button" class="btn btn-danger btn-sm">
+                                                                                <i class="fas fa-trash"></i>
+                                                                            </button>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <a href="#">{{ number_format(75000000) }}</a>
+                                                                        </td>
+                                                                        <td>Lunas</td>
+                                                                        <td>{{ number_format(10000000) }}</td>
+                                                                        <td>
+                                                                            <button type="button" class="btn btn-danger btn-sm">
+                                                                                <i class="fas fa-trash"></i>
+                                                                            </button>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{-- other income --}}
+                                    <div class="tab-pane fade" id="v-pills-other-income" role="tabpanel"
+                                        aria-labelledby="v-pills-other-income-tab">
+                                        <ul class="nav nav-tabs nav-fill mb-3" id="myTab" role="tablist">
+                                            <li class="nav-item" role="presentation">
+                                                <a class="nav-link active" id="income-other-tab" data-bs-toggle="tab" href="#income-other"
+                                                    role="tab" aria-controls="income-other" aria-selected="true"><h6>Pendapatan</h6></a>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <a class="nav-link" id="expenditure-other-tab" data-bs-toggle="tab" href="#expenditure-other"
+                                                    role="tab" aria-controls="expenditure-other" aria-selected="false"><h6>Pengeluaran</h6></a>
+                                            </li>
+                                        </ul>
+                                        <div class="was-validated tab-content" id="nav-tabContent">
+                                            <div class="tab-pane fade show active" id="income-other" role="tabpanel">
+                                                <div class="row">
+                                                    {{-- from_income_other --}}
+                                                    <div class="form-group col-md-6">
+                                                        <label for="from_income_other">Pendapatan Dari</label>
+                                                        <select class="form-select" aria-label="Default select example" id="from_income_other" name="from_income_other_column" required>
+                                                            <option value=""></option>@foreach ($approximation as $data)
+                                                            @if (Str::contains($data->code_approximation, '4.1.'))
+                                                                <option value="{{ $data->code_approximation }}">{{ $data->name_approximation }}</option>
+                                                            @endif
+                                                        @endforeach
+                                                        </select>
+                                                    </div>
+                                                    {{-- to_income_other --}}
+                                                    <div class="form-group col-md-6">
+                                                        <label for="to_income_other">Digunakan Untuk</label>
+                                                        <select class="form-select" aria-label="Default select example" id="to_income_other" name="to_other_column" required>
+                                                            <option value=""></option>@foreach ($approximation as $data)
+                                                            @if (Str::contains($data->code_approximation, '1.1.'))
+                                                                <option value="{{ $data->code_approximation }}">{{ $data->name_approximation }}</option>
+                                                            @endif
+                                                        @endforeach
+                                                        </select>
+                                                    </div>
+                                                    {{-- explanation_income_other --}}
+                                                    <div class="form-group col-md-6">
+                                                        <label for="explanation_income_other">Keterangan</label>
+                                                        <input type="text" id="explanation_income_other" class="form-control"
+                                                            name="explanation_income_other_column" required>
+                                                    </div>
+                                                    {{-- amount_income_other --}}
+                                                    <div class="form-group col-md-6">
+                                                        <label for="amount_income_other">Sebesar</label>
+                                                        <input type="number" id="amount_income_other" class="form-control"
+                                                            name="amount_income_other_column" required>
+                                                    </div>
+                                                    <div class="form-group col-md-12">
+                                                        <button type="button" class="btn btn-success me-md-2">
+                                                            Simpan
+                                                        </button>
+                                                    </div>
+                                                    <hr>
+                                                    <br><br><br>
+                                                    <h6>Data yang telah di input</h6>
+                                                    <hr>
+                                                    {{-- table --}}
+                                                    <div class="col-md-12 col-12">
+                                                        <div class="table-responsive">
+                                                            <table class="table table-striped data-table" style="width:100%">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th scope="col">Plafond</th>
+                                                                        <th scope="col">Status</th>
+                                                                        <th scope="col">Saldo</th>
+                                                                        <th scope="col">Aksi</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <a href="#">{{ number_format(100000000) }}</a>
+                                                                        </td>
+                                                                        <td>Lunas</td>
+                                                                        <td>{{ number_format(0) }}</td>
+                                                                        <td>
+                                                                            <button type="button" class="btn btn-danger btn-sm">
+                                                                                <i class="fas fa-trash"></i>
+                                                                            </button>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <a href="#">{{ number_format(200000000) }}</a>
+                                                                        </td>
+                                                                        <td>Belum Lunas</td>
+                                                                        <td>{{ number_format(0) }}</td>
+                                                                        <td>
+                                                                            <button type="button" class="btn btn-danger btn-sm">
+                                                                                <i class="fas fa-trash"></i>
+                                                                            </button>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <a href="#">{{ number_format(75000000) }}</a>
+                                                                        </td>
+                                                                        <td>Lunas</td>
+                                                                        <td>{{ number_format(10000000) }}</td>
+                                                                        <td>
+                                                                            <button type="button" class="btn btn-danger btn-sm">
+                                                                                <i class="fas fa-trash"></i>
+                                                                            </button>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="expenditure-other" role="tabpanel">
+                                                <div class="row">
+                                                    {{-- from_expenditure_other --}}
+                                                    <div class="form-group col-md-6">
+                                                        <label for="from_expenditure_other">Pendapatan Dari</label>
+                                                        <select class="form-select" aria-label="Default select example" id="from_expenditure_other" name="from_expenditure_other_column" required>
+                                                            <option value=""></option>@foreach ($approximation as $data)
+                                                            @if (Str::contains($data->code_approximation, '1.1.'))
+                                                                <option value="{{ $data->code_approximation }}">{{ $data->name_approximation }}</option>
+                                                            @endif
+                                                        @endforeach
+                                                        </select>
+                                                    </div>
+                                                    {{-- to_expenditure_other --}}
+                                                    <div class="form-group col-md-6">
+                                                        <label for="to_expenditure_other">Digunakan Untuk</label>
+                                                        <select class="form-select" aria-label="Default select example" id="to_expenditure_other" name="to_expenditure_other_column" required>
+                                                            <option value=""></option>
+                                                            @foreach ($approximation as $data)
+                                                                @if (Str::contains($data->code_approximation, '5.'))
+                                                                    <option value="{{ $data->code_approximation }}">{{ $data->name_approximation }}</option>
+                                                                @endif
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                    {{-- explanation_expenditure_other --}}
+                                                    <div class="form-group col-md-6">
+                                                        <label for="explanation_expenditure_other">Keterangan</label>
+                                                        <input type="text" id="explanation_expenditure_other" class="form-control"
+                                                            name="explanation_expenditure_other_column" required>
+                                                    </div>
+                                                    {{-- amount_expenditure_other --}}
+                                                    <div class="form-group col-md-6">
+                                                        <label for="amount_expenditure_other">Sebesar</label>
+                                                        <input type="number" id="amount_expenditure_other" class="form-control"
+                                                            name="amount_expenditure_other_column" required>
+                                                    </div>
+                                                    <div class="form-group col-md-12">
+                                                        <button type="button" class="btn btn-success me-md-2">
+                                                            Simpan
+                                                        </button>
+                                                    </div>
+                                                    <hr>
+                                                    <br><br><br>
+                                                    <h6>Data yang telah di input</h6>
+                                                    <hr>
+                                                    {{-- table --}}
+                                                    <div class="col-md-12 col-12">
+                                                        <div class="table-responsive">
+                                                            <table class="table table-striped data-table" style="width:100%">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th scope="col">Plafond</th>
+                                                                        <th scope="col">Status</th>
+                                                                        <th scope="col">Saldo</th>
+                                                                        <th scope="col">Aksi</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <a href="#">{{ number_format(100000000) }}</a>
+                                                                        </td>
+                                                                        <td>Lunas</td>
+                                                                        <td>{{ number_format(0) }}</td>
+                                                                        <td>
+                                                                            <button type="button" class="btn btn-danger btn-sm">
+                                                                                <i class="fas fa-trash"></i>
+                                                                            </button>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <a href="#">{{ number_format(200000000) }}</a>
+                                                                        </td>
+                                                                        <td>Belum Lunas</td>
+                                                                        <td>{{ number_format(0) }}</td>
+                                                                        <td>
+                                                                            <button type="button" class="btn btn-danger btn-sm">
+                                                                                <i class="fas fa-trash"></i>
+                                                                            </button>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <a href="#">{{ number_format(75000000) }}</a>
+                                                                        </td>
+                                                                        <td>Lunas</td>
+                                                                        <td>{{ number_format(10000000) }}</td>
+                                                                        <td>
+                                                                            <button type="button" class="btn btn-danger btn-sm">
+                                                                                <i class="fas fa-trash"></i>
+                                                                            </button>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{-- debt here --}}
+                                    <div class="tab-pane fade" id="v-pills-debt-here" role="tabpanel"
+                                        aria-labelledby="v-pills-debt-here-tab">
+                                        <div class="was-validated tab-content" id="nav-tabContent">
+                                            <div class="row">
+                                                {{-- from_debt_here --}}
+                                                <div class="form-group col-md-6">
+                                                    <label for="from_debt_here">Akun Asal</label>
+                                                    <select class="form-select" aria-label="Default select example" id="from_debt_here" name="from_debt_here_column" required>
+                                                        <option value=""></option>@foreach ($approximation as $data)
+                                                        @if (Str::contains($data->code_approximation, '4.1.'))
+                                                            <option value="{{ $data->code_approximation }}">{{ $data->name_approximation }}</option>
+                                                        @endif
+                                                    @endforeach
+                                                    </select>
+                                                </div>
+                                                {{-- to_debt_here --}}
+                                                <div class="form-group col-md-6">
+                                                    <label for="to_debt_here">Akun Untuk</label>
+                                                    <select class="form-select" aria-label="Default select example" id="to_debt_here" name="to_after_column" required>
+                                                        <option value=""></option>@foreach ($approximation as $data)
+                                                        @if (Str::contains($data->code_approximation, '1.1.'))
+                                                            <option value="{{ $data->code_approximation }}">{{ $data->name_approximation }}</option>
+                                                        @endif
+                                                    @endforeach
+                                                    </select>
+                                                </div>
+                                                {{-- explanation_debt_here --}}
+                                                <div class="form-group col-md-6">
+                                                    <label for="explanation_debt_here">Keterangan</label>
+                                                    <input type="text" id="explanation_debt_here" class="form-control"
+                                                        name="explanation_debt_here_column" required>
+                                                </div>
+                                                {{-- amount_debt_here --}}
+                                                <div class="form-group col-md-6">
+                                                    <label for="amount_debt_here">Sebesar</label>
+                                                    <input type="number" id="amount_debt_here" class="form-control"
+                                                        name="amount_debt_here_column" required>
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <button type="button" class="btn btn-success me-md-2">
+                                                        Simpan
+                                                    </button>
+                                                </div>
+                                                <hr>
+                                                <br><br><br>
+                                                <h6>Data yang telah di input</h6>
+                                                <hr>
+                                                {{-- table --}}
+                                                <div class="col-md-12 col-12">
+                                                    <div class="table-responsive">
+                                                        <table class="table table-striped data-table" style="width:100%">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col">Plafond</th>
+                                                                    <th scope="col">Status</th>
+                                                                    <th scope="col">Saldo</th>
+                                                                    <th scope="col">Aksi</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        <a href="#">{{ number_format(100000000) }}</a>
+                                                                    </td>
+                                                                    <td>Lunas</td>
+                                                                    <td>{{ number_format(0) }}</td>
+                                                                    <td>
+                                                                        <button type="button" class="btn btn-danger btn-sm">
+                                                                            <i class="fas fa-trash"></i>
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <a href="#">{{ number_format(200000000) }}</a>
+                                                                    </td>
+                                                                    <td>Belum Lunas</td>
+                                                                    <td>{{ number_format(0) }}</td>
+                                                                    <td>
+                                                                        <button type="button" class="btn btn-danger btn-sm">
+                                                                            <i class="fas fa-trash"></i>
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <a href="#">{{ number_format(75000000) }}</a>
+                                                                    </td>
+                                                                    <td>Lunas</td>
+                                                                    <td>{{ number_format(10000000) }}</td>
+                                                                    <td>
+                                                                        <button type="button" class="btn btn-danger btn-sm">
+                                                                            <i class="fas fa-trash"></i>
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     {{-- collateral --}}
                                     <div class="tab-pane fade" id="v-pills-collateral" role="tabpanel"
@@ -1070,7 +1615,15 @@
     var i = 0;
     $("#dynamic-ar").click(function () {
         ++i;
-        $("#dynamicAddRemove").append('<tr><td><input type="text" name="addMoreInputFields[' + i + '][subject]" class="form-control" /></td><td><input type="text" name="addMoreInputFields2[' + i + '][subject]" class="form-control" /></td><td><button type="button" class="btn btn-danger remove-input-field">Delete</button></td></tr>');
+        $("#dynamicAddRemove").append
+            ('<tr>'+
+                '<td><input type="text" name="plafond['+ i +'][subject]" class="form-control"/></td>'+
+                '<td><input type="text" name="status['+ i +'][subject]" class="form-control"/></td>'+
+                '<td><input type="text" name="saldo['+ i +'][subject]" class="form-control"/></td>'+
+                '<td><input type="text" name="sejarah['+ i +'][subject]" class="form-control"/></td>'+
+                '<td><input type="text" name="data['+ i +'][subject]" class="form-control"/></td>'+
+                '<td><button type="button" class="btn btn-danger remove-input-field"><i class="fas fa-minus"></i></button></td>'+
+            '</tr>');
     });
     $(document).on('click', '.remove-input-field', function () {
         $(this).parents('tr').remove();

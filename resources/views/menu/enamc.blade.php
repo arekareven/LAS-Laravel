@@ -73,58 +73,13 @@
                                         aria-labelledby="v-pills-riwayat-pinjaman-tab">
                                         {{-- form --}}
                                         <div class="row">
-                                            {{-- plafond --}}
-                                            <div class="form-group col-md-3">
-                                                <label for="plafond">Plafond</label>
-                                                <input type="hidden" id="id_application" class="form-control" name="id_application_column" value="{{ $id }}" required>
-                                                <input type="number" id="plafond" class="form-control" name="plafond_column" required>
-                                                {{-- <div class="invalid-feedback">Isian plafond tidak boleh kosong</div> --}}
-                                            </div>
-                                            {{-- status --}}
-                                            <div class="form-group col-md-2">
-                                                <label for="status">Status</label>
-                                                <select class="form-select" aria-label="Default select example" id="status" name="status_column" required>
-                                                    <option value=""></option>
-                                                    <option value="Lunas">Lunas</option>
-                                                    <option value="Belum Lunas">Belum Lunas</option>
-                                                </select>
-                                            </div>
-                                            {{-- saldo --}}
-                                            <div class="form-group col-md-3">
-                                                <label for="saldo">Saldo</label>
-                                                <input type="number" id="balance" class="form-control"
-                                                    name="balance_column" required>
-                                            </div>
-                                            {{-- sejarah --}}
-                                            <div class="form-group col-md-2">
-                                                <label for="history">Sejarah</label>
-                                                <select class="form-select" aria-label="Default select example" id="history" name="history_column" required>
-                                                    <option value=""></option>
-                                                    <option value="Baik">Baik</option>
-                                                    <option value="Tidak Baik">Tidak Baik</option>
-                                                </select>
-                                            </div>
-                                            {{-- data --}}
-                                            <div class="form-group col-md-2">
-                                                <label for="document">Data</label>
-                                                <select class="form-select" aria-label="Default select example" id="document" name="document_column" required>
-                                                    <option value=""></option>
-                                                    <option value="Terlampir">Terlampir</option>
-                                                    <option value="Tidak Terlampir">Tidak Terlampir</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-md-12">
-                                                <button type="button" class="btn btn-success me-md-2">
-                                                    Simpan
-                                                </button>
-                                            </div>
                                             {{-- table --}}
                                             <p>
-                                                <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                                    Data yang telah di input
+                                                <a class="btn btn-outline-success" data-bs-toggle="collapse" href="#collapseLoanHistory" role="button" aria-expanded="false" aria-controls="collapseLoanHistory">
+                                                    Lihat Data
                                                 </a>
                                             </p>
-                                            <div class="collapse" id="collapseExample">
+                                            <div class="collapse" id="collapseLoanHistory">
                                                 <div class="col-md-12 col-12">
                                                     <div class="table-responsive">
                                                         <table class="table table-striped data-table" style="width:100%">
@@ -179,8 +134,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <br><br><br><br><br>
-                                        <table class="table table-bordered" id="dynamicAddRemove">
+                                        <br>
+                                        <table class="table table-borderless" id="dynamicAddRemove">
                                             <tr>
                                                 <th>Plafond</th>
                                                 <th>Status</th>
@@ -190,15 +145,34 @@
                                                 <th>Action</th>
                                             </tr>
                                             <tr>
-                                                <td><input type="text" name="plafond[0][subject]" class="form-control"/></td>
-                                                <td><input type="text" name="status[0][subject]" class="form-control"/></td>
-                                                <td><input type="text" name="saldo[0][subject]" class="form-control"/></td>
-                                                <td><input type="text" name="sejarah[0][subject]" class="form-control"/></td>
-                                                <td><input type="text" name="data[0][subject]" class="form-control"/></td>
-                                                <td><button type="button" name="add" id="dynamic-ar" class="btn btn-primary"><i class="fas fa-plus"></i></button></td>
+                                                <input type="hidden" id="id_application" class="form-control" name="id_application_column" value="{{ $id }}" required>
+                                                <td><input type="number" id="plafond" class="form-control" name="plafond_column[0][subject]" required></td>
+                                                <td>
+                                                    <select class="form-select" aria-label="Default select example" id="status" name="status_column[0][subject]" required>
+                                                        <option value=""></option>
+                                                        <option value="Lunas">Lunas</option>
+                                                        <option value="Belum Lunas">Belum Lunas</option>
+                                                    </select>
+                                                </td>
+                                                <td><input type="number" id="balance" class="form-control" name="balance_column" required></td>
+                                                <td>
+                                                    <select class="form-select" aria-label="Default select example" id="history" name="history_column[0][subject]" required>
+                                                        <option value=""></option>
+                                                        <option value="Baik">Baik</option>
+                                                        <option value="Tidak Baik">Tidak Baik</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-select" aria-label="Default select example" id="document" name="document_column[0][subject]" required>
+                                                        <option value=""></option>
+                                                        <option value="Terlampir">Terlampir</option>
+                                                        <option value="Tidak Terlampir">Tidak Terlampir</option>
+                                                    </select>
+                                                </td>
+                                                <td><button type="button" name="add" id="dynamic-ar" class="btn btn-outline-primary"><i class="fas fa-plus"></i></button></td>
                                             </tr>
                                         </table>
-                                        <button type="submit" class="btn btn-success btn-block"><i class="far fa-save"></i></button>
+                                        <button type="submit" class="btn btn-success btn-block">Simpan</button>
                                     </div>
                                     {{-- character --}}
                                     <div class="tab-pane fade" id="v-pills-character" role="tabpanel"
@@ -565,6 +539,7 @@
                                                     <br><br><br>
                                                     <h6>Data yang telah di input</h6>
                                                     <hr>
+
                                                     {{-- table --}}
                                                     <div class="col-md-12 col-12">
                                                         <div class="table-responsive">
@@ -584,30 +559,6 @@
                                                                         </td>
                                                                         <td>Lunas</td>
                                                                         <td>{{ number_format(0) }}</td>
-                                                                        <td>
-                                                                            <button type="button" class="btn btn-danger btn-sm">
-                                                                                <i class="fas fa-trash"></i>
-                                                                            </button>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <a href="#">{{ number_format(200000000) }}</a>
-                                                                        </td>
-                                                                        <td>Belum Lunas</td>
-                                                                        <td>{{ number_format(0) }}</td>
-                                                                        <td>
-                                                                            <button type="button" class="btn btn-danger btn-sm">
-                                                                                <i class="fas fa-trash"></i>
-                                                                            </button>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <a href="#">{{ number_format(75000000) }}</a>
-                                                                        </td>
-                                                                        <td>Lunas</td>
-                                                                        <td>{{ number_format(10000000) }}</td>
                                                                         <td>
                                                                             <button type="button" class="btn btn-danger btn-sm">
                                                                                 <i class="fas fa-trash"></i>
@@ -661,6 +612,7 @@
                                                     <br><br><br>
                                                     <h6>Data yang telah di input</h6>
                                                     <hr>
+
                                                     {{-- table --}}
                                                     <div class="col-md-12 col-12">
                                                         <div class="table-responsive">
@@ -680,30 +632,6 @@
                                                                         </td>
                                                                         <td>Lunas</td>
                                                                         <td>{{ number_format(0) }}</td>
-                                                                        <td>
-                                                                            <button type="button" class="btn btn-danger btn-sm">
-                                                                                <i class="fas fa-trash"></i>
-                                                                            </button>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <a href="#">{{ number_format(200000000) }}</a>
-                                                                        </td>
-                                                                        <td>Belum Lunas</td>
-                                                                        <td>{{ number_format(0) }}</td>
-                                                                        <td>
-                                                                            <button type="button" class="btn btn-danger btn-sm">
-                                                                                <i class="fas fa-trash"></i>
-                                                                            </button>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <a href="#">{{ number_format(75000000) }}</a>
-                                                                        </td>
-                                                                        <td>Lunas</td>
-                                                                        <td>{{ number_format(10000000) }}</td>
                                                                         <td>
                                                                             <button type="button" class="btn btn-danger btn-sm">
                                                                                 <i class="fas fa-trash"></i>
@@ -770,30 +698,6 @@
                                                                         </td>
                                                                         <td>Lunas</td>
                                                                         <td>{{ number_format(0) }}</td>
-                                                                        <td>
-                                                                            <button type="button" class="btn btn-danger btn-sm">
-                                                                                <i class="fas fa-trash"></i>
-                                                                            </button>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <a href="#">{{ number_format(200000000) }}</a>
-                                                                        </td>
-                                                                        <td>Belum Lunas</td>
-                                                                        <td>{{ number_format(0) }}</td>
-                                                                        <td>
-                                                                            <button type="button" class="btn btn-danger btn-sm">
-                                                                                <i class="fas fa-trash"></i>
-                                                                            </button>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <a href="#">{{ number_format(75000000) }}</a>
-                                                                        </td>
-                                                                        <td>Lunas</td>
-                                                                        <td>{{ number_format(10000000) }}</td>
                                                                         <td>
                                                                             <button type="button" class="btn btn-danger btn-sm">
                                                                                 <i class="fas fa-trash"></i>
@@ -1566,18 +1470,512 @@
                                     {{-- collateral --}}
                                     <div class="tab-pane fade" id="v-pills-collateral" role="tabpanel"
                                         aria-labelledby="v-pills-collateral-tab">
-                                        Sed lacus quam, convallis quis condimentum ut, accumsan congue
-                                        massa.
-                                        Pellentesque et quam vel massa pretium ullamcorper
-                                        vitae eu tortor.
+                                        <ul class="nav nav-tabs nav-fill mb-3" id="myTab" role="tablist">
+                                            <li class="nav-item" role="presentation">
+                                                <a class="nav-link active" id="collateral-land-tab" data-bs-toggle="tab" href="#collateral-land"
+                                                    role="tab" aria-controls="collateral-land" aria-selected="true"><h6>Tanah</h6></a>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <a class="nav-link" id="collateral-vehicle-tab" data-bs-toggle="tab" href="#collateral-vehicle"
+                                                    role="tab" aria-controls="collateral-vehicle" aria-selected="false"><h6>Kendaraan</h6></a>
+                                            </li>
+                                        </ul>
+                                        <div class="was-validated tab-content" id="nav-tabContent">
+                                            <div class="tab-pane fade show active" id="collateral-land" role="tabpanel">
+                                                {{-- table --}}
+                                                <p>
+                                                    <a class="btn btn-outline-success" data-bs-toggle="collapse" href="#collapseLandCollateral" role="button" aria-expanded="false" aria-controls="collapseLandCollateral">
+                                                        Lihat Data
+                                                    </a>
+                                                </p>
+                                                <div class="collapse" id="collapseLandCollateral">
+                                                    <div class="col-md-12 col-12">
+                                                        <div class="table-responsive">
+                                                            <table class="table table-striped data-table" style="width:100%">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th scope="col">Plafond</th>
+                                                                        <th scope="col">Status</th>
+                                                                        <th scope="col">Saldo</th>
+                                                                        <th scope="col">Aksi</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <a href="#">{{ number_format(100000000) }}</a>
+                                                                        </td>
+                                                                        <td>Lunas</td>
+                                                                        <td>{{ number_format(0) }}</td>
+                                                                        <td>
+                                                                            <button type="button" class="btn btn-danger btn-sm">
+                                                                                <i class="fas fa-trash"></i>
+                                                                            </button>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <a href="#">{{ number_format(200000000) }}</a>
+                                                                        </td>
+                                                                        <td>Belum Lunas</td>
+                                                                        <td>{{ number_format(0) }}</td>
+                                                                        <td>
+                                                                            <button type="button" class="btn btn-danger btn-sm">
+                                                                                <i class="fas fa-trash"></i>
+                                                                            </button>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <a href="#">{{ number_format(75000000) }}</a>
+                                                                        </td>
+                                                                        <td>Lunas</td>
+                                                                        <td>{{ number_format(10000000) }}</td>
+                                                                        <td>
+                                                                            <button type="button" class="btn btn-danger btn-sm">
+                                                                                <i class="fas fa-trash"></i>
+                                                                            </button>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="row">
+                                                    {{-- land_type --}}
+                                                    <div class="form-group col-md-4">
+                                                        <label for="land_type">Jenis Tanah</label>
+                                                        <input type="text" id="land_type" class="form-control"
+                                                            name="land_type_column" required>
+                                                    </div>
+                                                    {{-- land_owner --}}
+                                                    <div class="form-group col-md-4">
+                                                        <label for="land_owner">Nama Pemilik</label>
+                                                        <input type="text" id="land_owner" class="form-control"
+                                                            name="land_owner_column" required>
+                                                    </div>
+                                                    {{-- land_number --}}
+                                                    <div class="form-group col-md-4">
+                                                        <label for="land_number">No. SHM</label>
+                                                        <input type="text" id="land_number" class="form-control"
+                                                            name="land_number_column" required>
+                                                    </div>
+                                                    {{-- surface_area --}}
+                                                    <div class="form-group col-md-4">
+                                                        <label for="surface_area">Luas Tanah</label>
+                                                        <input type="number" id="surface_area" class="form-control"
+                                                            name="surface_area_column" required>
+                                                    </div>
+                                                    {{-- building_area --}}
+                                                    <div class="form-group col-md-4">
+                                                        <label for="building_area">Luas Bangunan</label>
+                                                        <input type="number" id="building_area" class="form-control"
+                                                            name="building_area_column" required>
+                                                    </div>
+                                                    {{-- land_market_price --}}
+                                                    <div class="form-group col-md-4">
+                                                        <label for="land_market_price">Harga Pasaran Tanah</label>
+                                                        <input type="number" id="land_market_price" class="form-control"
+                                                            name="land_market_price_column" required>
+                                                    </div>
+                                                    {{-- building_market_price --}}
+                                                    <div class="form-group col-md-4">
+                                                        <label for="building_market_price">Harga Pasaran Bangunan</label>
+                                                        <input type="number" id="building_market_price" class="form-control"
+                                                            name="building_market_price_column" required>
+                                                    </div>
+                                                    {{-- land_sppt_price --}}
+                                                    <div class="form-group col-md-4">
+                                                        <label for="land_sppt_price">Harga SPPT Tanah</label>
+                                                        <input type="number" id="land_sppt_price" class="form-control"
+                                                            name="land_sppt_price_column" required>
+                                                    </div>
+                                                    {{-- building_sppt_price --}}
+                                                    <div class="form-group col-md-4">
+                                                        <label for="building_sppt_price">Harga SPPT Bangunan</label>
+                                                        <input type="number" id="building_sppt_price" class="form-control"
+                                                            name="building_sppt_price_column" required>
+                                                    </div>
+                                                    {{-- date_measurement_letter --}}
+                                                    <div class="form-group col-md-4">
+                                                        <label for="date_measurement_letter">Tgl Surat Ukur</label>
+                                                        <input type="date" id="date_measurement_letter" class="form-control"
+                                                            name="date_measurement_letter_column" required>
+                                                    </div>
+                                                    {{-- number_measurement_letter --}}
+                                                    <div class="form-group col-md-4">
+                                                        <label for="number_measurement_letter">No. Surat Ukur</label>
+                                                        <input type="text" id="number_measurement_letter" class="form-control"
+                                                            name="number_measurement_letter_column" required>
+                                                    </div>
+                                                    {{-- land_ownership --}}
+                                                    <div class="form-group col-md-4">
+                                                        <label for="land_ownership">Hak Milik</label>
+                                                        <input type="text" id="land_ownership" class="form-control"
+                                                            name="land_ownership_column" required>
+                                                    </div>
+                                                    {{-- ht_value --}}
+                                                    <div class="form-group col-md-4">
+                                                        <label for="ht_value">Nilai HT</label>
+                                                        <input type="number" id="ht_value" class="form-control"
+                                                            name="ht_value_column" required>
+                                                    </div>
+                                                    {{-- taksasi --}}
+                                                    <div class="form-group col-md-4">
+                                                        <label for="taksasi">Taksasi (%)</label>
+                                                        <input type="number" id="taksasi" class="form-control"
+                                                            name="taksasi_column" required>
+                                                    </div>
+                                                    {{-- owner_address --}}
+                                                    <div class="form-group mb-2">
+                                                        <label>Alamat Pemilik</label>
+                                                        <textarea class="form-control" id="owner_address"
+                                                            rows="2" name="owner_address_column" required></textarea>
+                                                    </div>
+                                                    {{-- land_address --}}
+                                                    <div class="form-group mb-2">
+                                                        <label>Lokasi Jaminan</label>
+                                                        <textarea class="form-control" id="land_address"
+                                                            rows="2" name="land_address_column" required></textarea>
+                                                    </div>
+                                                    {{-- land_explanation --}}
+                                                    <div class="form-group mb-2">
+                                                        <label>Keterangan</label>
+                                                        <textarea class="form-control" id="land_explanation"
+                                                            rows="2" name="land_explanation_column" required></textarea>
+                                                    </div>
+                                                    {{-- land_proposal --}}
+                                                    <div class="form-group mb-2">
+                                                        <label>Usulan</label>
+                                                        <textarea class="form-control" id="land_proposal"
+                                                            rows="2" name="land_proposal_column" required></textarea>
+                                                    </div>
+                                                    <div class="form-group col-md-12">
+                                                        <button type="button" class="btn btn-success me-md-2">
+                                                            Simpan
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="collateral-vehicle" role="tabpanel">
+                                                {{-- table --}}
+                                                <p>
+                                                    <a class="btn btn-outline-success" data-bs-toggle="collapse" href="#collapseVehicleCollateral" role="button" aria-expanded="false" aria-controls="collapseVehicleCollateral">
+                                                        Lihat Data
+                                                    </a>
+                                                </p>
+                                                <div class="collapse" id="collapseVehicleCollateral">
+                                                    <div class="col-md-12 col-12">
+                                                        <div class="table-responsive">
+                                                            <table class="table table-striped data-table" style="width:100%">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th scope="col">Plafond</th>
+                                                                        <th scope="col">Status</th>
+                                                                        <th scope="col">Saldo</th>
+                                                                        <th scope="col">Aksi</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <a href="#">{{ number_format(100000000) }}</a>
+                                                                        </td>
+                                                                        <td>Lunas</td>
+                                                                        <td>{{ number_format(0) }}</td>
+                                                                        <td>
+                                                                            <button type="button" class="btn btn-danger btn-sm">
+                                                                                <i class="fas fa-trash"></i>
+                                                                            </button>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <a href="#">{{ number_format(200000000) }}</a>
+                                                                        </td>
+                                                                        <td>Belum Lunas</td>
+                                                                        <td>{{ number_format(0) }}</td>
+                                                                        <td>
+                                                                            <button type="button" class="btn btn-danger btn-sm">
+                                                                                <i class="fas fa-trash"></i>
+                                                                            </button>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <a href="#">{{ number_format(75000000) }}</a>
+                                                                        </td>
+                                                                        <td>Lunas</td>
+                                                                        <td>{{ number_format(10000000) }}</td>
+                                                                        <td>
+                                                                            <button type="button" class="btn btn-danger btn-sm">
+                                                                                <i class="fas fa-trash"></i>
+                                                                            </button>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="row">
+                                                    {{-- wheels --}}
+                                                    <div class="form-group col-md-4">
+                                                        <label for="wheels">Roda</label>
+                                                        <select class="form-select" aria-label="Default select example" id="wheels" name="wheels_column" required>
+                                                            <option value=""></option>
+                                                            <option value="2">2</option>
+                                                            <option value="4">4</option>
+                                                            <option value="6">6</option>
+                                                            <option value="8">8</option>
+                                                        </select>
+                                                    </div>
+                                                    {{-- license_plate --}}
+                                                    <div class="form-group col-md-4">
+                                                        <label for="license_plate">Nomor Polisi</label>
+                                                        <input type="text" id="license_plate" class="form-control"
+                                                            name="license_plate_column" required>
+                                                    </div>
+                                                    {{-- land_number --}}
+                                                    <div class="form-group col-md-4">
+                                                        <label for="land_number">No. SHM</label>
+                                                        <input type="text" id="land_number" class="form-control"
+                                                            name="land_number_column" required>
+                                                    </div>
+                                                    {{-- stnk_name --}}
+                                                    <div class="form-group col-md-4">
+                                                        <label for="stnk_name">Nama di STNK</label>
+                                                        <input type="text" id="stnk_name" class="form-control"
+                                                            name="stnk_name_column" required>
+                                                    </div>
+                                                    {{-- vehicle_year --}}
+                                                    <div class="form-group col-md-4">
+                                                        <label for="vehicle_year">Tahun</label>
+                                                        <input type="text" id="vehicle_year" class="form-control"
+                                                            name="vehicle_year_column" required>
+                                                    </div>
+                                                    {{-- vehicle_cylinder --}}
+                                                    <div class="form-group col-md-4">
+                                                        <label for="vehicle_cylinder">Isi Silinder</label>
+                                                        <input type="number" id="vehicle_cylinder" class="form-control"
+                                                            name="vehicle_cylinder_column" required>
+                                                    </div>
+                                                    {{-- frame_number --}}
+                                                    <div class="form-group col-md-4">
+                                                        <label for="frame_number">No. Rangka</label>
+                                                        <input type="text" id="frame_number" class="form-control"
+                                                            name="frame_number_column" required>
+                                                    </div>
+                                                    {{-- machine_number --}}
+                                                    <div class="form-group col-md-4">
+                                                        <label for="machine_number">No. Mesin</label>
+                                                        <input type="text" id="machine_number" class="form-control"
+                                                            name="machine_number_column" required>
+                                                    </div>
+                                                    {{-- bpkb_number --}}
+                                                    <div class="form-group col-md-4">
+                                                        <label for="bpkb_number">No. BPKB</label>
+                                                        <input type="text" id="bpkb_number" class="form-control"
+                                                            name="bpkb_number_column" required>
+                                                    </div>
+                                                    {{-- vehicle_brand --}}
+                                                    <div class="form-group col-md-4">
+                                                        <label for="vehicle_brand">Merk</label>
+                                                        <input type="text" id="vehicle_brand" class="form-control"
+                                                            name="vehicle_brand_column" required>
+                                                    </div>
+                                                    {{-- kind_of_car --}}
+                                                    <div class="form-group col-md-4">
+                                                        <label for="kind_of_car">Jenis</label>
+                                                        <input type="text" id="kind_of_car" class="form-control"
+                                                            name="kind_of_car_column" required>
+                                                    </div>
+                                                    {{-- vehicle_color --}}
+                                                    <div class="form-group col-md-4">
+                                                        <label for="vehicle_color">Warna</label>
+                                                        <input type="text" id="vehicle_color" class="form-control"
+                                                            name="vehicle_color_column" required>
+                                                    </div>
+                                                    {{-- vehicle_market_price --}}
+                                                    <div class="form-group col-md-4">
+                                                        <label for="vehicle_market_price">Harga Pasaran</label>
+                                                        <input type="number" id="vehicle_market_price" class="form-control"
+                                                            name="vehicle_market_price_column" required>
+                                                    </div>
+                                                    {{-- nl_value --}}
+                                                    <div class="form-group col-md-4">
+                                                        <label for="nl_value">Nilai NL</label>
+                                                        <input type="number" id="nl_value" class="form-control"
+                                                            name="nl_value_column" required>
+                                                    </div>
+                                                    {{-- vehicle_ownership --}}
+                                                    <div class="form-group col-md-4">
+                                                        <label for="vehicle_ownership">Hak Milik</label>
+                                                        <input type="text" id="vehicle_ownership" class="form-control"
+                                                            name="vehicle_ownership_column" required>
+                                                    </div>
+                                                    {{-- address_owner_vehicle --}}
+                                                    <div class="form-group mb-2">
+                                                        <label>Alamat Pemilik</label>
+                                                        <textarea class="form-control" id="address_owner_vehicle"
+                                                            rows="2" name="address_owner_vehicle_column" required></textarea>
+                                                    </div>
+                                                    {{-- vehicle_proposal --}}
+                                                    <div class="form-group mb-2">
+                                                        <label>Usulan</label>
+                                                        <textarea class="form-control" id="vehicle_proposal"
+                                                            rows="2" name="vehicle_proposal_column" required></textarea>
+                                                    </div>
+                                                    <div class="form-group col-md-12">
+                                                        <button type="button" class="btn btn-success me-md-2">
+                                                            Simpan
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     {{-- usulan --}}
                                     <div class="tab-pane fade" id="v-pills-usulan" role="tabpanel"
                                         aria-labelledby="v-pills-usulan-tab">
-                                        Sed lacus quam, convallis quis condimentum ut, accumsan congue
-                                        massa.
-                                        Pellentesque et quam vel massa pretium ullamcorper
-                                        vitae eu tortor.
+                                        <div class="row">
+                                            {{-- character --}}
+                                            <div class="form-group col-md-4">
+                                                <label for="character">Character</label>
+                                                <input type="text" id="character" class="form-control"
+                                                    name="character_column" required>
+                                            </div>
+                                            {{-- capacity --}}
+                                            <div class="form-group col-md-4">
+                                                <label for="capacity">Capacity</label>
+                                                <input type="text" id="capacity" class="form-control"
+                                                    name="capacity_column" required>
+                                            </div>
+                                            {{-- capital --}}
+                                            <div class="form-group col-md-4">
+                                                <label for="capital">Capital</label>
+                                                <input type="text" id="capital" class="form-control"
+                                                    name="capital_column" required>
+                                            </div>
+                                            {{-- condition --}}
+                                            <div class="form-group col-md-4">
+                                                <label for="condition">Condition</label>
+                                                <input type="text" id="condition" class="form-control"
+                                                    name="condition_column" required>
+                                            </div>
+                                            {{-- collateral --}}
+                                            <div class="form-group col-md-4">
+                                                <label for="collateral">Collateral</label>
+                                                <input type="text" id="collateral" class="form-control"
+                                                    name="collateral_column" required>
+                                            </div>
+                                            {{-- realization_date --}}
+                                            <div class="form-group col-md-4">
+                                                <label for="realization_date">Tgl Realisasi</label>
+                                                <input type="date" id="realization_date" class="form-control"
+                                                    name="realization_date_column" required>
+                                            </div>
+                                            {{-- plafond_proposal --}}
+                                            <div class="form-group col-md-4">
+                                                <label for="plafond_proposal">Plafond</label>
+                                                <input type="number" id="plafond_proposal" class="form-control"
+                                                    name="plafond_proposal_column" required>
+                                            </div>
+                                            {{-- time_period_proposal --}}
+                                            <div class="form-group col-md-4">
+                                                <label for="time_period_proposal">Jangka Waktu</label>
+                                                <input type="number" id="time_period_proposal" class="form-control"
+                                                    name="time_period_proposal_column" required>
+                                            </div>
+                                            {{-- interest --}}
+                                            <div class="form-group col-md-4">
+                                                <label for="interest">Bunga (%)</label>
+                                                <input type="number" id="interest" class="form-control"
+                                                    name="interest_column" required>
+                                            </div>
+                                            {{-- provision --}}
+                                            <div class="form-group col-md-4">
+                                                <label for="provision">Provisi</label>
+                                                <input type="text" id="provision" class="form-control"
+                                                    name="provision_column" required>
+                                            </div>
+                                            {{-- administration --}}
+                                            <div class="form-group col-md-4">
+                                                <label for="administration">Admnistrasi</label>
+                                                <input type="number" id="administration" class="form-control"
+                                                    name="administration_column" required>
+                                            </div>
+                                            {{-- insurance --}}
+                                            <div class="form-group col-md-4">
+                                                <label for="insurance">Asuransi</label>
+                                                <input type="number" id="insurance" class="form-control"
+                                                    name="insurance_column" required>
+                                            </div>
+                                            {{-- dutystamp --}}
+                                            <div class="form-group col-md-4">
+                                                <label for="dutystamp">Materai</label>
+                                                <input type="text" id="dutystamp" class="form-control"
+                                                    name="dutystamp_column" required>
+                                            </div>
+                                            {{-- skmht --}}
+                                            <div class="form-group col-md-4">
+                                                <label for="skmht">SKMHT</label>
+                                                <input type="number" id="skmht" class="form-control"
+                                                    name="skmht_column" required>
+                                            </div>
+                                            {{-- cost_skmht --}}
+                                            <div class="form-group col-md-4">
+                                                <label for="cost_skmht">cost_skmht</label>
+                                                <input type="number" id="cost_skmht" class="form-control"
+                                                    name="cost_skmht_column" required>
+                                            </div>
+                                            {{-- fiduciare --}}
+                                            <div class="form-group col-md-4">
+                                                <label for="fiduciare">Fiduciare</label>
+                                                <input type="number" id="fiduciare" class="form-control"
+                                                    name="fiduciare_column" required>
+                                            </div>
+                                            {{-- cost_skmht --}}
+                                            <div class="form-group col-md-4">
+                                                <label for="cost_skmht">Biaya SKMHT ke APHT</label>
+                                                <input type="number" id="cost_skmht" class="form-control"
+                                                    name="cost_skmht_column" required>
+                                            </div>
+                                            {{-- legalization --}}
+                                            <div class="form-group col-md-4">
+                                                <label for="legalization">legalization</label>
+                                                <input type="number" id="legalization" class="form-control"
+                                                    name="legalization_column" required>
+                                            </div>
+                                            {{-- cost_skmht --}}
+                                            <div class="form-group col-md-4">
+                                                <label for="cost_skmht">cost_skmht</label>
+                                                <input type="number" id="cost_skmht" class="form-control"
+                                                    name="cost_skmht_column" required>
+                                            </div>
+                                            {{-- cost_skmht --}}
+                                            <div class="form-group col-md-4">
+                                                <label for="cost_skmht">cost_skmht</label>
+                                                <input type="number" id="cost_skmht" class="form-control"
+                                                    name="cost_skmht_column" required>
+                                            </div>
+                                        </div>
+                                        <table class="table table-borderless" id="dynamicAddRemoveProposal">
+                                            <tr>
+                                                <th>Nama</th>
+                                                <th>Sebagai</th>
+                                                <th>Action</th>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="text" id="on_behalf_of" class="form-control" name="on_behalf_of_column[0][subject]" required></td>
+                                                <td><input type="text" id="as" class="form-control" name="as_column" required></td>
+                                                <td><button type="button" name="add" id="dynamic-ar-proposal" class="btn btn-outline-primary"><i class="fas fa-plus"></i></button></td>
+                                            </tr>
+                                        </table>
+                                        <button type="submit" class="btn btn-success btn-block">Simpan</button>
                                     </div>
                                     {{-- upload --}}
                                     <div class="tab-pane fade" id="v-pills-upload" role="tabpanel"
@@ -1611,17 +2009,53 @@
 <!-- JavaScript -->
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script> --}}
+{{-- Loan History --}}
 <script type="text/javascript">
     var i = 0;
     $("#dynamic-ar").click(function () {
         ++i;
         $("#dynamicAddRemove").append
             ('<tr>'+
-                '<td><input type="text" name="plafond['+ i +'][subject]" class="form-control"/></td>'+
-                '<td><input type="text" name="status['+ i +'][subject]" class="form-control"/></td>'+
-                '<td><input type="text" name="saldo['+ i +'][subject]" class="form-control"/></td>'+
-                '<td><input type="text" name="sejarah['+ i +'][subject]" class="form-control"/></td>'+
-                '<td><input type="text" name="data['+ i +'][subject]" class="form-control"/></td>'+
+                '<td><input type="number" id="plafond" class="form-control" name="plafond_column['+ i +'][subject]" required></td>'+
+                '<td>'+
+                    '<select class="form-select" aria-label="Default select example" id="status" name="status_column['+ i +'][subject]" required>'+
+                        '<option value=""></option>'+
+                        '<option value="Lunas">Lunas</option>'+
+                        '<option value="Belum Lunas">Belum Lunas</option>'+
+                    '</select>'+
+                '</td>'+
+                '<td><input type="number" id="balance" class="form-control" name="balance_column['+ i +'][subject]" required></td>'+
+                '<td>'+
+                    '<select class="form-select" aria-label="Default select example" id="history" name="history_column['+ i +'][subject]" required>'+
+                        '<option value=""></option>'+
+                        '<option value="Baik">Baik</option>'+
+                        '<option value="Tidak Baik">Tidak Baik</option>'+
+                    '</select>'+
+                '</td>'+
+                '<td>'+
+                    '<select class="form-select" aria-label="Default select example" id="document" name="document_column['+ i +'][subject]" required>'+
+                        '<option value=""></option>'+
+                        '<option value="Terlampir">Terlampir</option>'+
+                        '<option value="Tidak Terlampir">Tidak Terlampir</option>'+
+                    '</select>'+
+                '</td>'+
+                '<td><button type="button" class="btn btn-danger remove-input-field"><i class="fas fa-minus"></i></button></td>'+
+            '</tr>');
+    });
+    $(document).on('click', '.remove-input-field', function () {
+        $(this).parents('tr').remove();
+    });
+</script>
+
+{{-- proposal --}}
+<script type="text/javascript">
+    var i = 0;
+    $("#dynamic-ar-proposal").click(function () {
+        ++i;
+        $("#dynamicAddRemoveProposal").append
+            ('<tr>'+
+                '<td><input type="text" id="on_behalf_of" class="form-control" name="on_behalf_of_column['+ i +'][subject]" required></td>'+
+                '<td><input type="text" id="as" class="form-control" name="as_column['+ i +'][subject]" required></td>'+
                 '<td><button type="button" class="btn btn-danger remove-input-field"><i class="fas fa-minus"></i></button></td>'+
             '</tr>');
     });

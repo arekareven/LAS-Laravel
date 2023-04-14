@@ -50,7 +50,7 @@
                                                 </div>
                                                 <div class="col-md-6 col-12">
                                                     <div class="form-group col-md-10">
-                                                        <label for="plafond">Plafond (Tanpa Titik)</label>
+                                                        <label for="plafond">Plafond</label>
                                                         <input type="number" id="plafond" class="form-control"
                                                             placeholder="Plafond" name="plafond_column" required>
                                                         <div class="invalid-feedback">
@@ -118,6 +118,44 @@
                                                         <div class="invalid-feedback">Isian ini tidak boleh kosong</div>
                                                     </div>
                                                 </div>
+                                                <label for="dynamicAddRemove">Riwayat Pinjaman</label>
+                                                <table class="table table-borderless" id="dynamicAddRemove">
+                                                    <tr>
+                                                        <th>Plafond</th>
+                                                        <th>Status</th>
+                                                        <th>Saldo</th>
+                                                        <th>Sejarah</th>
+                                                        <th>Data</th>
+                                                        <th></th>
+                                                    </tr>
+                                                    <tr>
+                                                        <input type="hidden" id="id_application" class="form-control" name="id_application_column" value="{{ $id }}" required>
+                                                        <td><input type="number" id="plafond" class="form-control" name="plafond_column[0][subject]" required></td>
+                                                        <td>
+                                                            <select class="form-select" aria-label="Default select example" id="status" name="status_column[0][subject]" required>
+                                                                <option value=""></option>
+                                                                <option value="Lunas">Lunas</option>
+                                                                <option value="Belum Lunas">Belum Lunas</option>
+                                                            </select>
+                                                        </td>
+                                                        <td><input type="number" id="balance" class="form-control" name="balance_column" required></td>
+                                                        <td>
+                                                            <select class="form-select" aria-label="Default select example" id="history" name="history_column[0][subject]" required>
+                                                                <option value=""></option>
+                                                                <option value="Baik">Baik</option>
+                                                                <option value="Tidak Baik">Tidak Baik</option>
+                                                            </select>
+                                                        </td>
+                                                        <td>
+                                                            <select class="form-select" aria-label="Default select example" id="document" name="document_column[0][subject]" required>
+                                                                <option value=""></option>
+                                                                <option value="Terlampir">Terlampir</option>
+                                                                <option value="Tidak Terlampir">Tidak Terlampir</option>
+                                                            </select>
+                                                        </td>
+                                                        <td><button type="button" name="add" id="dynamic-ar" class="btn btn-outline-primary"><i class="fas fa-plus"></i></button></td>
+                                                    </tr>
+                                                </table>
                                                 <div class="col-12 d-flex justify-content-end">
                                                     <button type="submit" class="btn btn-primary me-1 mb-1">Simpan</button>
                                                 </div>
@@ -138,3 +176,46 @@
 
 @endsection
 
+@section('script')
+
+<!-- JavaScript -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+{{-- Loan History --}}
+<script type="text/javascript">
+    var i = 0;
+    $("#dynamic-ar").click(function () {
+        ++i;
+        $("#dynamicAddRemove").append
+            ('<tr>'+
+                '<td><input type="number" id="plafond" class="form-control" name="plafond_column['+ i +'][subject]" required></td>'+
+                '<td>'+
+                    '<select class="form-select" aria-label="Default select example" id="status" name="status_column['+ i +'][subject]" required>'+
+                        '<option value=""></option>'+
+                        '<option value="Lunas">Lunas</option>'+
+                        '<option value="Belum Lunas">Belum Lunas</option>'+
+                    '</select>'+
+                '</td>'+
+                '<td><input type="number" id="balance" class="form-control" name="balance_column['+ i +'][subject]" required></td>'+
+                '<td>'+
+                    '<select class="form-select" aria-label="Default select example" id="history" name="history_column['+ i +'][subject]" required>'+
+                        '<option value=""></option>'+
+                        '<option value="Baik">Baik</option>'+
+                        '<option value="Tidak Baik">Tidak Baik</option>'+
+                    '</select>'+
+                '</td>'+
+                '<td>'+
+                    '<select class="form-select" aria-label="Default select example" id="document" name="document_column['+ i +'][subject]" required>'+
+                        '<option value=""></option>'+
+                        '<option value="Terlampir">Terlampir</option>'+
+                        '<option value="Tidak Terlampir">Tidak Terlampir</option>'+
+                    '</select>'+
+                '</td>'+
+                '<td><button type="button" class="btn btn-danger remove-input-field"><i class="fas fa-minus"></i></button></td>'+
+            '</tr>');
+    });
+    $(document).on('click', '.remove-input-field', function () {
+        $(this).parents('tr').remove();
+    });
+</script>
+
+@endsection

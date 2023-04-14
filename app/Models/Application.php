@@ -12,7 +12,7 @@ class Application extends Model
     protected $fillable = [
         'id_customer', 'plafond', 'credit_type', 'application_type', 'purpose',
         'purpose_description', 'time_period', 'application_date', 'analysis_date',
-        'status'
+        'status','loan_history'
     ];
 
 }

@@ -1899,7 +1899,7 @@
                                             {{-- provision --}}
                                             <div class="form-group col-md-4">
                                                 <label for="provision">Provisi</label>
-                                                <input type="text" id="provision" class="form-control"
+                                                <input type="number" id="provision" class="form-control"
                                                     name="provision_column" required>
                                             </div>
                                             {{-- administration --}}
@@ -1917,8 +1917,14 @@
                                             {{-- dutystamp --}}
                                             <div class="form-group col-md-4">
                                                 <label for="dutystamp">Materai</label>
-                                                <input type="text" id="dutystamp" class="form-control"
+                                                <input type="number" id="dutystamp" class="form-control"
                                                     name="dutystamp_column" required>
+                                            </div>
+                                            {{-- apht --}}
+                                            <div class="form-group col-md-4">
+                                                <label for="apht">APHT</label>
+                                                <input type="number" id="apht" class="form-control"
+                                                    name="apht_column" required>
                                             </div>
                                             {{-- skmht --}}
                                             <div class="form-group col-md-4">
@@ -1928,7 +1934,7 @@
                                             </div>
                                             {{-- cost_skmht --}}
                                             <div class="form-group col-md-4">
-                                                <label for="cost_skmht">cost_skmht</label>
+                                                <label for="cost_skmht">Biaya SKMHT ke APHT</label>
                                                 <input type="number" id="cost_skmht" class="form-control"
                                                     name="cost_skmht_column" required>
                                             </div>
@@ -1938,29 +1944,29 @@
                                                 <input type="number" id="fiduciare" class="form-control"
                                                     name="fiduciare_column" required>
                                             </div>
-                                            {{-- cost_skmht --}}
-                                            <div class="form-group col-md-4">
-                                                <label for="cost_skmht">Biaya SKMHT ke APHT</label>
-                                                <input type="number" id="cost_skmht" class="form-control"
-                                                    name="cost_skmht_column" required>
-                                            </div>
                                             {{-- legalization --}}
                                             <div class="form-group col-md-4">
-                                                <label for="legalization">legalization</label>
+                                                <label for="legalization">Legalisasi</label>
                                                 <input type="number" id="legalization" class="form-control"
                                                     name="legalization_column" required>
                                             </div>
-                                            {{-- cost_skmht --}}
+                                            {{-- roya --}}
                                             <div class="form-group col-md-4">
-                                                <label for="cost_skmht">cost_skmht</label>
-                                                <input type="number" id="cost_skmht" class="form-control"
-                                                    name="cost_skmht_column" required>
+                                                <label for="roya">Roya</label>
+                                                <input type="number" id="roya" class="form-control"
+                                                    name="roya_column" required>
                                             </div>
-                                            {{-- cost_skmht --}}
+                                            {{-- lain-lain --}}
                                             <div class="form-group col-md-4">
-                                                <label for="cost_skmht">cost_skmht</label>
-                                                <input type="number" id="cost_skmht" class="form-control"
-                                                    name="cost_skmht_column" required>
+                                                <label for="lain-lain">Lain-lain</label>
+                                                <input type="number" id="lain-lain" class="form-control"
+                                                    name="lain-lain_column" required>
+                                            </div>
+                                            {{-- notaris --}}
+                                            <div class="form-group col-md-4">
+                                                <label for="notaris">Notaris</label>
+                                                <input type="text" id="notaris" class="form-control"
+                                                    name="notaris_column" required>
                                             </div>
                                         </div>
                                         <table class="table table-borderless" id="dynamicAddRemoveProposal">
@@ -1980,10 +1986,7 @@
                                     {{-- upload --}}
                                     <div class="tab-pane fade" id="v-pills-upload" role="tabpanel"
                                         aria-labelledby="v-pills-upload-tab">
-                                        Sed lacus quam, convallis quis condimentum ut, accumsan congue
-                                        massa.
-                                        Pellentesque et quam vel massa pretium ullamcorper
-                                        vitae eu tortor.
+                                        <input class="form-control" type="file" id="formFileMultiple" multiple>
                                     </div>
                                     {{-- cetak --}}
                                     <div class="tab-pane fade" id="v-pills-cetak" role="tabpanel"

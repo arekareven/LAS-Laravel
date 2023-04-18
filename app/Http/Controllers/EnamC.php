@@ -11,6 +11,6 @@ class EnamC extends Controller
     {
         $approximation = Approximation::all();
         // dd($approximation);
-        return view('menu.enamc',compact('id','approximation'));
+        return view('menu.enamc.enamc',compact('id','approximation'));
     }
 }

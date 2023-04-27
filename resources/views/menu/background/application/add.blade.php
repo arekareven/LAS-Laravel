@@ -130,24 +130,24 @@
                                                     </tr>
                                                     <tr>
                                                         <input type="hidden" id="id_application" class="form-control" name="id_application_column" value="{{ $id }}" required>
-                                                        <td><input type="number" id="plafond" class="form-control" name="plafond_column[0][subject]" required></td>
+                                                        <td><input type="number" id="plafond" class="form-control" name="plafond_column[]" required></td>
                                                         <td>
-                                                            <select class="form-select" aria-label="Default select example" id="status" name="status_column[0][subject]" required>
+                                                            <select class="form-select" aria-label="Default select example" id="status" name="status_column[]" required>
                                                                 <option value=""></option>
                                                                 <option value="Lunas">Lunas</option>
                                                                 <option value="Belum Lunas">Belum Lunas</option>
                                                             </select>
                                                         </td>
-                                                        <td><input type="number" id="balance" class="form-control" name="balance_column" required></td>
+                                                        <td><input type="number" id="balance" class="form-control" name="balance_column[]" required></td>
                                                         <td>
-                                                            <select class="form-select" aria-label="Default select example" id="history" name="history_column[0][subject]" required>
+                                                            <select class="form-select" aria-label="Default select example" id="history" name="history_column[]" required>
                                                                 <option value=""></option>
                                                                 <option value="Baik">Baik</option>
                                                                 <option value="Tidak Baik">Tidak Baik</option>
                                                             </select>
                                                         </td>
                                                         <td>
-                                                            <select class="form-select" aria-label="Default select example" id="document" name="document_column[0][subject]" required>
+                                                            <select class="form-select" aria-label="Default select example" id="document" name="document_column[]" required>
                                                                 <option value=""></option>
                                                                 <option value="Terlampir">Terlampir</option>
                                                                 <option value="Tidak Terlampir">Tidak Terlampir</option>
@@ -187,24 +187,24 @@
         ++i;
         $("#dynamicAddRemove").append
             ('<tr>'+
-                '<td><input type="number" id="plafond" class="form-control" name="plafond_column['+ i +'][subject]" required></td>'+
+                '<td><input type="number" id="plafond" class="form-control" name="plafond_column[]" required></td>'+
                 '<td>'+
-                    '<select class="form-select" aria-label="Default select example" id="status" name="status_column['+ i +'][subject]" required>'+
+                    '<select class="form-select" aria-label="Default select example" id="status" name="status_column[]" required>'+
                         '<option value=""></option>'+
                         '<option value="Lunas">Lunas</option>'+
                         '<option value="Belum Lunas">Belum Lunas</option>'+
                     '</select>'+
                 '</td>'+
-                '<td><input type="number" id="balance" class="form-control" name="balance_column['+ i +'][subject]" required></td>'+
+                '<td><input type="number" id="balance" class="form-control" name="balance_column[]" required></td>'+
                 '<td>'+
-                    '<select class="form-select" aria-label="Default select example" id="history" name="history_column['+ i +'][subject]" required>'+
+                    '<select class="form-select" aria-label="Default select example" id="history" name="history_column[]" required>'+
                         '<option value=""></option>'+
                         '<option value="Baik">Baik</option>'+
                         '<option value="Tidak Baik">Tidak Baik</option>'+
                     '</select>'+
                 '</td>'+
                 '<td>'+
-                    '<select class="form-select" aria-label="Default select example" id="document" name="document_column['+ i +'][subject]" required>'+
+                    '<select class="form-select" aria-label="Default select example" id="document" name="document_column[]" required>'+
                         '<option value=""></option>'+
                         '<option value="Terlampir">Terlampir</option>'+
                         '<option value="Tidak Terlampir">Tidak Terlampir</option>'+

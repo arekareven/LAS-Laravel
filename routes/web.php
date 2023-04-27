@@ -1,14 +1,21 @@
 <?php
 
-use App\Http\Controllers\ApplicationController;
-use App\Http\Controllers\CharacterController;
-use App\Http\Controllers\CustomerController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\EnamC;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\RoleController;
-use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\{
+    RoleController,
+    UserController
+};
+use App\Http\Controllers\Dashboard\{
+    DashboardController,
+    ProfileController
+};
+use App\Http\Controllers\EnamC\{
+   ApplicationController,
+   CharacterController,
+   CustomerController,
+   EnamC,
+    LoanHistoryController
+};
 
 Route::get('/', function () {
     return redirect()->route('login');
@@ -17,7 +24,6 @@ Route::get('/', function () {
 // Route::get('/dashboard', function () {
 //     return view('layout.dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
-
 
 Route::get('/dashboard', [DashboardController::class, 'index'])
 ->middleware(['auth', 'verified'])->name('dashboard');
@@ -32,6 +38,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('customer', CustomerController::class);
     Route::resource('application', ApplicationController::class);
     Route::resource('character', CharacterController::class);
+    Route::resource('loan_history', LoanHistoryController::class);
 
     Route::get('applicationcreate/{id}', [ApplicationController::class, 'create']);
     Route::get('applicationlist/{id}', [ApplicationController::class, 'show']);

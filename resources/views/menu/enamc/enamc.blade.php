@@ -2,149 +2,187 @@
 
 {{-- content --}}
 @section('content')
-<div id="main-content">
-    <header class="mb-3">
-        <a href="#" class="burger-btn d-block d-xl-none">
-            <i class="bi bi-justify fs-3"></i>
-        </a>
-    </header>
+    <div id="main-content">
+        <header class="mb-3">
+            <a href="#" class="burger-btn d-block d-xl-none">
+                <i class="bi bi-justify fs-3"></i>
+            </a>
+        </header>
 
-    <div class="page-heading">
-        <div class="page-title">
-            <div class="row">
-                <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>6C</h3>
+        <div class="page-heading">
+            <div class="page-title">
+                <div class="row">
+                    <div class="col-12 col-md-6 order-md-1 order-last">
+                        <h3>6C</h3>
+                    </div>
                 </div>
             </div>
-        </div>
-        <section class="section">
-            <div class="row">
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">Input Data 6C</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-2">
-                                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
-                                    aria-orientation="vertical">
-                                    <a class="nav-link active" id="v-pills-riwayat-pinjaman-tab" data-bs-toggle="pill"
-                                        href="#v-pills-riwayat-pinjaman" role="tab" aria-controls="v-pills-riwayat-pinjaman"
-                                        aria-selected="true">Riwayat Pinjaman</a>
-                                    <a class="nav-link" id="v-pills-character-tab" data-bs-toggle="pill"
-                                        href="#v-pills-character" role="tab" aria-controls="v-pills-character"
-                                        aria-selected="true">Character</a>
-                                    <a class="nav-link" id="v-pills-capacity-tab" data-bs-toggle="pill"
-                                        href="#v-pills-capacity" role="tab" aria-controls="v-pills-capacity"
-                                        aria-selected="false">Capacity</a>
-                                    <a class="nav-link" id="v-pills-capital-tab" data-bs-toggle="pill"
-                                        href="#v-pills-capital" role="tab" aria-controls="v-pills-capital"
-                                        aria-selected="false">Capital</a>
-                                    <a class="nav-link" id="v-pills-cashflow-before-tab" data-bs-toggle="pill"
-                                        href="#v-pills-cashflow-before" role="tab" aria-controls="v-pills-cashflow-before"
-                                        aria-selected="false">Cashflow Sebelum</a>
-                                    <a class="nav-link" id="v-pills-cashflow-after-tab" data-bs-toggle="pill"
-                                        href="#v-pills-cashflow-after" role="tab" aria-controls="v-pills-cashflow-after"
-                                        aria-selected="false">Cashflow Setelah</a>
-                                    <a class="nav-link" id="v-pills-other-income-tab" data-bs-toggle="pill"
-                                        href="#v-pills-other-income" role="tab" aria-controls="v-pills-other-income"
-                                        aria-selected="false">Pendapatan Lain</a>
-                                    <a class="nav-link" id="v-pills-debt-here-tab" data-bs-toggle="pill"
-                                        href="#v-pills-debt-here" role="tab" aria-controls="v-pills-debt-here"
-                                        aria-selected="false">Hutang</a>
-                                    <a class="nav-link" id="v-pills-collateral-tab" data-bs-toggle="pill"
-                                        href="#v-pills-collateral" role="tab" aria-controls="v-pills-collateral"
-                                        aria-selected="false">Collateral</a>
-                                    <a class="nav-link" id="v-pills-usulan-tab" data-bs-toggle="pill"
-                                        href="#v-pills-usulan" role="tab" aria-controls="v-pills-usulan"
-                                        aria-selected="false">Usulan</a>
-                                    <a class="nav-link" id="v-pills-upload-tab" data-bs-toggle="pill"
-                                        href="#v-pills-upload" role="tab" aria-controls="v-pills-upload"
-                                        aria-selected="false">Upload Berkas</a>
-                                    <a class="nav-link" id="v-pills-cetak-tab" data-bs-toggle="pill"
-                                        href="#v-pills-cetak" role="tab" aria-controls="v-pills-cetak"
-                                        aria-selected="false">Cetak</a>
-                                </div>
-                            </div>
-                            <div class="col-10">
-                                <div class="tab-content" id="v-pills-tabContent">
-                                    @include('menu.enamc.loan_history')
-                                    @include('menu.enamc.character')
-                                    @include('menu.enamc.capacity')
-                                    @include('menu.enamc.capital')
-                                    @include('menu.enamc.cashflow_before')
-                                    @include('menu.enamc.cashflow_after')
-                                    @include('menu.enamc.other_income')
-                                    @include('menu.enamc.debt')
-                                    @include('menu.enamc.collateral')
-                                    @include('menu.enamc.usulan')
-                                    {{-- upload --}}
-                                    <div class="tab-pane fade" id="v-pills-upload" role="tabpanel"
-                                        aria-labelledby="v-pills-upload-tab">
-                                        <input class="form-control" type="file" id="formFileMultiple" multiple>
+            <section class="section">
+                <div class="row">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Input Data 6C</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-2">
+                                    {{-- class="nav flex-column nav-pills" --}}
+                                    <div class="nav nav-tabs" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                        <a class="nav-link active" id="v-pills-riwayat-pinjaman-tab" data-bs-toggle="pill"
+                                            href="#v-pills-riwayat-pinjaman" role="tab"
+                                            aria-controls="v-pills-riwayat-pinjaman" aria-selected="true">Riwayat
+                                            Pinjaman</a>
+                                        <a class="nav-link" id="v-pills-character-tab" data-bs-toggle="pill"
+                                            href="#v-pills-character" role="tab" aria-controls="v-pills-character"
+                                            aria-selected="true">Character</a>
+                                        <a class="nav-link" id="v-pills-capacity-tab" data-bs-toggle="pill"
+                                            href="#v-pills-capacity" role="tab" aria-controls="v-pills-capacity"
+                                            aria-selected="false">Capacity</a>
+                                        <a class="nav-link" id="v-pills-capital-tab" data-bs-toggle="pill"
+                                            href="#v-pills-capital" role="tab" aria-controls="v-pills-capital"
+                                            aria-selected="false">Capital</a>
+                                        <a class="nav-link" id="v-pills-cashflow-before-tab" data-bs-toggle="pill"
+                                            href="#v-pills-cashflow-before" role="tab"
+                                            aria-controls="v-pills-cashflow-before" aria-selected="false">Cashflow
+                                            Sebelum</a>
+                                        <a class="nav-link" id="v-pills-cashflow-after-tab" data-bs-toggle="pill"
+                                            href="#v-pills-cashflow-after" role="tab"
+                                            aria-controls="v-pills-cashflow-after" aria-selected="false">Cashflow
+                                            Setelah</a>
+                                        <a class="nav-link" id="v-pills-other-income-tab" data-bs-toggle="pill"
+                                            href="#v-pills-other-income" role="tab" aria-controls="v-pills-other-income"
+                                            aria-selected="false">Pendapatan Lain</a>
+                                        <a class="nav-link" id="v-pills-debt-here-tab" data-bs-toggle="pill"
+                                            href="#v-pills-debt-here" role="tab" aria-controls="v-pills-debt-here"
+                                            aria-selected="false">Hutang</a>
+                                        <a class="nav-link" id="v-pills-collateral-tab" data-bs-toggle="pill"
+                                            href="#v-pills-collateral" role="tab" aria-controls="v-pills-collateral"
+                                            aria-selected="false">Collateral</a>
+                                        <a class="nav-link" id="v-pills-usulan-tab" data-bs-toggle="pill"
+                                            href="#v-pills-usulan" role="tab" aria-controls="v-pills-usulan"
+                                            aria-selected="false">Usulan</a>
+                                        <a class="nav-link" id="v-pills-upload-tab" data-bs-toggle="pill"
+                                            href="#v-pills-upload" role="tab" aria-controls="v-pills-upload"
+                                            aria-selected="false">Upload Berkas</a>
+                                        <a class="nav-link" id="v-pills-cetak-tab" data-bs-toggle="pill"
+                                            href="#v-pills-cetak" role="tab" aria-controls="v-pills-cetak"
+                                            aria-selected="false">Cetak</a>
                                     </div>
-                                    {{-- cetak --}}
-                                    <div class="tab-pane fade" id="v-pills-cetak" role="tabpanel"
-                                        aria-labelledby="v-pills-cetak-tab">
-                                        <button type="button" class="btn btn-success">Cetak</button>
+                                </div>
+                                <div class="col-10">
+                                    <div class="tab-content" id="v-pills-tabContent">
+                                        @include('menu.enamc.loan_history')
+                                        @include('menu.enamc.character')
+                                        @include('menu.enamc.capacity')
+                                        @include('menu.enamc.capital')
+                                        @include('menu.enamc.cashflow_before')
+                                        @include('menu.enamc.cashflow_after')
+                                        @include('menu.enamc.other_income')
+                                        @include('menu.enamc.debt')
+                                        @include('menu.enamc.collateral')
+                                        @include('menu.enamc.usulan')
+                                        {{-- upload --}}
+                                        <div class="tab-pane fade" id="v-pills-upload" role="tabpanel"
+                                            aria-labelledby="v-pills-upload-tab">
+                                            <input class="form-control" type="file" id="formFileMultiple" multiple>
+                                        </div>
+                                        {{-- cetak --}}
+                                        <div class="tab-pane fade" id="v-pills-cetak" role="tabpanel"
+                                            aria-labelledby="v-pills-cetak-tab">
+                                            <button type="button" class="btn btn-success">Cetak</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
     </div>
-</div>
-
 @endsection
 
 @section('script')
-<!-- JavaScript -->
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-{{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script> --}}
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script> --}}
 
+    {{-- Loan History --}}
+    <script type="text/javascript">
+        var i = 0;
+        $("#dynamic-ar").click(function() {
+            ++i;
+            $("#dynamicAddRemove").append('<tr>' +
+                '<td><input type="number" id="plafond" class="form-control" name="plafond_column[]" required></td>' +
+                '<td>' +
+                '<select class="form-select" aria-label="Default select example" id="status" name="status_column[]" required>' +
+                '<option value=""></option>' +
+                '<option value="Lunas">Lunas</option>' +
+                '<option value="Belum Lunas">Belum Lunas</option>' +
+                '</select>' +
+                '</td>' +
+                '<td><input type="number" id="balance" class="form-control" name="balance_column[]" required></td>' +
+                '<td>' +
+                '<select class="form-select" aria-label="Default select example" id="history" name="history_column[]" required>' +
+                '<option value=""></option>' +
+                '<option value="Baik">Baik</option>' +
+                '<option value="Tidak Baik">Tidak Baik</option>' +
+                '</select>' +
+                '</td>' +
+                '<td>' +
+                '<select class="form-select" aria-label="Default select example" id="document" name="document_column[]" required>' +
+                '<option value=""></option>' +
+                '<option value="Terlampir">Terlampir</option>' +
+                '<option value="Tidak Terlampir">Tidak Terlampir</option>' +
+                '</select>' +
+                '</td>' +
+                '<td><button type="button" class="btn btn-danger remove-input-field"><i class="fas fa-minus"></i></button></td>' +
+                '</tr>');
+        });
+        $(document).on('click', '.remove-input-field', function() {
+            $(this).parents('tr').remove();
+        });
+    </script>
 
-{{-- proposal --}}
-<script type="text/javascript">
-    var i = 0;
-    $("#dynamic-ar-proposal").click(function () {
-        ++i;
-        $("#dynamicAddRemoveProposal").append
-            ('<tr>'+
-                '<td><input type="text" id="on_behalf_of" class="form-control" name="on_behalf_of_column['+ i +'][subject]" required></td>'+
-                '<td><input type="text" id="as" class="form-control" name="as_column['+ i +'][subject]" required></td>'+
-                '<td><button type="button" class="btn btn-danger remove-input-field"><i class="fas fa-minus"></i></button></td>'+
-            '</tr>');
-    });
-    $(document).on('click', '.remove-input-field', function () {
-        $(this).parents('tr').remove();
-    });
-</script>
+    {{-- proposal --}}
+    <script type="text/javascript">
+        var i = 0;
+        $("#dynamic-ar-proposal").click(function() {
+            ++i;
+            $("#dynamicAddRemoveProposal").append('<tr>' +
+                '<td><input type="text" id="on_behalf_of" class="form-control" name="on_behalf_of_column[]" required></td>' +
+                '<td><input type="text" id="as" class="form-control" name="as_column[' + i +
+                '][subject]" required></td>' +
+                '<td><button type="button" class="btn btn-danger remove-input-field"><i class="fas fa-minus"></i></button></td>' +
+                '</tr>');
+        });
+        $(document).on('click', '.remove-input-field', function() {
+            $(this).parents('tr').remove();
+        });
+    </script>
 
-{{-- cashflow before --}}
-<script>
-    const sizes = ['Pendapatan', 'Pengeluaran'];
+    {{-- cashflow before --}}
+    <script>
+        const sizes = ['Pendapatan', 'Pengeluaran'];
 
-    // generate the radio groups
-    const cashflowBefore = document.querySelector("#cashflowBefore");
-    cashflowBefore.innerHTML = sizes.map((size) => `<div>
+        // generate the radio groups
+        const cashflowBefore = document.querySelector("#cashflowBefore");
+        cashflowBefore.innerHTML = sizes.map((size) => `<div>
             <input class="form-check-input" type="radio" name="size" value="${size}" id="${size}">
             <label for="${size}">${size}</label>
         </div>`).join(' ');
 
-    // add an event listener for the change event
-    const radioButtons = document.querySelectorAll('input[name="size"]');
-    for(const radioButton of radioButtons){
-        radioButton.addEventListener('change', showSelected);
-    }
+        // add an event listener for the change event
+        const radioButtons = document.querySelectorAll('input[name="size"]');
+        for (const radioButton of radioButtons) {
+            radioButton.addEventListener('change', showSelected);
+        }
 
-    function showSelected(e) {
-        console.log(e);
-        if (this.value == 'Pendapatan') {
-            document.querySelector('#outputCashflowBefore').innerHTML =
-            `{{-- from_income_before --}}
+        function showSelected(e) {
+            console.log(e);
+            if (this.value == 'Pendapatan') {
+                document.querySelector('#outputCashflowBefore').innerHTML =
+                    `{{-- from_income_before --}}
             <div class="form-group col-md-6">
                 <label for="from_income_before">Pendapatan Dari</label>
                 <select class="form-select" aria-label="Default select example" id="from_income_before" name="from_income_before_column" required>
@@ -241,9 +279,9 @@
                     </table>
                 </div>
             </div>`;
-        } else{
-            document.querySelector('#outputCashflowBefore').innerHTML =
-            `{{-- from_expenditure_before --}}
+            } else {
+                document.querySelector('#outputCashflowBefore').innerHTML =
+                    `{{-- from_expenditure_before --}}
             <div class="form-group col-md-6">
                 <label for="from_expenditure_before">Menggunakan uang Dari</label>
                 <select class="form-select" aria-label="Default select example" id="from_expenditure_before" name="from_expenditure_before_column" required>
@@ -340,32 +378,32 @@
                     </table>
                 </div>
             </div>`;
+            }
         }
-    }
-</script>
+    </script>
 
-{{-- cashflow after --}}
-<script>
-    const sizes2 = ['Pendapatan', 'Pengeluaran'];
+    {{-- cashflow after --}}
+    <script>
+        const sizes2 = ['Pendapatan', 'Pengeluaran'];
 
-    // generate the radio groups
-    const cashflowAfter = document.querySelector("#cashflowAfter");
-    cashflowAfter.innerHTML = sizes2.map((size) => `<div>
+        // generate the radio groups
+        const cashflowAfter = document.querySelector("#cashflowAfter");
+        cashflowAfter.innerHTML = sizes2.map((size) => `<div>
             <input class="form-check-input" type="radio" name="size" value="${size}" id="${size}">
             <label for="${size}">${size}</label>
         </div>`).join(' ');
 
-    // add an event listener for the change event
-    const radioButtons2 = document.querySelectorAll('input[name="size"]');
-    for(const radioButton of radioButtons2){
-        radioButton.addEventListener('change', showSelected);
-    }
+        // add an event listener for the change event
+        const radioButtons2 = document.querySelectorAll('input[name="size"]');
+        for (const radioButton of radioButtons2) {
+            radioButton.addEventListener('change', showSelected);
+        }
 
-    function showSelected(e) {
-        console.log(e);
-        if (this.value == 'Pendapatan') {
-            document.querySelector('#outputCashflowAfter').innerHTML =
-            `{{-- from_income_after --}}
+        function showSelected(e) {
+            console.log(e);
+            if (this.value == 'Pendapatan') {
+                document.querySelector('#outputCashflowAfter').innerHTML =
+                    `{{-- from_income_after --}}
             <div class="form-group col-md-6">
                 <label for="from_income_after">Pendapatan Dari</label>
                 <select class="form-select" aria-label="Default select example" id="from_income_after" name="from_income_after_column" required>
@@ -461,9 +499,9 @@
                     </table>
                 </div>
             </div>`;
-        } else{
-            document.querySelector('#outputCashflowAfter').innerHTML =
-            `{{-- from_expenditure_after --}}
+            } else {
+                document.querySelector('#outputCashflowAfter').innerHTML =
+                    `{{-- from_expenditure_after --}}
             <div class="form-group col-md-6">
                 <label for="from_expenditure_after">Menggunakan Uang Dari</label>
                 <select class="form-select" aria-label="Default select example" id="from_expenditure_after" name="from_expenditure_after_column" required>
@@ -560,32 +598,32 @@
                     </table>
                 </div>
             </div>`;
+            }
         }
-    }
-</script>
+    </script>
 
-{{-- other income --}}
-<script>
-    const sizes3 = ['Pendapatan', 'Pengeluaran'];
+    {{-- other income --}}
+    <script>
+        const sizes3 = ['Pendapatan', 'Pengeluaran'];
 
-    // generate the radio groups
-    const otherIncome = document.querySelector("#otherIncome");
-    otherIncome.innerHTML = sizes3.map((size) => `<div>
+        // generate the radio groups
+        const otherIncome = document.querySelector("#otherIncome");
+        otherIncome.innerHTML = sizes3.map((size) => `<div>
             <input class="form-check-input" type="radio" name="size" value="${size}" id="${size}">
             <label for="${size}">${size}</label>
         </div>`).join(' ');
 
-    // add an event listener for the change event
-    const radioButtons3 = document.querySelectorAll('input[name="size"]');
-    for(const radioButton of radioButtons3){
-        radioButton.addEventListener('change', showSelected);
-    }
+        // add an event listener for the change event
+        const radioButtons3 = document.querySelectorAll('input[name="size"]');
+        for (const radioButton of radioButtons3) {
+            radioButton.addEventListener('change', showSelected);
+        }
 
-    function showSelected(e) {
-        console.log(e);
-        if (this.value == 'Pendapatan') {
-            document.querySelector('#outputOtherIncome').innerHTML =
-            `{{-- from_income_other --}}
+        function showSelected(e) {
+            console.log(e);
+            if (this.value == 'Pendapatan') {
+                document.querySelector('#outputOtherIncome').innerHTML =
+                    `{{-- from_income_other --}}
             <div class="form-group col-md-6">
                 <label for="from_income_other">Pendapatan Dari</label>
                 <select class="form-select" aria-label="Default select example" id="from_income_other" name="from_income_other_column" required>
@@ -681,9 +719,9 @@
                     </table>
                 </div>
             </div>`;
-        } else{
-            document.querySelector('#outputOtherIncome').innerHTML =
-            `{{-- from_expenditure_other --}}
+            } else {
+                document.querySelector('#outputOtherIncome').innerHTML =
+                    `{{-- from_expenditure_other --}}
             <div class="form-group col-md-6">
                 <label for="from_expenditure_other">Menggunakan uang Dari</label>
                 <select class="form-select" aria-label="Default select example" id="from_expenditure_other" name="from_expenditure_other_column" required>
@@ -780,8 +818,7 @@
                     </table>
                 </div>
             </div>`;
+            }
         }
-    }
-</script>
+    </script>
 @endsection
-

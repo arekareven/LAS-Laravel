@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\EnamC;
 
+use App\Http\Controllers\Controller;
 use App\Models\Approximation;
 use Illuminate\Http\Request;
 

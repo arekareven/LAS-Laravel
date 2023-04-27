@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\EnamC;
 
+use App\Http\Controllers\Controller;
 use App\Models\Application;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
@@ -36,6 +37,26 @@ class ApplicationController extends Controller
      */
     public function store(Request $request)
     {
+        $plafond =  $request->input('plafond_column', []);
+        $status =  $request->input('status_column', []);
+        $balance =  $request->input('balance_column', []);
+        $document =  $request->input('document_column', []);
+        $history =  $request->input('history_column', []);
+
+        $loan_history = [];
+            for ($i=0; $i < count($plafond); $i++) {
+                if($plafond[$i] != ''){
+                    array_push($loan_history, [
+                        "plafond" => $plafond[$i],
+                        "status" => $status[$i],
+                        "balance" => $balance[$i],
+                        "document" => $document[$i],
+                        "history" => $history[$i],
+                    ]);
+                }
+            }
+        // dd($array);
+
         $application                       = new Application();
         $application->id                   = $request->id;
         $application->id_user              = $request->id_user;
@@ -49,6 +70,7 @@ class ApplicationController extends Controller
         $application->purpose              = $request->purpose_column;
         $application->purpose_description  = $request->purpose_description_column;
         $application->status               = "pending";
+        $application->loan_history         = json_encode($loan_history);
         $application->save();
 
         return redirect()->route('application.show',$application->id_customer)->with('success', 'Data berhasil ditambahkan !');

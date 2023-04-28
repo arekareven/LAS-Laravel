@@ -3,17 +3,27 @@
 {{-- content --}}
 @section('content')
     <div id="main-content">
-        <header class="mb-3">
-            <a href="#" class="burger-btn d-block d-xl-none">
-                <i class="bi bi-justify fs-3"></i>
-            </a>
-        </header>
-
+        @if ($message = Session::get('success'))
+            <div class="col-12 col-md-6">
+                <div class="alert alert-light-success color-success alert-dismissible fade show">
+                    <i class="bi bi-check-circle"></i> {{ $message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        @endif
+        @if($message = Session::get('edit'))
+            <div class="col-12 col-md-6">
+                <div class="alert alert-light-warning alert-dismissible color-warning">
+                    <i class="bi bi-exclamation-triangle"></i> {{ $message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        @endif
         <div class="page-heading">
             <div class="page-title">
                 <div class="row">
                     <div class="col-12 col-md-6 order-md-1 order-last">
-                        <h3>6C</h3>
+                        <h3>6C</h3>{{ $id }}
                     </div>
                 </div>
             </div>
@@ -28,11 +38,11 @@
                                 <div class="col-2">
                                     {{-- class="nav flex-column nav-pills" --}}
                                     <div class="nav nav-tabs" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                        <a class="nav-link active" id="v-pills-riwayat-pinjaman-tab" data-bs-toggle="pill"
+                                        {{-- <a class="nav-link active" id="v-pills-riwayat-pinjaman-tab" data-bs-toggle="pill"
                                             href="#v-pills-riwayat-pinjaman" role="tab"
                                             aria-controls="v-pills-riwayat-pinjaman" aria-selected="true">Riwayat
-                                            Pinjaman</a>
-                                        <a class="nav-link" id="v-pills-character-tab" data-bs-toggle="pill"
+                                            Pinjaman</a> --}}
+                                        <a class="nav-link active" id="v-pills-character-tab" data-bs-toggle="pill"
                                             href="#v-pills-character" role="tab" aria-controls="v-pills-character"
                                             aria-selected="true">Character</a>
                                         <a class="nav-link" id="v-pills-capacity-tab" data-bs-toggle="pill"
@@ -71,7 +81,7 @@
                                 </div>
                                 <div class="col-10">
                                     <div class="tab-content" id="v-pills-tabContent">
-                                        @include('menu.enamc.loan_history')
+                                        {{-- @include('menu.enamc.loan_history') --}}
                                         @include('menu.enamc.character')
                                         @include('menu.enamc.capacity')
                                         @include('menu.enamc.capital')
@@ -107,40 +117,28 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script> --}}
 
-    {{-- Loan History --}}
+    {{-- Character --}}
     <script type="text/javascript">
         var i = 0;
-        $("#dynamic-ar").click(function() {
+        $("#dynamic-ar-character").click(function() {
             ++i;
-            $("#dynamicAddRemove").append('<tr>' +
-                '<td><input type="number" id="plafond" class="form-control" name="plafond_column[]" required></td>' +
-                '<td>' +
-                '<select class="form-select" aria-label="Default select example" id="status" name="status_column[]" required>' +
-                '<option value=""></option>' +
-                '<option value="Lunas">Lunas</option>' +
-                '<option value="Belum Lunas">Belum Lunas</option>' +
-                '</select>' +
-                '</td>' +
-                '<td><input type="number" id="balance" class="form-control" name="balance_column[]" required></td>' +
-                '<td>' +
-                '<select class="form-select" aria-label="Default select example" id="history" name="history_column[]" required>' +
-                '<option value=""></option>' +
-                '<option value="Baik">Baik</option>' +
-                '<option value="Tidak Baik">Tidak Baik</option>' +
-                '</select>' +
-                '</td>' +
-                '<td>' +
-                '<select class="form-select" aria-label="Default select example" id="document" name="document_column[]" required>' +
-                '<option value=""></option>' +
-                '<option value="Terlampir">Terlampir</option>' +
-                '<option value="Tidak Terlampir">Tidak Terlampir</option>' +
-                '</select>' +
-                '</td>' +
-                '<td><button type="button" class="btn btn-danger remove-input-field"><i class="fas fa-minus"></i></button></td>' +
-                '</tr>');
+            $("#dynamicAddRemoveCharacter").append('<div class="row">' +
+                '<div class="form-group col-md-6">'+
+                    '<input type="text" id="character_name" class="form-control" name="character_name_column[]" placeholder="Nama" required>'+
+                '</div>'+
+                '<div class="form-group col-md-6">'+
+                    '<input type="number" id="character_number" class="form-control" name="character_number_column[]" placeholder="Nomor HP" required>'+
+                '</div>'+
+                '<div class="form-group col-md-12">'+
+                    '<input type="text" id="alamat" class="form-control" name="alamat_column[]" placeholder="Alamat" required>'+
+                '</div>'+
+                '<div class="form-group col-md-2">'+
+                    '<button type="button" class="btn btn-danger remove-input-character"><i class="fas fa-minus"></i></button>'+
+                '</div>'+
+                '</div>');
         });
-        $(document).on('click', '.remove-input-field', function() {
-            $(this).parents('tr').remove();
+        $(document).on('click', '.remove-input-character', function() {
+            $(this).parent().parent().remove();
         });
     </script>
 

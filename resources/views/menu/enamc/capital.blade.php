@@ -1,5 +1,67 @@
 {{-- capital --}}
 <div class="tab-pane fade" id="v-pills-capital" role="tabpanel" aria-labelledby="v-pills-capital-tab">
+    <div class="row">
+        <p>
+            <a class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="collapse" href="#collapseCapacity"
+                role="button" aria-expanded="false" aria-controls="collapseCapacity">
+                Lihat Data
+            </a>
+        </p>
+        <div class="collapse" id="collapseCapacity">
+            <div class="col-md-12 col-12">
+                <div class="table-responsive">
+                    <table class="table table-striped data-table" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th scope="col">Plafond</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Saldo</th>
+                                <th scope="col">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <a href="#">{{ number_format(100000000) }}</a>
+                                </td>
+                                <td>Lunas</td>
+                                <td>{{ number_format(0) }}</td>
+                                <td>
+                                    <button type="button" class="btn btn-danger btn-sm">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="#">{{ number_format(200000000) }}</a>
+                                </td>
+                                <td>Belum Lunas</td>
+                                <td>{{ number_format(0) }}</td>
+                                <td>
+                                    <button type="button" class="btn btn-danger btn-sm">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="#">{{ number_format(75000000) }}</a>
+                                </td>
+                                <td>Lunas</td>
+                                <td>{{ number_format(10000000) }}</td>
+                                <td>
+                                    <button type="button" class="btn btn-danger btn-sm">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
     <ul class="nav nav-tabs nav-fill mb-3" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
             <a class="nav-link active" id="current_assets-tab" data-bs-toggle="tab" href="#current_assets" role="tab"
@@ -91,40 +153,6 @@
                     <input type="number" id="other_current_assets" class="form-control"
                         name="other_current_assets_column" required>
                 </div>
-                <hr>
-                <br><br><br>
-                <h6>Data yang telah di input</h6>
-                <hr>
-
-                {{-- table --}}
-                <div class="col-md-12 col-12">
-                    <div class="table-responsive">
-                        <table class="table table-striped data-table" style="width:100%">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Plafond</th>
-                                    <th scope="col">Status</th>
-                                    <th scope="col">Saldo</th>
-                                    <th scope="col">Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <a href="#">{{ number_format(100000000) }}</a>
-                                    </td>
-                                    <td>Lunas</td>
-                                    <td>{{ number_format(0) }}</td>
-                                    <td>
-                                        <button type="button" class="btn btn-danger btn-sm">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="tab-pane fade" id="fixed_assets" role="tabpanel">
@@ -156,40 +184,6 @@
                     <input type="number" id="other_fixed_assets" class="form-control"
                         name="other_fixed_assets_column" required>
                 </div>
-                <hr>
-                <br><br><br>
-                <h6>Data yang telah di input</h6>
-                <hr>
-
-                {{-- table --}}
-                <div class="col-md-12 col-12">
-                    <div class="table-responsive">
-                        <table class="table table-striped data-table" style="width:100%">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Plafond</th>
-                                    <th scope="col">Status</th>
-                                    <th scope="col">Saldo</th>
-                                    <th scope="col">Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <a href="#">{{ number_format(100000000) }}</a>
-                                    </td>
-                                    <td>Lunas</td>
-                                    <td>{{ number_format(0) }}</td>
-                                    <td>
-                                        <button type="button" class="btn btn-danger btn-sm">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="tab-pane fade" id="debt" role="tabpanel">
@@ -220,39 +214,6 @@
                     <button type="button" class="btn btn-success me-md-2">
                         Simpan
                     </button>
-                </div>
-                <hr>
-                <br><br><br>
-                <h6>Data yang telah di input</h6>
-                <hr>
-                {{-- table --}}
-                <div class="col-md-12 col-12">
-                    <div class="table-responsive">
-                        <table class="table table-striped data-table" style="width:100%">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Plafond</th>
-                                    <th scope="col">Status</th>
-                                    <th scope="col">Saldo</th>
-                                    <th scope="col">Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <a href="#">{{ number_format(100000000) }}</a>
-                                    </td>
-                                    <td>Lunas</td>
-                                    <td>{{ number_format(0) }}</td>
-                                    <td>
-                                        <button type="button" class="btn btn-danger btn-sm">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
                 </div>
             </div>
         </div>

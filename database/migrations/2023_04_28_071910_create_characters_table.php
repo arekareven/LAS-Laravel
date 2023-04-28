@@ -13,14 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('loan_histories', function (Blueprint $table) {
+        Schema::create('characters', function (Blueprint $table) {
             $table->id();
             $table->integer('id_application');
-            $table->bigInteger('plafond');
-            $table->string('status');
-            $table->bigInteger('balance');
-            $table->string('history');
-            $table->string('data');
+            $table->string('personal_information');
+            $table->string('behavioral_information');
+            $table->string('family_information');
+            $table->text('character_detail');
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('loan_histories');
+        Schema::dropIfExists('characters');
     }
 };

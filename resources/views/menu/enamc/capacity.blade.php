@@ -62,94 +62,97 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <br>
-        {{-- business_name --}}
-        <div class="form-group col-md-4">
-            <label for="business_name">Nama Usaha</label>
-            <input type="text" id="business_name" class="form-control" name="business_name_column" required>
+    <form action="{{ route('capacity.store') }}" method="post">
+        @csrf
+        <div class="row was-validated">
+            <br>
+            <input type="hidden" value="{{ $id }}" name="id_application">
+            {{-- business_name --}}
+            <div class="form-group col-md-4">
+                <label for="business_name">Nama Usaha</label>
+                <input type="text" id="business_name" class="form-control" name="business_name_column" required>
+            </div>
+            {{-- business_sector --}}
+            <div class="form-group col-md-4">
+                <label for="business_sector">Sektor Usaha</label>
+                <select class="form-select" aria-label="Default select example" id="business_sector"
+                    name="business_sector_column" required>
+                    <option value=""></option>
+                    <option value="Industri">Industri</option>
+                    <option value="Jasa">Jasa</option>
+                    <option value="Kontraktor">Kontraktor</option>
+                    <option value="Pegawai">Pegawai</option>
+                    <option value="Perdagangan">Perdagangan</option>
+                    <option value="Pertanian">Pertanian</option>
+                    <option value="Konsumtif">Konsumtif</option>
+                </select>
+            </div>
+            {{-- business_status --}}
+            <div class="form-group col-md-4">
+                <label for="business_status">Status Tempat Usaha</label>
+                <select class="form-select" aria-label="Default select example" id="business_status"
+                    name="business_status_column" required>
+                    <option value=""></option>
+                    <option value="Milik Sendiri">Milik Sendiri</option>
+                    <option value="Milik Keluarga">Milik Keluarga</option>
+                    <option value="Instansi">Instansi</option>
+                    <option value="Kontrak">Kontrak</option>
+                    <option value="Kredit">Kredit</option>
+                </select>
+            </div>
+            {{-- phone_number --}}
+            <div class="form-group col-md-4">
+                <label for="phone_number">No Tlp</label>
+                <input type="number" id="phone_number" class="form-control" name="phone_number_column" required>
+            </div>
+            {{-- business_start --}}
+            <div class="form-group col-md-4">
+                <label for="business_start">Mulai Usaha</label>
+                <input type="date" id="business_start" class="form-control" name="business_start_column" required>
+            </div>
+            {{-- customer_start --}}
+            <div class="form-group col-md-4">
+                <label for="customer_start">Jadi Nasabah Sejak</label>
+                <input type="date" id="customer_start" class="form-control" name="customer_start_column" required>
+            </div>
+            {{-- deed_number --}}
+            <div class="form-group col-md-4">
+                <label for="deed_number">No Akta</label>
+                <input type="text" id="deed_number" class="form-control" name="deed_number_column" required>
+            </div>
+            {{-- deed_date --}}
+            <div class="form-group col-md-4">
+                <label for="deed_date">Tanggal Akta</label>
+                <input type="date" id="deed_date" class="form-control" name="deed_date_column" required>
+            </div>
+            {{-- npwp --}}
+            <div class="form-group col-md-4">
+                <label for="npwp">NPWP</label>
+                <input type="text" id="npwp" class="form-control" name="npwp_column" required>
+            </div>
+            {{-- npwp_date --}}
+            <div class="form-group col-md-4">
+                <label for="npwp_date">Tanggal NPWP</label>
+                <input type="date" id="npwp_date" class="form-control" name="npwp_date_column" required>
+            </div>
+            {{-- business_address --}}
+            <div class="form-group mb-2">
+                <label>Alamat Usaha</label>
+                <textarea class="form-control" id="business_address" rows="2" name="business_address_column" required></textarea>
+            </div>
+            {{-- usaha saat ini --}}
+            <label>Rincian Usaha</label>
+            <input type="hidden" name="content">
+            <div id="editor" style="min-height: 100px;">
+
+            </div>
+            <hr>
+            <div class="form-group col-md-12">
+                <button type="submit" class="btn btn-success me-md-2">
+                    Simpan
+                </button>
+            </div>
+            <hr>
         </div>
-        {{-- business_sector --}}
-        <div class="form-group col-md-4">
-            <label for="business_sector">Sektor Usaha</label>
-            <select class="form-select" aria-label="Default select example" id="business_sector"
-                name="business_sector_column" required>
-                <option value=""></option>
-                <option value="Industri">Industri</option>
-                <option value="Jasa">Jasa</option>
-                <option value="Kontraktor">Kontraktor</option>
-                <option value="Pegawai">Pegawai</option>
-                <option value="Perdagangan">Perdagangan</option>
-                <option value="Pertanian">Pertanian</option>
-                <option value="Konsumtif">Konsumtif</option>
-            </select>
-        </div>
-        {{-- business_status --}}
-        <div class="form-group col-md-4">
-            <label for="business_status">Status Tempat Usaha</label>
-            <select class="form-select" aria-label="Default select example" id="business_status"
-                name="business_status_column" required>
-                <option value=""></option>
-                <option value="Milik Sendiri">Milik Sendiri</option>
-                <option value="Milik Keluarga">Milik Keluarga</option>
-                <option value="Instansi">Instansi</option>
-                <option value="Kontrak">Kontrak</option>
-                <option value="Kredit">Kredit</option>
-            </select>
-        </div>
-        {{-- phone_number --}}
-        <div class="form-group col-md-4">
-            <label for="phone_number">No Tlp</label>
-            <input type="number" id="phone_number" class="form-control" name="phone_number_column" required>
-        </div>
-        {{-- business_start --}}
-        <div class="form-group col-md-4">
-            <label for="business_start">Mulai Usaha</label>
-            <input type="date" id="business_start" class="form-control" name="business_start_column" required>
-        </div>
-        {{-- customer_start --}}
-        <div class="form-group col-md-4">
-            <label for="customer_start">Jadi Nasabah Sejak</label>
-            <input type="date" id="customer_start" class="form-control" name="customer_start_column" required>
-        </div>
-        {{-- deed_number --}}
-        <div class="form-group col-md-4">
-            <label for="deed_number">No Akta</label>
-            <input type="text" id="deed_number" class="form-control" name="deed_number_column" required>
-        </div>
-        {{-- deed_date --}}
-        <div class="form-group col-md-4">
-            <label for="deed_date">Tanggal Akta</label>
-            <input type="date" id="deed_date" class="form-control" name="deed_date_column" required>
-        </div>
-        {{-- npwp --}}
-        <div class="form-group col-md-4">
-            <label for="npwp">NPWP</label>
-            <input type="text" id="npwp" class="form-control" name="npwp_column" required>
-        </div>
-        {{-- npwp_date --}}
-        <div class="form-group col-md-4">
-            <label for="npwp_date">Tanggal NPWP</label>
-            <input type="date" id="npwp_date" class="form-control" name="npwp_date_column" required>
-        </div>
-        {{-- alamat --}}
-        <div class="form-group mb-2">
-            <label>Alamat Usaha</label>
-            <textarea class="form-control" id="business_address" rows="2" name="business_address_column" required></textarea>
-        </div>
-        {{-- usaha saat ini --}}
-        <label>Rincian Usaha</label>
-        <div id="full">
-        {{-- <p>Hello World!</p>
-        <p>Some initial <strong>bold</strong> text</p> --}}
-        <br><br><br><br><br>
-        </div>
-        <hr>
-        <div class="form-group col-md-12">
-            <button type="button" class="btn btn-success me-md-2">
-                Simpan
-            </button>
-        </div>
-        <hr>
-    </div>
+    </form>
 </div>

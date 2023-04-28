@@ -9,3 +9,11 @@
 {{-- editor --}}
 <script src="{{ asset('assets/assets/vendors/quill/quill.min.js') }}"></script>
 <script src="{{ asset('assets/assets/js/pages/form-editor.js') }}"></script>
+<script>
+    var quill = new Quill('#editor', {
+    theme: 'snow'
+  });
+    quill.on('text-change', function(delta, oldDelta, source) {
+      document.querySelector("input[name='content']").value = quill.root.innerHTML;
+    });
+  </script>

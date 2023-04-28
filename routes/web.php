@@ -11,10 +11,10 @@ use App\Http\Controllers\Dashboard\{
 };
 use App\Http\Controllers\EnamC\{
    ApplicationController,
-   CharacterController,
+    CapacityController,
+    CharacterController,
    CustomerController,
    EnamC,
-    LoanHistoryController
 };
 
 Route::get('/', function () {
@@ -38,7 +38,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('customer', CustomerController::class);
     Route::resource('application', ApplicationController::class);
     Route::resource('character', CharacterController::class);
-    Route::resource('loan_history', LoanHistoryController::class);
+    Route::resource('capacity', CapacityController::class);
 
     Route::get('applicationcreate/{id}', [ApplicationController::class, 'create']);
     Route::get('applicationlist/{id}', [ApplicationController::class, 'show']);

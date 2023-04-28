@@ -37,17 +37,17 @@ class ApplicationController extends Controller
      */
     public function store(Request $request)
     {
-        $plafond =  $request->input('plafond_column', []);
+        $plafond_loan_history =  $request->input('plafond_loan_history_column', []);
         $status =  $request->input('status_column', []);
         $balance =  $request->input('balance_column', []);
         $document =  $request->input('document_column', []);
         $history =  $request->input('history_column', []);
 
         $loan_history = [];
-            for ($i=0; $i < count($plafond); $i++) {
-                if($plafond[$i] != ''){
+            for ($i=0; $i < count($plafond_loan_history); $i++) {
+                if($plafond_loan_history[$i] != ''){
                     array_push($loan_history, [
-                        "plafond" => $plafond[$i],
+                        "plafond" => $plafond_loan_history[$i],
                         "status" => $status[$i],
                         "balance" => $balance[$i],
                         "document" => $document[$i],
@@ -55,7 +55,6 @@ class ApplicationController extends Controller
                     ]);
                 }
             }
-        // dd($array);
 
         $application                       = new Application();
         $application->id                   = $request->id;

@@ -1,5 +1,5 @@
 {{-- character --}}
-<div class="tab-pane fade" id="v-pills-character" role="tabpanel" aria-labelledby="v-pills-character-tab">
+<div class="was-validated tab-pane fade show active" id="v-pills-character" role="tabpanel" aria-labelledby="v-pills-character-tab">
     <div class="row">
         <p>
             <a class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="collapse" href="#collapseCharacter"
@@ -62,41 +62,48 @@
             </div>
         </div>
     </div>
-    <div class="form-group with-title mb-3">
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="_column" required></textarea>
-        <label>Informasi Pribadi</label>
-    </div>
-    <div class="form-group with-title mb-3">
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
-        <label>Informasi Perilaku</label>
-    </div>
-    <div class="form-group with-title mb-3">
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
-        <label>Informasi Keluarga</label>
-    </div>
-    <div class="row">
-        {{-- character_name1 --}}
-        <div class="form-group col-md-6">
-            <label for="character_name1">Nama</label>
-            <input type="text" id="character_name1" class="form-control" name="character_name1_column"
-                placeholder="Nama" required>
+    <form action="{{ route('character.store') }}" method="post">
+        @csrf
+        <input type="hidden" value="{{ $id }}" name="id_application">
+        <div class="form-group with-title mb-3">
+            <textarea class="form-control" id="personal_information" rows="3" name="personal_information_column" required></textarea>
+            <label>Informasi Pribadi</label>
         </div>
-        {{-- character_number1 --}}
-        <div class="form-group col-md-6">
-            <label for="character_number1">Nomor HP</label>
-            <input type="number" id="character_number1" class="form-control" name="character_number1_column"
-                placeholder="Nomor HP" required>
+        <div class="form-group with-title mb-3">
+            <textarea class="form-control" id="behavioral_information" rows="3" name="behavioral_information_column" required></textarea>
+            <label>Informasi Perilaku</label>
         </div>
-        {{-- saldo --}}
-        <div class="form-group col-md-12">
-            <label for="saldo">Alamat</label>
-            <input type="number" id="balance" class="form-control" name="balance_column" placeholder="Saldo"
-                required>
+        <div class="form-group with-title mb-3">
+            <textarea class="form-control" id="family_information" rows="3" name="family_information_column" required></textarea>
+            <label>Informasi Keluarga</label>
+        </div>
+        <div class="row" id="dynamicAddRemoveCharacter">
+            {{-- character_name --}}
+            <div class="form-group col-md-6">
+                <label for="character_name">Nama</label>
+                <input type="text" id="character_name" class="form-control" name="character_name_column[]"
+                    placeholder="Nama" required>
+            </div>
+            {{-- character_number --}}
+            <div class="form-group col-md-6">
+                <label for="character_number">Nomor HP</label>
+                <input type="number" id="character_number" class="form-control" name="character_number_column[]"
+                    placeholder="Nomor HP" required>
+            </div>
+            {{-- alamat --}}
+            <div class="form-group col-md-12">
+                <label for="saldo">Alamat</label>
+                <input type="text" id="alamat" class="form-control" name="alamat_column[]" placeholder="Alamat"
+                    required>
+            </div>
+            <div class="form-group col-md-12">
+                <button type="button" name="add_character" id="dynamic-ar-character" class="btn btn-outline-primary"><i class="fas fa-plus"></i></button>
+            </div>
         </div>
         <div class="form-group col-md-12">
             <button type="submit" class="btn btn-success me-md-2">
                 Simpan
             </button>
         </div>
-    </div>
+    </form>
 </div>

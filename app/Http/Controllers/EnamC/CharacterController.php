@@ -15,7 +15,7 @@ class CharacterController extends Controller
      */
     public function index($id)
     {
-        return view('menu.character.view',compact('id'));
+        //
     }
 
     /**
@@ -36,7 +36,32 @@ class CharacterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $character_name_column =  $request->input('character_name_column', []);
+        $character_number_column =  $request->input('character_number_column', []);
+        $alamat_column =  $request->input('alamat_column', []);
+
+        $character_detail = [];
+            for ($i=0; $i < count($character_name_column); $i++) {
+                if($character_name_column[$i] != ''){
+                    array_push($character_detail, [
+                        "plafond" => $character_name_column[$i],
+                        "character_number_column" => $character_number_column[$i],
+                        "alamat_column" => $alamat_column[$i]
+                    ]);
+                }
+            }
+
+        $character                         = new character();
+        $character->id                     = $request->id;
+        $character->id_application         = $request->id_application;
+        $character->personal_information   = $request->personal_information_column; // diambil dari name bukan dari id
+        $character->behavioral_information = $request->behavioral_information_column;
+        $character->family_information     = $request->family_information_column;
+        $character->character_detail       = json_encode($character_detail);
+        $character->save();
+
+        return redirect()->back()->with('success', 'Data berhasil ditambahkan !');
+        // return redirect()->route('enamc.show',$character->id_application)->with('success', 'Data berhasil ditambahkan !');
     }
 
     /**
